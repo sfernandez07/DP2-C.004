@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="https://www.cardmarket.com/es/YuGiOh"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link2" action="https://www.laliga.com/es-GB"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
