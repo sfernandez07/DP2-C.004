@@ -8,14 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is a starter project.  It is intended to be a core learning asset for the students
-who have enrolled the Design and Testing subject of the Software Engineering curriculum of the 
-University of Seville.  This project helps them start working on their new information system 
-projects.
+This is a project for Design and Testing 2 subject of Software Engineering of the University of Sevilla,
+made by the C1.004 group.
 
-To get this project up and running, please follow the guideline in the theory/lab materials,
-taking into account that you must link the appropriate version of the Acme-Framework excluding 
-the following resources:
-
-- **/fragments/**
+To get this project up and running, please follow the guidelines from the subject's theory/lab materials.
  
