@@ -1,12 +1,12 @@
 
-package acme.realms;
+package acme.entities;
 
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import acme.client.components.basis.AbstractRole;
+import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
@@ -17,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Customer extends AbstractRole {
+public class Customer extends AbstractEntity {
 
 	/**
 	 * 
