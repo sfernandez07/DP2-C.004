@@ -43,7 +43,7 @@ public class AssistanceAgent extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$", message = "The identifier must follow the correct pattern")
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$", message = "The first two or three letters have to correspond to their initials")
 	@Column(unique = true)
 	private String				employeeCode;
 
@@ -58,7 +58,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				airline;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				airlineHiringDate;
 
