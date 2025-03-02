@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.flightAssignments;
 
 import java.util.Date;
 import java.util.Objects;
@@ -17,6 +17,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.realms.FlightCrewMember;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,12 +70,4 @@ public class FlightAssignment extends AbstractEntity {
 		return Objects.equals(this.flightCrewMember, other.flightCrewMember) && this.duty == other.duty && Objects.equals(this.lastUpdate, other.lastUpdate) && this.status == other.status && Objects.equals(this.remarks, other.remarks);
 	}
 
-
-	public enum Duty {
-		PILOT, CO_PILOT, LEAD_ATTENDANT, CABIN_ATTENDANT;
-	}
-
-	public enum AssignmentStatus {
-		CONFIRMED, PENDING, CANCELLED;
-	}
 }
