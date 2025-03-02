@@ -1,12 +1,14 @@
 
-package acme.entities;
+package acme.entities.bookings;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
@@ -27,22 +29,27 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "El localizador debe seguir el patrón asignado.")
+	@Automapped
 	private String				locatorCode;
 
 	@Mandatory
 	@ValidMoment(past = true)
+	@Automapped
 	private Date				purchaseMoment;
 
-	/*
-	 * @Mandatory
-	 * private TravelClass travelClass;
-	 */
+	@Mandatory
+	@Valid
+	@Automapped
+	private TravelClass			travelClass;
 
 	@Mandatory
 	@ValidNumber(min = 0)
+	@Automapped
 	private Double				price;
 
 	@Optional
+	@ValidString(pattern = "^[0-9]{4}$", message = "Solo admite 4 numeros.")
+	@Automapped
 	private String				lastCreditNibble;
 }
