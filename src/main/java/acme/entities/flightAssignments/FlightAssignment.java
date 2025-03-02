@@ -5,11 +5,10 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -29,24 +28,23 @@ public class FlightAssignment extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Automapped
-	@ManyToOne
+	@Valid
+	@ManyToOne(optional = false)
 	private FlightCrewMember	flightCrewMember;
 
 	@Mandatory
 	@Automapped
-	@Enumerated(EnumType.STRING)
+	@Valid
 	private Duty				duty;
 
 	@Mandatory
-	@Automapped
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				lastUpdate;
 
 	@Mandatory
 	@Automapped
-	@Enumerated(EnumType.STRING)
+	@Valid
 	private AssignmentStatus	status;
 
 	@Optional
