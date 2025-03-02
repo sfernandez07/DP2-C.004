@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
@@ -26,30 +27,37 @@ public class FlightCrewMember extends AbstractEntity {
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$", message = "The employee code must follow the correct pattern")
 	@Column(unique = true)
+	@Automapped
 	private String				employeeCode;
 
 	@Mandatory
 	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "The phone number must follow the correct pattern")
+	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
 	@ValidString(max = 255)
+	@Automapped
 	private String				languageSkills;
 
 	@Mandatory
 	@Enumerated(EnumType.STRING)
+	@Automapped
 	private AvailabilityStatus	availabilityStatus;
 
 	@Mandatory
 	@ValidString
+	@Automapped
 	private String				airline;
 
 	@Mandatory
 	@ValidNumber(min = 0)
+	@Automapped
 	private Double				salary;
 
 	@Optional
 	@ValidNumber(min = 0)
+	@Automapped
 	private Integer				yearsOfExperience;
 
 
