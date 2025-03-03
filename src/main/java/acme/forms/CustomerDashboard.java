@@ -1,8 +1,6 @@
 
 package acme.forms;
 
-import java.util.List;
-
 import acme.client.components.basis.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +15,7 @@ public class CustomerDashboard extends AbstractForm {
 	private static final long	serialVersionUID	= 1L;
 
 	// Last five destinations visited by the customer
-	private List<String>		lastFiveDestinations;
+	private String[]			lastFiveDestinations;
 
 	// Money spent in bookings during the last year
 	private Double				moneySpentLastYear;
