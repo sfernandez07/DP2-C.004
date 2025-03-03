@@ -30,9 +30,8 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Column(unique = true)
 	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "El localizador debe seguir el patrón asignado.")
-	@Automapped
+	@Column(unique = true)
 	private String				locatorCode;
 
 	@Mandatory
