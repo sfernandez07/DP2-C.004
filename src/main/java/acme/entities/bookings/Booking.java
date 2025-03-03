@@ -2,6 +2,7 @@
 package acme.entities.bookings;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,5 +66,5 @@ public class Booking extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@OneToMany
-	private Passenger			passenger;
+	private List<Passenger>		passengers;
 }
