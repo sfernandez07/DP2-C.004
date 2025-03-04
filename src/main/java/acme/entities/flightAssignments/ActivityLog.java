@@ -2,7 +2,6 @@
 package acme.entities.flightAssignments;
 
 import java.util.Date;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -33,11 +32,6 @@ public class ActivityLog extends AbstractEntity {
 	private FlightCrewMember	flightCrewMember;
 
 	@Mandatory
-	@Automapped
-	@ManyToOne(optional = false)
-	private FlightAssignment	flightAssignment;
-
-	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationMoment;
@@ -57,20 +51,4 @@ public class ActivityLog extends AbstractEntity {
 	@ValidNumber(min = 0, max = 10)
 	private Integer				severityLevel;
 
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(this.flightCrewMember, this.flightAssignment, this.registrationMoment, this.typeOfIncident, this.description, this.severityLevel);
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof ActivityLog))
-			return false;
-		ActivityLog other = (ActivityLog) obj;
-		return Objects.equals(this.flightCrewMember, other.flightCrewMember) && Objects.equals(this.flightAssignment, other.flightAssignment) && Objects.equals(this.registrationMoment, other.registrationMoment)
-			&& Objects.equals(this.typeOfIncident, other.typeOfIncident) && Objects.equals(this.description, other.description) && Objects.equals(this.severityLevel, other.severityLevel);
-	}
 }
