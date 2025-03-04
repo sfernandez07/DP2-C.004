@@ -13,4 +13,3 @@
 - Claudio Cortés Carrasco (clacorcar@alum.us.es) 
 - Santiago Fernández Román (sanferrom@alum.us.es)
 - Guillermo García León (guigarleo@alum.us.es)  
-- Alberto Bernardos Ruiz (albberrui@alum.us.es)
