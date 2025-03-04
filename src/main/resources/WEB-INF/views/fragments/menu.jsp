@@ -23,6 +23,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link2" action="https://www.laliga.com/es-GB"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link3" action="https://github.com"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="https://www.realbetisbalompie.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="https://www.youtube.com"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
