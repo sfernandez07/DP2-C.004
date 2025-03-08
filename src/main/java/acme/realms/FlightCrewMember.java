@@ -79,8 +79,4 @@ public class FlightCrewMember extends AbstractEntity {
 			&& Objects.equals(this.airline, other.airline) && Objects.equals(this.salary, other.salary) && Objects.equals(this.yearsOfExperience, other.yearsOfExperience);
 	}
 
-
-	public enum AvailabilityStatus {
-		AVAILABLE, ON_VACATION, ON_LEAVE;
-	}
 }
