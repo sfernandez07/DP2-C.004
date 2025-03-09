@@ -8,12 +8,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidString;
 
 public class FlightLeg extends AbstractEntity {
 
@@ -23,44 +24,45 @@ public class FlightLeg extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true, nullable = false)
+	@Column(unique = true)
 	@Mandatory
+	@ValidNumber(max = 50)
 	private Integer				flightNumber;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Automapped
+	@ValidMoment
 	@Mandatory
 	private Date				scheduleDeparture;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Automapped
+	@ValidMoment
 	@Mandatory
 	private Date				scheduleArrival;
 
-	@DecimalMin(value = "0.0")
-	@Column(nullable = false)
+	@Automapped
+	@ValidNumber(min = 0, max = 100)
 	@Mandatory
 	private Double				durationHours;
 
-	@Column(nullable = false)
+	@Automapped
+	@Valid
 	@Mandatory
 	private LegStatus			status;
 
-	@NotBlank
-	@Size(max = 100)
-	@Column(nullable = false)
+	@ValidString(max = 100)
+	@Automapped
 	@Mandatory
 	private String				departureAirport;
 
-	@NotBlank
-	@Size(max = 100)
-	@Column(nullable = false)
+	@Automapped
+	@ValidString(max = 100)
 	@Mandatory
 	private String				arrivalAirport;
 
-	@NotBlank
-	@Size(max = 100)
-	@Column(nullable = false)
+	@Automapped
+	@ValidString(max = 100)
 	@Mandatory
 	private String				aircraft;
 
