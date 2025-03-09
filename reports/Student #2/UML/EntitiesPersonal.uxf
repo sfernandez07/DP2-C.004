@@ -6,8 +6,8 @@ fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced</help_text>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>207</x>
-      <y>369</y>
+      <x>90</x>
+      <y>306</y>
       <w>558</w>
       <h>117</h>
     </coordinates>
@@ -24,8 +24,8 @@ Booking
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>999</x>
-      <y>369</y>
+      <x>882</x>
+      <y>306</y>
       <w>531</w>
       <h>117</h>
     </coordinates>
@@ -41,17 +41,45 @@ Passenger
     <additional_attributes/>
   </element>
   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>621</x>
+      <y>108</y>
+      <w>297</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+BookingRecord
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>387</y>
-      <w>261</w>
-      <h>45</h>
+      <x>351</x>
+      <y>135</y>
+      <w>288</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
-m1=1..*
-Dentro de...
+m1=*
+Pertenece a...
 m2= 1</panel_attributes>
-    <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>135</y>
+      <w>315</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+Se refiere a...
+m2= 1</panel_attributes>
+    <additional_attributes>10.0;20.0;320.0;20.0;320.0;190.0</additional_attributes>
   </element>
 </diagram>
