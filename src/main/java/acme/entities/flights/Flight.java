@@ -3,17 +3,18 @@ package acme.entities.flights;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidString;
 
 public class Flight extends AbstractEntity {
 
@@ -23,53 +24,52 @@ public class Flight extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
 	@Mandatory
-	@Size(min = 1, max = 50)
-	@Column(nullable = false)
+	@ValidString(min = 1, max = 50)
+	@Automapped
 	private String				tag;
 
-	@Column(nullable = false)
+	@Automapped
 	@Mandatory
 	private Boolean				selfTransfer;
 
 	@Mandatory
-	@DecimalMin(value = "1.00")
-	@DecimalMax(value = "1000000.00")
-	@Column(nullable = false)
-	private Double				cost;
+	@Automapped
+	@ValidMoney
+	private Money				cost;
 
-	@Size(max = 255)
-	@Column
+	@ValidString(max = 255)
+	@Automapped
 	@Optional
 	private String				description;
 
 	// Derived attributes -----------------------------------------------------
 
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Automapped
 	@Mandatory
 	private Date				scheduleDeparture;
 
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Automapped
 	@Mandatory
 	private Date				scheduleArrival;
 
-	@NotBlank
-	@Size(max = 100)
-	@Column(nullable = false, length = 100)
+	@ValidString(max = 100)
+	@Automapped
 	@Mandatory
 	private String				originCity;
 
-	@NotBlank
-	@Size(max = 100)
-	@Column(nullable = false, length = 100)
+	@ValidString(max = 100)
+	@Automapped
 	@Mandatory
 	private String				destinationCity;
 
-	@Column(nullable = false)
+	@Automapped
 	@Mandatory
+	@ValidNumber
 	private Integer				layovers;
 
 	// Relationships ----------------------------------------------------------
