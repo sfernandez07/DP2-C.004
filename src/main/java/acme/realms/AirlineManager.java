@@ -1,10 +1,12 @@
 
 package acme.realms;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -31,7 +33,6 @@ public class AirlineManager extends AbstractRole {
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	@Automapped
 	private String				identifierNumber;
 
 	@Mandatory
@@ -41,9 +42,9 @@ public class AirlineManager extends AbstractRole {
 
 	@Mandatory
 	@ValidMoment(past = true)
-	@Column
+	@Temporal(TemporalType.DATE)
 	@Automapped
-	private LocalDate			dateOfBirth;
+	private Date				dateOfBirth;
 
 	@Optional
 	@ValidUrl
