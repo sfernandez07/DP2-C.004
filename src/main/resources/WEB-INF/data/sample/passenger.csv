@@ -1,0 +1,10 @@
+key,fullName,email,passportNumber,dateOfBirth,specialNeeds
+# base entity,"","","","",""
+passenger-00,Santiago Fernandez,sanferrom@alum.us.es,X9A7B2C,2003/10/29 10:00,Alergico a los cacahuetes
+# fullName - standard variations,"","","","",""
+passenger-01,L,"","","",""
+passenger-02,Lo,"","","",""
+passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*","","","",""
+passenger-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","","","",""
+passenger-05,"","","","",""
+passenger-06,"","","","",""
