@@ -19,7 +19,7 @@ import acme.constraints.ValidActivityLog;
 import lombok.Getter;
 import lombok.Setter;
 
-@ValidActivityLog
+@ValidActivityLog // with this validator we validate the part of "after the leg has taken place"
 @Entity
 @Getter
 @Setter
