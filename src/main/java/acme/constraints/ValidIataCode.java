@@ -8,17 +8,22 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
+import javax.validation.constraints.Pattern;
 
-@Constraint(validatedBy = IataCodeValidator.class)
-@Target({
-	ElementType.FIELD, ElementType.METHOD
-})
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = {})
+@ReportAsSingleViolation
+
+@Pattern(regexp = "^[A-Z]{3}$", message = "The IATA code must consist of exactly three uppercase letters.")
+
 public @interface ValidIataCode {
 
-	String message() default "The IATA code must be exactly three uppercase letters.";
+	// Standard validation properties -----------------------------------------
+
+	String message() default "{acme.validation.iata.message}";
 
 	Class<?>[] groups() default {};
-
 	Class<? extends Payload>[] payload() default {};
 }
