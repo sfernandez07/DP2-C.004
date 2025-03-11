@@ -15,10 +15,12 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidTrackingLog;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@ValidTrackingLog
 @Getter
 @Setter
 public class TrackingLog extends AbstractEntity {
@@ -42,11 +44,12 @@ public class TrackingLog extends AbstractEntity {
 	@Mandatory
 	@ValidScore
 	@Automapped
-	private String				resolutionPercentage;
+	private Double				resolutionPercentage;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private Boolean				accepted;
+	private TrackingLogStatus	status;
 
 	@Mandatory
 	@ValidString(max = 255)
