@@ -5,6 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.TrackingLog;
 import acme.entities.claims.TrackingLogStatus;
 
@@ -42,6 +43,18 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 				correctResolution = trackingLog.getStatus() == TrackingLogStatus.PENDING || trackingLog.getResolution() != null && !trackingLog.getResolution().isBlank();
 
 				super.state(context, correctResolution, "*", "Si el estado del TrackingLog no es PENDING, debe tener una resolucion");
+			}
+			{
+				boolean sameClaimStatus;
+
+				if (trackingLog.getStatus() == TrackingLogStatus.PENDING)
+					sameClaimStatus = true;
+				else if (trackingLog.getStatus() == TrackingLogStatus.ACCEPTED)
+					sameClaimStatus = trackingLog.getClaim().getStatus() == ClaimStatus.ACCEPTED;
+				else
+					sameClaimStatus = trackingLog.getClaim().getStatus() == ClaimStatus.REJECTED;
+
+				super.state(context, sameClaimStatus, "*", "Si el estado del TrackingLog no es PENDING, la claim debe estar rechazada o aceptada al igual que el TrackingLog asociado");
 			}
 			//TODO: Comprobar que el resolutionPercentage crezca monotonicamente. Que el procentaje de este 
 			//TrackingLog se igual o mayor que el anterior
