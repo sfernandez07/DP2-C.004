@@ -16,7 +16,7 @@ import javax.validation.constraints.Pattern;
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
 
-@Pattern(regexp = "^\\+?[0-9]{6,15}$", message = "The phone number must be in the correct format: optional '+' followed by 6 to 15 digits.")
+@Pattern(regexp = "^\\+?d{6,15}$", message = "The phone number must be in the correct format: optional '+' followed by 6 to 15 digits.")
 
 public @interface ValidPhoneNumber {
 
