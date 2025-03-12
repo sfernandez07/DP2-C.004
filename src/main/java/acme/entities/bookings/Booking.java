@@ -17,6 +17,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLocatorCode;
+import acme.entities.flights.Flight;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +34,7 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "El localizador debe seguir el patrón asignado.")
+	@ValidLocatorCode
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -52,12 +54,17 @@ public class Booking extends AbstractEntity {
 	private Double				price;
 
 	@Optional
-	@ValidString(pattern = "^[0-9]{4}$", message = "Solo admite 4 numeros.")
+	@ValidString
 	@Automapped
 	private String				lastCreditNibble;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Customer			customer;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Flight				flight;
 }

@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Target(ElementType.FIELD)
@@ -16,14 +17,12 @@ import javax.validation.constraints.Pattern;
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
 
-@Pattern(regexp = "^\\+?d{6,15}$", message = "The phone number must be in the correct format: optional '+' followed by 6 to 15 digits.")
+@NotBlank
+@Pattern(regexp = "^[A-Z0-9]{6,9}$")
 
-public @interface ValidPhoneNumber {
+public @interface ValidIdentifier {
 
-	// Standard validation properties -----------------------------------------
-
-	String message() default "{acme.validation.phone.message}";
-
+	String message() default "El identificador debe seguir el patrón";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }
