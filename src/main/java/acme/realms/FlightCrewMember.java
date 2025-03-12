@@ -3,8 +3,6 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 
@@ -36,7 +34,7 @@ public class FlightCrewMember extends AbstractRole {
 	private Airline				airline;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$", message = "The employee code must follow the correct pattern") //The validation for this is upper in @ValidFlightCrewMember
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$", message = "The employee code must follow the correct pattern") //The validation for this is upper in @ValidFlightCrewMember that validates this
 	@Column(unique = true)
 	private String				employeeCode;
 
@@ -51,7 +49,7 @@ public class FlightCrewMember extends AbstractRole {
 	private String				languageSkills;
 
 	@Mandatory
-	@Enumerated(EnumType.STRING)
+	@Valid
 	@Automapped
 	private AvailabilityStatus	availabilityStatus;
 
@@ -61,7 +59,7 @@ public class FlightCrewMember extends AbstractRole {
 	private Money				salary;
 
 	@Optional
-	@ValidNumber(min = 0)
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
 	private Integer				yearsOfExperience;
 
