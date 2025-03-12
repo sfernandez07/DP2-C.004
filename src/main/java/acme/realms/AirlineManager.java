@@ -16,12 +16,12 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
-import acme.constraints.ValidAssistanceAgent;
+import acme.constraints.ValidAirlineManager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@ValidAssistanceAgent
+@ValidAirlineManager
 @Getter
 @Setter
 public class AirlineManager extends AbstractRole {
