@@ -1,0 +1,21 @@
+key,locatorCode,purchaseMoment,travelClass,price,lastCreditNibble,key:customer,key:flight
+# base entity,"","","","","",""
+booking-01,QWERTY7,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+# locatorCode - standard variations,"","","","","",""
+booking-02,A1B2C3D4,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+booking-03,ABC123,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+booking-04,XZ12QW,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+booking-05,Z9X8C7V6,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+# purchaseMoment - standard variations,"","","","","",""
+booking-06,QWERTY7,"",BUSSINESS,200,1234,customer-01,flight-01
+booking-07,QWERTY7,"",BUSSINESS,200,1234,customer-01,flight-01
+booking-08,QWERTY7,"",BUSSINESS,200,1234,customer-01,flight-01
+booking-09,QWERTY7,"",BUSSINESS,200,1234,customer-01,flight-01
+# travelClass - standard variations,"","","","","",""
+booking-10,QWERTY7,2023/10/29 10:00,BUSSINESS,200,1234,customer-01,flight-01
+booking-11,QWERTY7,2023/10/29 10:00,ECONOMY,200,1234,customer-01,flight-01
+# price - standard variations,"","","","","",""
+booking-12,QWERTY7,2023/10/29 10:00,BUSSINESS,1,1234,customer-01,flight-01
+booking-13,QWERTY7,2023/10/29 10:00,BUSSINESS,2,1234,customer-01,flight-01
+booking-14,QWERTY7,2023/10/29 10:00,BUSSINESS,9999,1234,customer-01,flight-01
+booking-15,QWERTY7,2023/10/29 10:00,BUSSINESS,10000,1234,customer-01,flight-01
