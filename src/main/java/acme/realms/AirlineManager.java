@@ -16,10 +16,12 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@ValidAssistanceAgent
 @Getter
 @Setter
 public class AirlineManager extends AbstractRole {
@@ -36,7 +38,7 @@ public class AirlineManager extends AbstractRole {
 	private String				identifierNumber;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 100)
+	@ValidNumber(min = 0, max = 70)
 	@Automapped
 	private Integer				yearsOfExperience;
 
