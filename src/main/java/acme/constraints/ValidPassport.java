@@ -18,9 +18,9 @@ import javax.validation.constraints.Pattern;
 @ReportAsSingleViolation
 
 @NotBlank
-@Pattern(regexp = "^[A-Z0-9]{6,9}$")
+@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
 
-public @interface ValidIdentifier {
+public @interface ValidPassport {
 
 	String message() default "El identificador debe seguir el patrón";
 	Class<?>[] groups() default {};

@@ -59,7 +59,6 @@ public class Flight extends AbstractEntity {
 
 	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	@Automapped
 	@Mandatory
 	private Date				scheduleArrival;
 

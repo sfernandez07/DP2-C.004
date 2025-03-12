@@ -18,11 +18,11 @@ import javax.validation.constraints.Pattern;
 @ReportAsSingleViolation
 
 @NotBlank
-@Pattern(regexp = "^[A-Z0-9]{6,9}$")
+@Pattern(regexp = "^[A-Z0-9]{6,8}$")
 
-public @interface ValidIdentifier {
+public @interface ValidLocatorCode {
 
-	String message() default "El identificador debe seguir el patrón";
+	String message() default "El localizador debe seguir el patrón";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }
