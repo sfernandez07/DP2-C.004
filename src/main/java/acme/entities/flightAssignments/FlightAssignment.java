@@ -43,7 +43,7 @@ public class FlightAssignment extends AbstractEntity {
 	private Duty				duty;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", past = true)  //no pongo limite max ya que el past0True ya marca que el límite superior es el currentmoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				lastUpdate;
 
