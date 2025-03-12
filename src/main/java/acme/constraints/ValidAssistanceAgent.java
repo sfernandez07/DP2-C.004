@@ -9,15 +9,16 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Constraint(validatedBy = ActivityLogValidator.class)
-@Target({
-	ElementType.TYPE
-})
-
+@Constraint(validatedBy = AssistanceAgentValidator.class)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ValidActivityLog {
 
-	String message() default "An ActivityLog entry must be registered after the FlightLeg has taken place.";
+public @interface ValidAssistanceAgent {
+
+	// Standard validation properties -----------------------------------------
+
+	String message() default "The first two or three letters of the employee code have to correspond to their initials";
+
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

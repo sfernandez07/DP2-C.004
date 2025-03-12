@@ -14,6 +14,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidPassport;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +29,7 @@ public class Passenger extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 256)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				fullName;
 
@@ -38,17 +39,17 @@ public class Passenger extends AbstractEntity {
 	private String				email;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,9}$", message = "Debe cumplir el patrón establecido para el pasaporte.")
+	@ValidPassport
 	@Automapped
 	private String				passportNumber;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(past = true, min = "1920/01/01")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirth;
 
 	@Optional
-	@ValidString(max = 51)
+	@ValidString(max = 50)
 	@Automapped
 	private String				specialNeeds;
 }
