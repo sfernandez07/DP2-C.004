@@ -29,7 +29,7 @@ public class Passenger extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				fullName;
 
@@ -44,7 +44,7 @@ public class Passenger extends AbstractEntity {
 	private String				passportNumber;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(past = true, min = "1920/01/01")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirth;
 

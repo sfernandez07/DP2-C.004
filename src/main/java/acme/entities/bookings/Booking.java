@@ -16,7 +16,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
+import acme.constraints.ValidCreditNibble;
 import acme.constraints.ValidLocatorCode;
 import acme.entities.flights.Flight;
 import acme.realms.Customer;
@@ -54,7 +54,7 @@ public class Booking extends AbstractEntity {
 	private Double				price;
 
 	@Optional
-	@ValidString
+	@ValidCreditNibble
 	@Automapped
 	private String				lastCreditNibble;
 
