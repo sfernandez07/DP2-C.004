@@ -38,8 +38,8 @@ public class FlightAssignment extends AbstractEntity {
 	private FlightLeg			flightLeg;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private Duty				duty;
 
 	@Mandatory
@@ -48,13 +48,13 @@ public class FlightAssignment extends AbstractEntity {
 	private Date				lastUpdate;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private AssignmentStatus	status;
 
 	@Optional
-	@Automapped
 	@ValidString(max = 255)
+	@Automapped
 	private String				remarks;
 
 }

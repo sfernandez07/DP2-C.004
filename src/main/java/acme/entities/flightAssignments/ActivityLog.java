@@ -19,7 +19,7 @@ import acme.constraints.ValidActivityLog;
 import lombok.Getter;
 import lombok.Setter;
 
-@ValidActivityLog // with this validator we validate the part of "after the leg has taken place"
+@ValidActivityLog // with this validator we validate the part of "after the leg has taken place in attribute registrationmoment"
 @Entity
 @Getter
 @Setter
@@ -38,18 +38,18 @@ public class ActivityLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@Mandatory
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	@ValidString(max = 50)
 	private String				typeOfIncident;
 
 	@Mandatory
+	@ValidString(min = 1, max = 255)
 	@Automapped
-	@ValidString(max = 255)
 	private String				description;
 
 	@Mandatory
-	@Automapped
 	@ValidNumber(min = 0, max = 10)
+	@Automapped
 	private Integer				severityLevel;
 
 }
