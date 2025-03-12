@@ -1,0 +1,2 @@
+key,tag,self-transfer,cost,description,schedule-departure,schedule-arrival,origin-city,destination-city,layovers
+flight-50,FL123,true,<<USD 662.39>>,Vuelo directo sin escalas,2025-06-15 08:30:00,2025-06-15 12:45:00,Madrid,Nueva York,2
