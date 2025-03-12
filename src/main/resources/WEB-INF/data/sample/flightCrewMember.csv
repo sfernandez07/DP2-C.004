@@ -1,7 +1,7 @@
-key;key:userAccount;airline;employeeCode;phoneNumber;languageSkills;availabilityStatus;salary;yearsOfExperience
-member1;user-account-flightCrewMember-01;1;CCO210881;621145064;English;AVAILABLE;<<USD 6624.39>>;16
-member2;user-account-flightCrewMember-02;1;JJI428720;88756729;English;ON_LEAVE;<<USD 3880.10>>;9
-member3;user-account-flightCrewMember-03;1;MGA352162;959645041;French;ON_LEAVE;<<USD 7172.49>>;9
-member4;user-account-flightCrewMember-04;1;MRE421644;803710158;Spanish;ON_LEAVE;<<USD 7868.77>>;20
-member;user-account-flightCrewMember-05;1;PGA963934;957446271;Russian;IN_TRAINING;<<USD 4867.64>>;2
+key;key:userAccount;key:airline;employeeCode;phoneNumber;languageSkills;availabilityStatus;salary;yearsOfExperience
+member1;user-account-flightCrewMember-01;airline-01;CCO210881;621145064;English;AVAILABLE;<<USD 6624.39>>;16
+member2;user-account-flightCrewMember-02;airline-01;JJI428720;88756729;English;ON_LEAVE;<<USD 3880.10>>;9
+member3;user-account-flightCrewMember-03;airline-01;MGA352162;959645041;French;ON_LEAVE;<<USD 7172.49>>;9
+member4;user-account-flightCrewMember-04;airline-01;MRE421644;803710158;Spanish;ON_LEAVE;<<USD 7868.77>>;20
+member;user-account-flightCrewMember-05;airline-01;PGA963934;957446271;Russian;IN_TRAINING;<<USD 4867.64>>;2
 
