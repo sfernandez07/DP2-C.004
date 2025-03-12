@@ -1,0 +1,4 @@
+key,key:flight-crew-member,key:flight-leg,duty,last-update,status,remarks
+# base entity,"","","","","",""
+flight-assignment-00,member1,flight-leg-01,PILOT,16/12/2024 12:00,PENDING,Muy importante hacerlo bien
+# duty - standard variations,"","","","","",""
