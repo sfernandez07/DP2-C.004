@@ -1,0 +1,4 @@
+key,key:userAccount,license_number,phone_number,specialisation,annual_health_test_passed,experience_years,certifications
+technician-01,user-account-technician-01,AB123456,+123456789012,Engine Repair,True,10,FAA Certified
+technician-02,user-account-technician-02,CD234567,+198765432109,Avionics,True,5,EASA Licensed
+technician-03,user-account-technician-03,EF345678,+147852369874,Structural,False,8,OEM Training
