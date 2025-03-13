@@ -2,7 +2,6 @@
 package acme.entities.airlines;
 
 import java.util.Date;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,10 +33,9 @@ public class Airline extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@Automapped
 	@Column(unique = true)
 	@Valid
-	private String				IATA_code;
+	private String				iataCode;
 
 	@Mandatory
 	@Automapped
@@ -63,27 +61,5 @@ public class Airline extends AbstractEntity {
 	@Automapped
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	private String				phoneNumber;
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(this.IATA_code, this.emailAddress, this.foundationMoment, this.name, this.phoneNumber, this.type, this.website);
-		return result;
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (this.getClass() != obj.getClass())
-			return false;
-		Airline other = (Airline) obj;
-		return Objects.equals(this.IATA_code, other.IATA_code) && Objects.equals(this.emailAddress, other.emailAddress) && Objects.equals(this.foundationMoment, other.foundationMoment) && Objects.equals(this.name, other.name)
-			&& Objects.equals(this.phoneNumber, other.phoneNumber) && this.type == other.type && Objects.equals(this.website, other.website);
-	}
 
 }
