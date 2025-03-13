@@ -1,18 +1,14 @@
 
-package acme.entities.review;
+package acme.entities.aircrafts;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
@@ -21,40 +17,41 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Review extends AbstractEntity {
+public class Aircraft extends AbstractEntity {
 
-	/**
-	 * 
-	 */
+	// Serialisation version --------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				name;
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidMoment(past = true)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				momentPosted;
+	@ValidString(max = 50)
+	@Automapped
+	private String				model;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				subject;
+	@ValidNumber(max = 50)
+	@Column(unique = true)
+	private Integer				registrationNumber;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidNumber
 	@Automapped
-	private String				text;
+	private Integer				capacity;
 
-	@Optional
-	@ValidNumber(min = 0, max = 10)
+	@Mandatory
+	@ValidNumber(min = 2000, max = 50000)
 	@Automapped
-	private Double				score;
+	private Integer				cargoWeight;
 
-	@Optional
+	@Mandatory
 	@Valid
 	@Automapped
-	private Recommended			recommended;
+	private AircraftStatus		status;
+
+	@Optional
+	@ValidString(max = 255)
+	@Automapped
+	private String				details;
 }

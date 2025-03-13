@@ -1,9 +1,8 @@
 
-package acme.entities.bookings;
+package acme.entities.maintenanceRecords;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -16,55 +15,54 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.constraints.ValidCreditNibble;
-import acme.constraints.ValidLocatorCode;
-import acme.entities.flights.Flight;
-import acme.realms.Customer;
+import acme.client.components.validation.ValidString;
+import acme.entities.aircrafts.Aircraft;
+import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Booking extends AbstractEntity {
+public class MaintenanceRecord extends AbstractEntity {
 
-	/**
-	 * 
-	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidLocatorCode
-	@Column(unique = true)
-	private String				locatorCode;
-
-	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				purchaseMoment;
+	@Automapped
+	private Date					maintenanceMoment;
 
 	@Mandatory
+	@Automapped
 	@Valid
-	@Automapped
-	private TravelClass			travelClass;
+	private MaintenanceRecordStatus	status;
 
 	@Mandatory
-	@ValidNumber(min = 0)
 	@Automapped
-	private Double				price;
+	@ValidMoment
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date					inspectionDueDate;
+
+	@Mandatory
+	@Automapped
+	@ValidNumber
+	private Double					estimatedCost;
 
 	@Optional
-	@ValidCreditNibble
 	@Automapped
-	private String				lastCreditNibble;
+	@ValidString(max = 255)
+	private String					notes;
 
 	@Mandatory
 	@Valid
-	@ManyToOne(optional = false)
-	private Customer			customer;
+	@ManyToOne(optional = true)
+	private Aircraft				aircraft;
 
 	@Mandatory
+	@ManyToOne
 	@Valid
-	@ManyToOne(optional = false)
-	private Flight				flight;
+	private Technician				technician;
+
 }

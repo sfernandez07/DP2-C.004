@@ -1,5 +1,5 @@
 
-package acme.entities.flightAssignments;
+package acme.entities.claims;
 
 import java.util.Date;
 
@@ -12,25 +12,23 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidActivityLog;
+import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
-@ValidActivityLog // with this validator we validate the part of "after the leg has taken place in attribute registrationmoment"
 @Entity
 @Getter
 @Setter
-public class ActivityLog extends AbstractEntity {
+public class Claim extends AbstractEntity {
+
+	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = true)
-	private FlightAssignment	flightAssignment;
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -38,18 +36,31 @@ public class ActivityLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
+	@ValidEmail
 	@Automapped
-	private String				typeOfIncident;
+	private String				passengerEmail;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidString(max = 255)
 	@Automapped
 	private String				description;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 10)
+	@Valid
 	@Automapped
-	private Integer				severityLevel;
+	private ClaimType			type;
+
+	@Mandatory
+	@Automapped
+	private Boolean				accepted;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private AssistanceAgent		assistanceAgent;
 
 }

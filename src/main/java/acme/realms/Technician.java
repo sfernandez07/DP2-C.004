@@ -10,49 +10,44 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidIdentifier;
-import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Customer extends AbstractRole {
+public class Technician extends AbstractRole {
 
-	/**
-	 * 
-	 */
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidIdentifier
+	@Automapped
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	private String				identifier;
+	private String				licenseNumber;
 
 	@Mandatory
+	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "The phone number must follow the correct pattern")
 	@Automapped
-	@ValidPhoneNumber
 	private String				phoneNumber;
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 1, max = 255)
-	private String				physicalAddress;
+	@ValidString(max = 50)
+	private String				specialisation;
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 1, max = 50)
-	private String				city;
+	private Boolean				annualHealthTest;
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 1, max = 50)
-	private String				country;
+	@ValidNumber
+	private Integer				experienceYears;
 
 	@Optional
 	@Automapped
-	@ValidNumber(min = 0, max = 500000)
-	private Integer				earnedPoints;
+	@ValidString(max = 255)
+	private String				certifications;
 
 }
