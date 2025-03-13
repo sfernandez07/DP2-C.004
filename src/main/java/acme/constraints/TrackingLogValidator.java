@@ -1,16 +1,25 @@
 
 package acme.constraints;
 
+import java.util.List;
+
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.TrackingLog;
+import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
 
 @Validator
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
+
+	@Autowired
+	private TrackingLogRepository respository;
+
 
 	@Override
 	protected void initialise(final ValidTrackingLog annotation) {
@@ -56,8 +65,15 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 				super.state(context, sameClaimStatus, "*", "Si el estado del TrackingLog no es PENDING, la claim debe estar rechazada o aceptada al igual que el TrackingLog asociado");
 			}
-			//TODO: Comprobar que el resolutionPercentage crezca monotonicamente. Que el procentaje de este 
-			//TrackingLog se igual o mayor que el anterior
+			{
+				boolean correctResolutionPercentaje;
+				List<TrackingLog> pastTrackingLogs = this.respository.findPreviousTrackingLogs(trackingLog.getClaim().getId(), trackingLog.getUpdateMoment());
+				if (pastTrackingLogs.isEmpty())
+					correctResolutionPercentaje = true;
+				else
+					correctResolutionPercentaje = pastTrackingLogs.get(0).getResolutionPercentage() <= trackingLog.getResolutionPercentage();
+				super.state(context, correctResolutionPercentaje, "*", "El porcentaje de resolucion debe crecer monotonicamente");
+			}
 		}
 
 		result = !super.hasErrors(context);
