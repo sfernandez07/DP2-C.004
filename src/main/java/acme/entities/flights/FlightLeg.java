@@ -5,17 +5,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,37 +44,48 @@ public class FlightLeg extends AbstractEntity {
 	@Mandatory
 	private Date				scheduleArrival;
 
-	@Automapped
-	@ValidNumber(min = 0, max = 100)
-	@Mandatory
-	private Double				durationHours;
-
-	@Automapped
-	@Valid
-	@Mandatory
-	private LegStatus			status;
-
-	@ValidString(max = 100)
-	@Automapped
-	@Mandatory
-	private String				departureAirport;
-
-	@Automapped
-	@ValidString(max = 100)
-	@Mandatory
-	private String				arrivalAirport;
-
-	@Automapped
-	@ValidString(max = 100)
-	@Mandatory
-	private String				aircraft;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
-
-	@ManyToOne(optional = false)
-	@Valid
-	@Mandatory
-	private Flight				flight;
+	/*
+	 * @Automapped
+	 * 
+	 * @ValidNumber(min = 0, max = 100)
+	 * 
+	 * @Mandatory
+	 * private Double durationHours;
+	 * 
+	 * @Automapped
+	 * 
+	 * @Valid
+	 * 
+	 * @Mandatory
+	 * private LegStatus status;
+	 * 
+	 * @ValidString(max = 100)
+	 * 
+	 * @Automapped
+	 * 
+	 * @Mandatory
+	 * private String departureAirport;
+	 * 
+	 * @Automapped
+	 * 
+	 * @ValidString(max = 100)
+	 * 
+	 * @Mandatory
+	 * private String arrivalAirport;
+	 * 
+	 * @Automapped
+	 * 
+	 * @ValidString(max = 100)
+	 * 
+	 * @Mandatory
+	 * private String aircraft;
+	 * 
+	 * // Derived attributes -----------------------------------------------------
+	 * 
+	 * // Relationships ----------------------------------------------------------
+	 */
+	//@ManyToOne(optional = false)
+	//@Valid
+	//@Mandatory
+	//private Flight				flight;
 }
