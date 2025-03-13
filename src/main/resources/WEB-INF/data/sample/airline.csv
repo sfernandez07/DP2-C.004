@@ -1,0 +1,5 @@
+key,name,IATA_code,website,type,foundationMoment,emailAddress,phoneNumber
+Airline-01,Ai1,AAA,http://www.lorem-ipsum.org/dolor/sit.html,LUXURY,1998/01/14 07:00,acmepassword@lorem-ipsum.org,989643546
+Airline-02,Ai2,BBB,http://example.org/,STANDARD,1999/03/04 07:00,a@b.e,123123333
+Airline-03,Ai3,CCC,http://example.org/a/b?,LOWCOST,1995/03/13 09:00,pewp@gmail.com,864578289
+Airline-04,Ai4,DDD,http://example.org/a/b?a&b,LUXURY,1986/05/14 07:00,a@b.esx,972541735

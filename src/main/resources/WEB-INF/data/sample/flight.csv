@@ -1,0 +1,13 @@
+key,tag,selfTransfer,cost,description,scheduledDeparture,scheduledArrival,originCity,DestinationCity,layovers,key:airline
+Flight-01,The fastest,SELF_TRANSFER,150.00,"Vuelo de prueba 1","2024/06/14 08:00","2024/06/14 12:00",New York,Los Angeles,0,Airline-01
+Flight-02,Eco-friendly,NOT_SELF_TRANSFER,180.00,"Vuelo de prueba 2","2024/06/14 10:30","2024/06/14 12:00",Los Angeles,San Francisco,1,Airline-02
+Flight-03,The Most Comfortable,NOT_SELF_TRANSFER,220.00,"Vuelo de prueba 3","2024/07/19 07:00","2024/07/19 10:00",Toronto,New York,2,Airline-03
+Flight-04,The cheapest,SELF_TRANSFER,250.00,"Vuelo de prueba 4","2024/03/14 07:00","2024/03/14 11:00",Chicago,Mexico City,3,Airline-04
+Flight-05,The cheapest,NOT_SELF_TRANSFER,200.00,"Vuelo de prueba 5","2023/03/14 07:00","2023/03/14 11:00",Paris,Berlin,4,Airline-05
+Flight-06,The fastest,SELF_TRANSFER,190.00,"Vuelo de prueba 6","2024/08/15 09:00","2024/08/15 11:30",Paris,Barcelona,5,Airline-06
+Flight-07,The cheapest,NOT_SELF_TRANSFER,210.00,"Vuelo de prueba 7","2024/09/10 06:00","2024/09/10 08:00",Madrid,London,2,Airline-07
+Flight-08,Eco-friendly,SELF_TRANSFER,230.00,"Vuelo de prueba 8","2024/04/05 10:30","2024/04/05 12:30",Berlin,Amsterdam,0,Airline-08
+Flight-09,The Most Comfortable,NOT_SELF_TRANSFER,240.00,"Vuelo de prueba 9","2024/05/18 15:00","2024/05/18 17:30",Rome,Barcelona,3,Airline-09
+Flight-10,The fastest,SELF_TRANSFER,260.00,"Vuelo de prueba 10","2024/06/22 14:00","2024/06/22 17:00",New York,Madrid,5,Airline-10
+Flight-11,The Most Comfortable,NOT_SELF_TRANSFER,280.00,"Vuelo de prueba 11","2024/07/10 11:00","2024/07/10 13:00",London,Tokyo,1,Airline-11
+Flight-12,The Most Comfortable,SELF_TRANSFER,300.00,"Vuelo de prueba 12","2024/05/25 18:30","2024/05/25 21:00",Barcelona,Buenos Aires,0,Airline-12
