@@ -16,6 +16,8 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
+import acme.entities.aircrafts.Aircraft;
+import acme.entities.airports.Airport;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,20 +71,20 @@ public class FlightLeg extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	@Mandatory
-	private String	departureAirport;
+	private Airport		departureAirport;
 
 	@Valid
 	@ManyToOne(optional = false)
 	@Mandatory
-	private String	arrivalAirport;
+	private Airport		arrivalAirport;
 
 	@Valid
 	@ManyToOne(optional = false)
 	@Mandatory
-	private String	aircraft;
+	private Aircraft	aircraft;
 
 	@ManyToOne(optional = false)
 	@Valid
 	@Mandatory
-	private Flight	flight;
+	private Flight		flight;
 }
