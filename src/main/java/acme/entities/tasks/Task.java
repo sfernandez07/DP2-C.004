@@ -1,5 +1,5 @@
 
-package acme.entities.maintenanceRecords;
+package acme.entities.tasks;
 
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -9,6 +9,7 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.entities.maintenanceRecords.MaintenanceRecord;
 
 public class Task extends AbstractEntity {
 
