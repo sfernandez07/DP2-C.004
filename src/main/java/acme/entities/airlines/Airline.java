@@ -17,6 +17,8 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidIataCode;
+import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,23 +30,23 @@ public class Airline extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Automapped
 	@ValidString(max = 50)
+	@Automapped
 	private String				name;
 
 	@Mandatory
+	@ValidIataCode
 	@Column(unique = true)
-	@Valid
 	private String				iataCode;
 
 	@Mandatory
-	@Automapped
 	@ValidUrl
+	@Automapped
 	private String				website;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private AirlineType			type;
 
 	@Mandatory
@@ -53,13 +55,13 @@ public class Airline extends AbstractEntity {
 	private Date				foundationMoment;
 
 	@Optional
-	@Automapped
 	@ValidEmail
+	@Automapped
 	private String				emailAddress;
 
 	@Optional
+	@ValidPhoneNumber
 	@Automapped
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	private String				phoneNumber;
 
 }
