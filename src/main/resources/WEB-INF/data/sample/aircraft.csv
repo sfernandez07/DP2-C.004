@@ -1,0 +1,48 @@
+key,model,registrationNumber,capacity,cargoWeight,status,details
+# base entity,"","","","","",""
+aircraft-00,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# model - standard variations,"","","","","",""
+aircraft-01,L,1,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-02,Lo,2,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",3,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",4,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-05,โลเร็ม อิปซัม,5,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-06,لوريم إيبسوم,6,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-07,洛伦·伊普森,7,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-08,<marquee>Hacked</marquee>,8,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-09,<script>alert(‘Hacked!’);</script>,9,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-10,' or 'A' = 'A,11,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# registrationNumber - standard variations,"","","","","",""
+aircraft-11,Lorem ipsum dolor sit ame,L,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-12,Lorem ipsum dolor sit ame,Lo,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-13,Lorem ipsum dolor sit ame,"Lorem ipsum dolor sit amet, consectetur adipiscin",5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-14,Lorem ipsum dolor sit ame,"Lorem ipsum dolor sit amet, consectetur adipiscing",5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-15,Lorem ipsum dolor sit ame,โลเร็ม อิปซัม,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-16,Lorem ipsum dolor sit ame,لوريم إيبسوم,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-17,Lorem ipsum dolor sit ame,洛伦·伊普森,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-18,Lorem ipsum dolor sit ame,<marquee>Hacked</marquee>,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-19,Lorem ipsum dolor sit ame,<script>alert(‘Hacked!’);</script>,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-20,Lorem ipsum dolor sit ame,' or 'A' = 'A,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# capacity - standard variations,"","","","","",""
+aircraft-21,Lorem ipsum dolor sit ame,22,0,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-22,Lorem ipsum dolor sit ame,33,1,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-23,Lorem ipsum dolor sit ame,44,9999,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-24,Lorem ipsum dolor sit ame,55,10000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# cargoWeight - standard variations,"","","","","",""
+aircraft-25,Lorem ipsum dolor sit ame,66,5000,2000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-26,Lorem ipsum dolor sit ame,77,5000,2001,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-27,Lorem ipsum dolor sit ame,88,5000,49999,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+aircraft-28,Lorem ipsum dolor sit ame,99,5000,50000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# status - standard variations,"","","","","",""
+aircraft-29,Lorem ipsum dolor sit ame,111,5000,26000,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*"
+# details - standard variations,"","","","","",""
+aircraft-30,Lorem ipsum dolor sit ame,222,5000,26000,ACTIVE,L
+aircraft-31,Lorem ipsum dolor sit ame,333,5000,26000,ACTIVE,Lo
+aircraft-32,Lorem ipsum dolor sit ame,444,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+aircraft-33,Lorem ipsum dolor sit ame,555,5000,26000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
+aircraft-34,Lorem ipsum dolor sit ame,666,5000,26000,ACTIVE,โลเร็ม อิปซัม
+aircraft-35,Lorem ipsum dolor sit ame,777,5000,26000,ACTIVE,لوريم إيبسوم
+aircraft-36,Lorem ipsum dolor sit ame,888,5000,26000,ACTIVE,洛伦·伊普森
+aircraft-37,Lorem ipsum dolor sit ame,999,5000,26000,ACTIVE,<marquee>Hacked</marquee>
+aircraft-38,Lorem ipsum dolor sit ame,1111,5000,26000,ACTIVE,<script>alert(‘Hacked!’);</script>
+aircraft-39,Lorem ipsum dolor sit ame,2222,5000,26000,ACTIVE,' or 'A' = 'A

@@ -1,6 +1,6 @@
 key,name,iataCode,operationalScope,city,country,website,emailAddress,contactPhoneNumber
-Airport-01,A1,SEV,INTERNATIONAL,New York,EEUU,http://lorem.com/ipsum,acme@lorem-ipsum.org,621145064
-Airport-02,A2,RMA,DOMESTIC,Paris,France,https://www.lorem-ipsum.org,a@b.e,959645041
-Airport-03,A3,BAR,REGIONAL,Barcelona,Spain,http://example.org?,a@b.esx,957446271
+airport-01,A1,SEV,INTERNATIONAL,New York,EEUU,http://lorem.com/ipsum,acme@lorem-ipsum.org,621145064
+airport-02,A2,RMA,DOMESTIC,Paris,France,https://www.lorem-ipsum.org,a@b.e,959645041
+airport-03,A3,BAR,REGIONAL,Barcelona,Spain,http://example.org?,a@b.esx,957446271
 
 
