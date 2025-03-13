@@ -1,4 +1,4 @@
 key,key:technician,maintenance_moment,status,next_inspection_due_date,estimated_cost,notes,key:aircraft
-MR-01,technician-01,2024-03-01 10:30:00,PENDING,2025-04-01 10:30:00,EUR 5000.00,Routine check,AC-01
-MR-02,technician-02,2024-03-02 15:45:00,IN_PROGRESS,2024-04-15 15:45:00,EUR 7000.00,Engine maintenance,AC-02
-MR-03,technician-03,2024-03-06 08:00:00,COMPLETED,2024-05-01 08:00:00,EUR 12000.00,Full overhaul,AC-03
+MR-01,technician-01,2024/03/01 10:30,PENDING,2025/04/01 10:30,EUR 5000.00,Routine check,AC-01
+MR-02,technician-02,2024/03/02 15:45,IN_PROGRESS,2024/04/15 14:45,EUR 7000.00,Engine maintenance,AC-02
+MR-03,technician-03,2024/03/06 08:00,COMPLETED,2024/05/01 08:00,EUR 12000.00,Full overhaul,AC-03
