@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -15,7 +16,6 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,36 +48,41 @@ public class FlightLeg extends AbstractEntity {
 	private Date				scheduleArrival;
 
 	@Automapped
-	@ValidNumber(min = 0, max = 100)
-	@Mandatory
-	private Double				durationHours;
-
-	@Automapped
 	@Valid
 	@Mandatory
 	private LegStatus			status;
 
-	@ValidString(max = 100)
-	@Automapped
-	@Mandatory
-	private String				departureAirport;
-
-	@Automapped
-	@ValidString(max = 100)
-	@Mandatory
-	private String				arrivalAirport;
-
-	@Automapped
-	@ValidString(max = 100)
-	@Mandatory
-	private String				aircraft;
-
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public Double getDurationHours() {
+		if (this.scheduleDeparture == null || this.scheduleArrival == null)
+			return null;
+		long millis = this.scheduleArrival.getTime() - this.scheduleDeparture.getTime();
+		return millis / (1000.0 * 60 * 60);
+	}
+
 	// Relationships ----------------------------------------------------------
+
+
+	@Valid
+	@ManyToOne(optional = false)
+	@Mandatory
+	private String	departureAirport;
+
+	@Valid
+	@ManyToOne(optional = false)
+	@Mandatory
+	private String	arrivalAirport;
+
+	@Valid
+	@ManyToOne(optional = false)
+	@Mandatory
+	private String	aircraft;
 
 	@ManyToOne(optional = false)
 	@Valid
 	@Mandatory
-	private Flight				flight;
+	private Flight	flight;
 }
