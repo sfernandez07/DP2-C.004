@@ -39,13 +39,13 @@ public class FlightLeg extends AbstractEntity {
 	@Automapped
 	@ValidMoment
 	@Mandatory
-	private Date				scheduleDeparture;
+	private Date				scheduledDeparture;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Automapped
 	@ValidMoment
 	@Mandatory
-	private Date				scheduleArrival;
+	private Date				scheduledArrival;
 
 	@Automapped
 	@Valid
@@ -57,9 +57,9 @@ public class FlightLeg extends AbstractEntity {
 
 	@Transient
 	public Double getDurationHours() {
-		if (this.scheduleDeparture == null || this.scheduleArrival == null)
+		if (this.scheduledDeparture == null || this.scheduledArrival == null)
 			return null;
-		long millis = this.scheduleArrival.getTime() - this.scheduleDeparture.getTime();
+		long millis = this.scheduledArrival.getTime() - this.scheduledDeparture.getTime();
 		return millis / (1000.0 * 60 * 60);
 	}
 
