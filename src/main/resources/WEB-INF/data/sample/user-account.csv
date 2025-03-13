@@ -7,4 +7,4 @@ user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза 
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
 user-account-agent-01,true,"UserIdentity{name: 'Guillermo', surname: 'García', email: 'guille@acme.com'}",agent1,agent1
 user-account-agent-02,true,"UserIdentity{name: 'Benito', surname: 'Gonzalez', email: 'benito@acme.com'}",agent2,agent2
-user-account-agent-03,true,"UserIdentity{name: 'Tomas', surname: 'León', email: 'tomas@acme.com'}",agent3,agent3
+user-account-agent-03,true,"UserIdentity{name: 'Tomas', surname: 'León', email: 'tomas@acme.com'}",manager3,manager3
