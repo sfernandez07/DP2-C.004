@@ -31,12 +31,12 @@ public class Aircraft extends AbstractEntity {
 	private String				model;
 
 	@Mandatory
-	@ValidNumber(max = 50)
+	@ValidString(max = 50)
 	@Column(unique = true)
-	private Integer				registrationNumber;
+	private String				registrationNumber;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0, max = 10000)
 	@Automapped
 	private Integer				capacity;
 
