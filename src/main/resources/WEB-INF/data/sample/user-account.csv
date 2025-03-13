@@ -16,3 +16,6 @@ user-account-flightCrewMember-02,true,"UserIdentity{name: 'Juan', surname: 'Jime
 user-account-flightCrewMember-03,true,"UserIdentity{name: 'Manuel', surname: 'Garrido', email: 'garrido@gmail.com'}",member3,member3
 user-account-flightCrewMember-04,true,"UserIdentity{name: 'Marco', surname: 'Reus', email: 'dortmund@gmail.com'}",member4,member4
 user-account-flightCrewMember-05,true,"UserIdentity{name: 'Paco', surname: 'García', email: 'paco@gmail.com'}",member,member
+user-account-technician-01,true,"UserIdentity{name: 'David', surname: 'Delgado', email: 'daviddelgado@gmail.com'}",technician1,technician1
+user-account-technician-02,true,"UserIdentity{name: 'Antonio', surname: 'Delgado', email: 'antoniodelgado@gmail.com'}",technician2,technician2
+user-account-technician-03,true,"UserIdentity{name: 'Fulanito', surname: 'GarcÃ­a', email: 'fulanitogarcia@gmail.com'}",technician3,technician3

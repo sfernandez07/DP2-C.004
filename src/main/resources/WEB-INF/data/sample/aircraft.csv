@@ -1,0 +1,4 @@
+key,model,registration_number,capacity,cargo_weight,status,details
+AC-01,Boeing 747,1001,400,40000,ACTIVE,Long-haul
+AC-02,Airbus A320,1002,180,20000,ACTIVE,Short-haul
+AC-03,Embraer E190,1003,120,15000,MAINTENANCE,Regional jet
