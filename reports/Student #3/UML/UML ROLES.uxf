@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>170</y>
+      <w>640</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+FlightCrewMember
+--
++ employeeCode: String (Mandatory, ValidString(pattern="^[A-Z]{2,3}\\d{6}$"), Automapped)
++ phoneNumber: String (Mandatory, ValidPhoneNumber, Automapped)
++ languageSkills: String (Mandatory, ValidString(min =1,max=255), Automapped)
++ availabilityStatus: AvailabilityStatus (Mandatory, Automapped, Valid)
++ salary: Money (Mandatory, ValidMoney(min=0,max=1000000), Automapped)
++ yearsOfExperience: Integer (Optional, ValidNumber(min=0, max=120), Automapped)
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
