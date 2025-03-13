@@ -11,12 +11,15 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
+import acme.client.components.validation.ValidMoney;
+import acme.constraints.ValidCreditNibble;
+import acme.constraints.ValidLocatorCode;
+import acme.entities.flights.Flight;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +35,7 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "El localizador debe seguir el patrón asignado.")
+	@ValidLocatorCode
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -47,17 +50,22 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidNumber(min = 0)
+	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
-	private Double				price;
+	private Money				price;
 
 	@Optional
-	@ValidString(pattern = "^[0-9]{4}$", message = "Solo admite 4 numeros.")
+	@ValidCreditNibble
 	@Automapped
 	private String				lastCreditNibble;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Customer			customer;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Flight				flight;
 }

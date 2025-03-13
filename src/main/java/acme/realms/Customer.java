@@ -10,6 +10,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidIdentifier;
+import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,28 +26,28 @@ public class Customer extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$", message = "The identifier must follow the correct pattern")
+	@ValidIdentifier
 	@Column(unique = true)
 	private String				identifier;
 
 	@Mandatory
 	@Automapped
-	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "The phone number must follow the correct pattern")
+	@ValidPhoneNumber
 	private String				phoneNumber;
 
 	@Mandatory
 	@Automapped
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	private String				physicalAddress;
 
 	@Mandatory
 	@Automapped
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	private String				city;
 
 	@Mandatory
 	@Automapped
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	private String				country;
 
 	@Optional

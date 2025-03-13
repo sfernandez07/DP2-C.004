@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Target(ElementType.FIELD)
@@ -16,14 +17,12 @@ import javax.validation.constraints.Pattern;
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
 
-@Pattern(regexp = "^\\+?\\d{6,15}$")
+@NotBlank
+@Pattern(regexp = "^[A-Z0-9]{6,8}$")
 
-public @interface ValidPhoneNumber {
+public @interface ValidLocatorCode {
 
-	// Standard validation properties -----------------------------------------
-
-	String message() default "Debe introducir un número válido";
-
+	String message() default "El localizador debe seguir el patrón";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

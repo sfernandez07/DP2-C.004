@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Target(ElementType.FIELD)
@@ -16,14 +17,12 @@ import javax.validation.constraints.Pattern;
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
 
-@Pattern(regexp = "^\\+?\\d{6,15}$")
+@NotBlank
+@Pattern(regexp = "^\\d{4}$")
 
-public @interface ValidPhoneNumber {
+public @interface ValidCreditNibble {
 
-	// Standard validation properties -----------------------------------------
-
-	String message() default "Debe introducir un número válido";
-
+	String message() default "El numero debe dar los 4 últimos números de la tarjeta de crédito";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }
