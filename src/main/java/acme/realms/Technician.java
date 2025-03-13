@@ -10,6 +10,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLicenseNumber;
+import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,33 +23,32 @@ public class Technician extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Automapped
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
+	@ValidLicenseNumber
 	@Column(unique = true)
 	private String				licenseNumber;
 
 	@Mandatory
-	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "The phone number must follow the correct pattern")
+	@ValidPhoneNumber
 	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
-	@Automapped
 	@ValidString(max = 50)
+	@Automapped
 	private String				specialisation;
 
 	@Mandatory
 	@Automapped
-	private Boolean				annualHealthTest;
+	private Boolean				annualHealthTestPassed;
 
 	@Mandatory
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
-	@ValidNumber
 	private Integer				experienceYears;
 
 	@Optional
+	@ValidString
 	@Automapped
-	@ValidString(max = 255)
 	private String				certifications;
 
 }

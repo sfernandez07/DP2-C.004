@@ -2,7 +2,6 @@
 package acme.entities.airlines;
 
 import java.util.Date;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +17,8 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidIataCode;
+import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,24 +30,23 @@ public class Airline extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Automapped
 	@ValidString(max = 50)
+	@Automapped
 	private String				name;
 
 	@Mandatory
-	@Automapped
+	@ValidIataCode
 	@Column(unique = true)
-	@Valid
-	private String				IATA_code;
+	private String				iataCode;
 
 	@Mandatory
-	@Automapped
 	@ValidUrl
+	@Automapped
 	private String				website;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private AirlineType			type;
 
 	@Mandatory
@@ -55,35 +55,13 @@ public class Airline extends AbstractEntity {
 	private Date				foundationMoment;
 
 	@Optional
-	@Automapped
 	@ValidEmail
+	@Automapped
 	private String				emailAddress;
 
 	@Optional
+	@ValidPhoneNumber
 	@Automapped
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	private String				phoneNumber;
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(this.IATA_code, this.emailAddress, this.foundationMoment, this.name, this.phoneNumber, this.type, this.website);
-		return result;
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (this.getClass() != obj.getClass())
-			return false;
-		Airline other = (Airline) obj;
-		return Objects.equals(this.IATA_code, other.IATA_code) && Objects.equals(this.emailAddress, other.emailAddress) && Objects.equals(this.foundationMoment, other.foundationMoment) && Objects.equals(this.name, other.name)
-			&& Objects.equals(this.phoneNumber, other.phoneNumber) && this.type == other.type && Objects.equals(this.website, other.website);
-	}
 
 }
