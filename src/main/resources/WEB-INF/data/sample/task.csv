@@ -1,4 +1,4 @@
-key,key:maintenance-record,key:technician,task_type,description,priority,estimated_duration,key:aircraft
-task-01,MR-01,technician-01,INSPECTION,Routine inspection,5,2,AC-01
-task-02,MR-02,technician-02,REPAIR,Fix hydraulic leak,8,5,AC-02
-task-03,MR-03,technician-01,MAINTENANCE,Replace avionics module,7,3,AC-03
+key,key:maintenance-record,key:technician,task_type,description,priority,estimated_duration
+task-01,MR-01,technician-01,INSPECTION,Routine inspection,5,2
+task-02,MR-02,technician-02,REPAIR,Fix hydraulic leak,8,5
+task-03,MR-03,technician-01,MAINTENANCE,Replace avionics module,7,3
