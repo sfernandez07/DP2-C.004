@@ -11,3 +11,8 @@ user-account-agent-03,true,"UserIdentity{name: 'Tomas', surname: 'León', email:
 user-account-customer-01,true,"UserIdentity{name: 'Santiago', surname: 'Fernández', email: 'sanferrom@alum.us.es'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Pepito', surname: 'Pérez', email: 'peperez@acme.es'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'Xavier', surname: 'Hernández', email: 'hola@gmail.com'}",customer3,customer3
+user-account-flightCrewMember-01,true,"UserIdentity{name: 'Claudio', surname: 'Cortés', email: 'clacorcar@alum.us.es'}",member1,member1
+user-account-flightCrewMember-02,true,"UserIdentity{name: 'Juan', surname: 'Jimenez', email: 'juanito@acme.es'}",member2,member2
+user-account-flightCrewMember-03,true,"UserIdentity{name: 'Manuel', surname: 'Garrido', email: 'garrido@gmail.com'}",member3,member3
+user-account-flightCrewMember-04,true,"UserIdentity{name: 'Marco', surname: 'Reus', email: 'dortmund@gmail.com'}",member4,member4
+user-account-flightCrewMember-05,true,"UserIdentity{name: 'Paco', surname: 'García', email: 'paco@gmail.com'}",member,member
