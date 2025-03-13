@@ -16,13 +16,13 @@ import javax.validation.constraints.Pattern;
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
 
-@Pattern(regexp = "^\\+?d{6,15}$", message = "The phone number must be in the correct format: optional '+' followed by 6 to 15 digits.")
+@Pattern(regexp = "^\\+?\\d{6,15}$")
 
 public @interface ValidPhoneNumber {
 
 	// Standard validation properties -----------------------------------------
 
-	String message() default "{acme.validation.phone.message}";
+	String message() default "Debe introducir un número válido";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};

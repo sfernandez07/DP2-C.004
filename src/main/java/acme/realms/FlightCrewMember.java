@@ -3,7 +3,7 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
@@ -30,7 +30,7 @@ public class FlightCrewMember extends AbstractRole {
 
 	@Mandatory
 	@Valid
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	private Airline				airline;
 
 	@Mandatory
@@ -54,7 +54,7 @@ public class FlightCrewMember extends AbstractRole {
 	private AvailabilityStatus	availabilityStatus;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
 	private Money				salary;
 

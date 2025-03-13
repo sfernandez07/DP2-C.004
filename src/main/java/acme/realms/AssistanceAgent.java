@@ -16,8 +16,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Money;
@@ -29,6 +31,7 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 import acme.constraints.ValidAssistanceAgent;
+import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,7 +48,7 @@ public class AssistanceAgent extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$", message = "The employee code must follow a pattern")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$", message = "The employee code must follow a pattern")
 	@Column(unique = true)
 	private String				employeeCode;
 
@@ -53,11 +56,6 @@ public class AssistanceAgent extends AbstractRole {
 	@ValidString(max = 255)
 	@Automapped
 	private String				languages;
-
-	@Mandatory
-	@ValidString
-	@Automapped
-	private String				airline;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -83,4 +81,8 @@ public class AssistanceAgent extends AbstractRole {
 
 	// Relationships ----------------------------------------------------------
 
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				airline;
 }

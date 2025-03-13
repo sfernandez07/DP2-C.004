@@ -1,0 +1,47 @@
+key,key:flight-assignment,registrationMoment,typeOfIncident,description,severityLevel
+# base entity,"","","","",""
+activity-log-00,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6
+# registration-moment - standard variations,"","","","",""
+activity-log-01,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-02,flight-assignment-00,2024/06/15 19:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-03,flight-assignment-00,2024/06/15 22:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6
+# type-of-incident - standard variations,"","","","",""
+activity-log-04,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit ames,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-05,flight-assignment-00,2024/06/15 18:00,L,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-06,flight-assignment-00,2024/06/15 18:00,Lo,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-07,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit amet, consectetur adipiscinrSe ma movido mucho el avion por el mal tiempo,6
+activity-log-08,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit amet, consectetur adipiscingrSe ma movido mucho el avion por el mal tiempo,6
+# description - standard variations,"","","","",""
+activity-log-09,flight-assignment-00,2024/06/15 18:00,Turbulencias,Lorem ipsum dolor sit amets consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,6
+activity-log-10,flight-assignment-00,2024/06/15 18:00,Turbulencias,L,6
+activity-log-11,flight-assignment-00,2024/06/15 18:00,Turbulencias,Lo,6
+activity-log-12,flight-assignment-00,2024/06/15 18:00,Turbulencias,Lorem ipsum dolor sit amets consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,6
+activity-log-13,flight-assignment-00,2024/06/15 18:00,Turbulencias,Lorem ipsum dolor sit amets consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,6
+# severity-level - standard variations,"","","","",""
+activity-log-14,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,5
+activity-log-15,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,0
+activity-log-16,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,1
+activity-log-17,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,9
+activity-log-18,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,10
+activity-log-19,flight-assignment-00,2024/06/15 18:00,Turbulencias,โลเร็ม อิปซัม,6
+activity-log-20,flight-assignment-00,2024/06/15 18:00,Turbulencias,洛伦·伊普森,6
+activity-log-21,flight-assignment-00,2024/06/15 18:00,Turbulencias,<marquee>Hacked</marquee>,6
+activity-log-22,flight-assignment-00,2024/06/15 18:00,Turbulencias,<script>alert(‘Hacked!’);</script>,6
+activity-log-23,flight-assignment-00,2024/06/15 18:00,Turbulencias,' or 'A' = 'A ,6
+activity-log-24,flight-assignment-00,2024/06/15 18:00,โลเร็ม อิปซัม,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-25,flight-assignment-00,2024/06/15 18:00,洛伦·伊普森,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-26,flight-assignment-00,2024/06/15 18:00,<marquee>Hacked</marquee>,Se ma movido mucho el avion por el mal tiempo,6
+activity-log-27,flight-assignment-00,2024/06/15 18:00,<script>alert(‘Hacked!’);</script>,Se ma movido mucho el avion por el mal tiempo,6
+
+
+
+
+
+
+
+
+
+
+
+
+

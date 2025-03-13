@@ -19,10 +19,10 @@ public class ActivityLogValidator implements ConstraintValidator<ValidActivityLo
 		FlightAssignment flightAssignment = activityLog.getFlightAssignment();
 
 		// Assuming FlightLeg is properly mapped within FlightAssignment
-		if (flightAssignment.getFlightLeg() == null || flightAssignment.getFlightLeg().getScheduleArrival() == null)
+		if (flightAssignment.getFlightLeg() == null || flightAssignment.getFlightLeg().getScheduledArrival() == null)
 			return true; // Skip if there's no scheduled arrival
 
-		Date scheduledArrival = flightAssignment.getFlightLeg().getScheduleArrival();
+		Date scheduledArrival = flightAssignment.getFlightLeg().getScheduledArrival();
 		Date registrationMoment = activityLog.getRegistrationMoment();
 
 		if (registrationMoment == null || scheduledArrival == null)
