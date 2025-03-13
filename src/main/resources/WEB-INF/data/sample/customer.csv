@@ -1,0 +1,4 @@
+key,key:userAccount,identifier,phoneNumber,physicalAddress,city,country,earnedPoints
+customer1,user-account-customer-01,AB123456,+123456,Calle Betis Numero 2,Sevilla,España,700
+customer2,user-account-customer-02,XYZ987654,123456789012345,Calle Averroes 2,Sevilla,España,150
+customer3,user-account-customer-03,CU345678,123456789,789 Oak St,Chicago,USA,""

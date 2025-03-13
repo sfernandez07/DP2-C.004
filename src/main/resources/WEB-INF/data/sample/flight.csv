@@ -1,0 +1,13 @@
+key,tag,selfTransfer,cost,description,key:airline
+flight-01,The fastest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 1,Airline-01
+flight-02,Eco-friendly,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 2,Airline-02
+flight-03,The Most Comfortable,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 3,Airline-03
+flight-04,The cheapest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 4,Airline-04
+flight-05,The cheapest,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 5,Airline-01
+flight-06,The fastest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 6,Airline-01
+flight-07,The cheapest,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 7,Airline-01
+flight-08,Eco-friendly,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 8,Airline-01
+flight-09,The Most Comfortable,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 9,Airline-01
+flight-10,The fastest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 10,Airline-01
+flight-11,The Most Comfortable,NOT_SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 11,Airline-01
+flight-12,The Most Comfortable,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 12,Airline-01

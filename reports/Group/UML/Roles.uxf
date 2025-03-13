@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>147</x>
+      <y>189</y>
+      <w>434</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Customer
+--
++ identifier: String {Mandatory, ValidString(pattern = "^[A-Z]{2-3}\\d{6}$"), Column(unique = true)}
++ phoneNumber: String {Mandatory, ValidPhoneNumber, Automapped}
++ physicalAddress: String {Mandatory, ValidString(max = 255), Automapped}
++ city: String {Mandatory, ValidString(max = 50), Automapped}
++ country: String {Mandatory, ValidString(max = 50), Automapped}
++ earnedPoints: String {Optional, ValidString(min = 0, max = 500000), Automapped}
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>147</x>
+      <y>21</y>
+      <w>420</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+AssistanceAgent
+--
++ employeeCode: String {Mandatory, ValidString(pattern = "^[A-Z]{2-3}\\d{6}$"), Automapped}
++ languages: String {Mandatory, ValidString(max = 255), Automapped}
++ airline: String {Mandatory, ValidString, Automapped}
++ airlineHiringDate: Date {Mandatory, ValidMoment(past = true), Automapped}
++ bio: String {Optional, ValidString(max = 255), Automapped}
++ salary: Money {Optional, ValidMoney, Automapped}
++ photo: String {Optional, ValidUrl, Automapped}
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>329</y>
+      <w>448</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+FlightCrewMember
+--
++ employeeCode: String (Mandatory, ValidString(pattern="^[A-Z]{2,3}\\d{6}$"), Automapped)
++ phoneNumber: String (Mandatory, ValidPhoneNumber, Automapped)
++ languageSkills: String (Mandatory, ValidString(max=255), Automapped)
++ availabilityStatus: AvailabilityStatus (Mandatory, Automapped, Enum)
++ salary: Money (Mandatory, ValidMoney, Automapped)
++ yearsOfExperience: Integer (Optional, ValidNumber(min=0, max=120), Automapped)
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>595</x>
+      <y>98</y>
+      <w>420</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+AirlineManager
+--
++ identifierNumber: String {Mandatory, ValidString(pattern = "^[A-Z]{2-3}\\d{6}$"), Automapped}
++ yearsOfExperience: Integer {Mandatory, Valid, Automapped}
++ dateOfBirth: Date {Mandatory, ValidMoment(past = true), Automapped}
++ picture: String {Optional, ValidUrl, Automapped}
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>490</y>
+      <w>413</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Technician
+--
++ licenseNumber: String  {Mandatory, ValidString(pattern = "^[A-Z]{2-3}\d{6}$"), Automapped}
++ phoneNumber: String {Mandatory, ValidString(pattern = "^\+?\d{6,15}$"), Automapped}
++ specialisation: String {Mandatory, ValidString(max = 50), Automapped}
++ annualHealthTest: Boolean {Mandatory, Automapped}
++ experienceYears: Integer {Mandatory, ValidNumber, Automapped}
++ certifications: String {Optional, ValidString(max=255), Automapped}
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

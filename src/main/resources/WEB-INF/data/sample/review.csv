@@ -1,0 +1,31 @@
+key,name,momentPosted,subject,text,score,recommended
+# base entity,"","","","","",""
+review-01,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+# name - standard variations,"","","","","",""
+review-02,L,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-03,Lo,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-04,"Lorem ipsum dolor sit amet, consectetur adipiscin",2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-05,"Lorem ipsum dolor sit amet, consectetur adipiscing",2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+# momentPost - standard variations,"","","","","",""
+review-06,Hola,2000/01/01 00:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-07,Hola,2000/01/01 00:01,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-08,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-09,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+# subject - standard variations,"","","","","",""
+review-10,Hola,2003/10/29 10:00,L,Error al darme los billetes,2,RECOMMENDED
+review-11,Hola,2003/10/29 10:00,Lo,Error al darme los billetes,2,RECOMMENDED
+review-12,Hola,2003/10/29 10:00,"Lorem ipsum dolor sit amet,consectetur adipiscin",Error al darme los billetes,2,RECOMMENDED
+review-13,Hola,2003/10/29 10:00,"Lorem ipsum dolor sit amet,consectetur adipiscing",Error al darme los billetes,2,RECOMMENDED
+# text - standard variations,"","","","","",""
+review-14,Hola,2003/10/29 10:00,Fallo vuelo,L,2,RECOMMENDED
+review-15,Hola,2003/10/29 10:00,Fallo vuelo,Lo,2,RECOMMENDED
+review-16,Hola,2003/10/29 10:00,Fallo vuelo,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",2,RECOMMENDED
+review-17,Hola,2003/10/29 10:00,Fallo vuelo,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",2,RECOMMENDED
+# score - standard variations,"","","","","",""
+review-18,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,1,RECOMMENDED
+review-19,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,1.01,RECOMMENDED
+review-20,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,9.99,RECOMMENDED
+review-21,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,10,RECOMMENDED
+# recommended - standard variations,"","","","","",""
+review-22,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,RECOMMENDED
+review-23,Hola,2003/10/29 10:00,Fallo vuelo,Error al darme los billetes,2,NOT_RECOMMENDED
