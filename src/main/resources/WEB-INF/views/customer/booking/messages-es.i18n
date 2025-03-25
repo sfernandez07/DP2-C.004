@@ -1,0 +1,7 @@
+customer.booking.list.title = Lista de reservas
+
+customer.booking.list.label.locatorCode = Código Localizador:
+customer.booking.list.label.purchaseMoment = Momento de Compra:
+customer.booking.list.label.travelClass = Clase de Viaje:
+customer.booking.list.label.price = Precio:
+customer.booking.list.label.lastCreditNibble = Últimos dígitos de la tarjeta: (Optional)
