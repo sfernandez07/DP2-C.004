@@ -11,10 +11,10 @@ import acme.entities.flightAssignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiController
-public class FlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
+public class FlightCrewMemberFlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentListService	listService;
+	private FlightCrewMemberFlightAssignmentListService	listService;
 
 	@Autowired
 	private FlightAssignmentShowService	showService;
@@ -22,6 +22,7 @@ public class FlightAssignmentController extends AbstractGuiController<FlightCrew
 
 	@PostConstruct
 	protected void initialise() {
+		System.out.println("Inicializando FlightAssignmentController");
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 

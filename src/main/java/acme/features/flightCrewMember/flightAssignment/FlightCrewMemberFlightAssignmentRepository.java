@@ -10,7 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.flightAssignments.FlightAssignment;
 
 @Repository
-public interface FlightAssignmentRepository extends AbstractRepository {
+public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepository {
 
 	@Query("select b from FlightAssignment b where b.flightCrewMember.id = :id")
 	Collection<FlightAssignment> findFlightAssignmentsByCrewId(int id);

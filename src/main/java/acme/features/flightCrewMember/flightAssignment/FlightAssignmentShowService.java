@@ -13,7 +13,7 @@ import acme.realms.FlightCrewMember;
 public class FlightAssignmentShowService extends AbstractGuiService<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentRepository repository;
+	private FlightCrewMemberFlightAssignmentRepository repository;
 
 
 	@Override

@@ -27,6 +27,7 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 	public void load() {
 		Integer id = super.getRequest().getPrincipal().getActiveRealm().getId();
 		Collection<Booking> bookings = this.repository.findBookingsByCustomerId(id);
+		System.out.println("Número de bookings encontrados: " + bookings.size());
 		super.getBuffer().addData(bookings);
 	}
 
