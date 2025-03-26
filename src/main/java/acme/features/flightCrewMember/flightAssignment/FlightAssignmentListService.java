@@ -26,7 +26,6 @@ public class FlightAssignmentListService extends AbstractGuiService<FlightCrewMe
 	@Override
 	public void load() {
 		int id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		System.out.println("Cargando Flight Assignments para el usuario ID: " + id); // ✅ Depuración
 		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewId(id);
 
 		super.getBuffer().addData(flightAssignments);
@@ -34,9 +33,7 @@ public class FlightAssignmentListService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		// Se extraen solo las propiedades de FlightAssignment: duty, lastUpdate, status y remarks.
-		Dataset dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks");
-
+		Dataset dataset;
 		dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks");
 
 		super.getResponse().addData(dataset);

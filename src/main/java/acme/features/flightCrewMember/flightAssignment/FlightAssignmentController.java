@@ -26,7 +26,5 @@ public class FlightAssignmentController extends AbstractGuiController<FlightCrew
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 
-		// El comando publish se registra como custom, asignándole la semántica de "update"
-
 	}
 }
