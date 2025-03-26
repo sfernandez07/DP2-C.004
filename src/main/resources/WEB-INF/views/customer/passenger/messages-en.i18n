@@ -1,4 +1,4 @@
-customer.booking.list.title = Registered passengers in the booking
+customer.passenger.list.title = Registered passengers in the booking
 
 customer.passenger.list.label.fullName = Full Name
 customer.passenger.list.label.email = Email

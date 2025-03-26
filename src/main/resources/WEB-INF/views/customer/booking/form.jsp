@@ -11,7 +11,7 @@
 	<acme:input-textbox code="customer.booking.form.label.lastCreditNibble" path="lastCreditNibble"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?masterId=${id}"/>			
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?id=${id}"/>			
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
