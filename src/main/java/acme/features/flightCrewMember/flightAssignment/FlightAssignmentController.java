@@ -14,13 +14,17 @@ import acme.realms.FlightCrewMember;
 public class FlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentListService listService;
+	private FlightAssignmentListService	listService;
+
+	@Autowired
+	private FlightAssignmentShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		// Se registra el comando básico "list" para la feature
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 
 		// El comando publish se registra como custom, asignándole la semántica de "update"
 
