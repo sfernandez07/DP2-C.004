@@ -22,7 +22,6 @@ public class FlightAssignmentController extends AbstractGuiController<FlightCrew
 
 	@PostConstruct
 	protected void initialise() {
-		// Se registra el comando básico "list" para la feature
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 

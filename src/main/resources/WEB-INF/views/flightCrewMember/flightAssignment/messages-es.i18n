@@ -1,8 +1,7 @@
 flightCrewMember.flightAssignment.list.title = Listado de asignaciones de vuelo
 flightCrewMember.flightAssignment.form.title = Detalles de asignaciones de vuelo
 
-flightAssignment.flightAssignment.list.planned.header=Planned Flight Assignments
-flightAssignment.flightAssignment.list.completed.header=Completed Flight Assignments
+
 flightCrewMember.flightAssignment.list.label.duty = Rol
 flightCrewMember.flightAssignment.list.label.lastUpdate = Última actualización
 flightCrewMember.flightAssignment.list.label.status = Status
