@@ -9,4 +9,9 @@
 	<acme:input-textbox code="customer.booking.label.travelClass" path="travelClass"/>
 	<acme:input-textbox code="customer.booking.form.label.price" path="price"/>
 	<acme:input-textbox code="customer.booking.form.label.lastCreditNibble" path="lastCreditNibble"/>
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?masterId=${id}"/>			
+		</jstl:when>
+	</jstl:choose>
 </acme:form>
