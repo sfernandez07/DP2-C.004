@@ -1,28 +1,28 @@
 
-package acme.features.authenticated.flightCrewMember.flightAssignment;
+package acme.features.flightCrewMember.flightAssignment;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractGuiController;
+import acme.client.controllers.GuiController;
 import acme.entities.flightAssignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
-@Controller
+@GuiController
 public class FlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	protected FlightAssignmentListService	listService;
-
-	@Autowired
-	protected FlightAssignmentShowService	showService;
+	private FlightAssignmentListService listService;
 
 
 	@PostConstruct
 	protected void initialise() {
+		// Se registra el comando básico "list" para la feature
 		super.addBasicCommand("list", this.listService);
-		super.addBasicCommand("show", this.showService);
+
+		// El comando publish se registra como custom, asignándole la semántica de "update"
+
 	}
 }

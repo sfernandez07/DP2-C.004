@@ -1,9 +1,7 @@
 
 package acme.features.flightCrewMember.flightAssignment;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,14 +26,9 @@ public class FlightAssignmentListService extends AbstractGuiService<FlightCrewMe
 	@Override
 	public void load() {
 		int id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Collection<FlightAssignment> planned = this.repository.findPlannedAssignmentsByFlightCrewMemberId(id);
-		Collection<FlightAssignment> completed = this.repository.findCompletedAssignmentsByFlightCrewMemberId(id);
+		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewId(id);
 
-		Collection<FlightAssignment> allAssignments = new ArrayList<>();
-		allAssignments.addAll(planned);
-		allAssignments.addAll(completed);
-
-		super.getBuffer().addData(allAssignments);
+		super.getBuffer().addData(flightAssignments);
 	}
 
 	@Override
@@ -43,10 +36,7 @@ public class FlightAssignmentListService extends AbstractGuiService<FlightCrewMe
 		// Se extraen solo las propiedades de FlightAssignment: duty, lastUpdate, status y remarks.
 		Dataset dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks");
 
-		// Se añade una propiedad adicional para indicar si la asignación es "planned" o "completed".
-		// Esta lógica se basa en el scheduledDeparture del flightLeg, sin mostrar sus otros atributos.
-		boolean isPlanned = assignment.getFlightLeg().getScheduledDeparture().after(new Date());
-		dataset.put("assignmentType", isPlanned ? "planned" : "completed");
+		dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks");
 
 		super.getResponse().addData(dataset);
 	}

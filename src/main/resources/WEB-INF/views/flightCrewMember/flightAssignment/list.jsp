@@ -9,4 +9,3 @@
 	<acme:list-column code="flightCrewMember.flightAssignment.list.label.status" path="status" width="20%"/>
 	<acme:list-column code="flightCrewMember.flightAssignment.list.label.remarks" path="remarks" width="20%"/>
 </acme:list>
-
