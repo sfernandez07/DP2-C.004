@@ -1,5 +1,12 @@
-customer.passenger.list.titlee = Pasajeros registrados en la reserva
+customer.passenger.list.title = Pasajeros registrados en la reserva
+customer.passenger.form.title = Detalles del pasajero
 
 customer.passenger.list.label.fullName = Nombre Completo
 customer.passenger.list.label.email = Email
 customer.passenger.list.label.passportNumber = Pasaporte
+
+customer.passenger.form.label.fullName = Nombre Completo:
+customer.passenger.form.label.email = Email:
+customer.passenger.label.passportNumber = Pasaporte:
+customer.passenger.form.label.dateOfBirth = Fecha de Nacimiento:
+customer.passenger.form.label.specialNeeds = Necesidades especiales:
