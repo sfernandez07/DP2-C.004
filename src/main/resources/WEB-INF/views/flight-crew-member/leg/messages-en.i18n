@@ -1,0 +1,6 @@
+flightCrewMember.leg.list.title = Flight Leg asociated to flight assignment
+
+flightCrewMember.leg.list.label.flightNumber = Flight Number
+flightCrewmember.leg.list.label.scheduledDeparture = Scheduled Departure
+flightCrewmember.leg.list.label.scheduledArrival = Scheduled Arrival
+flightCrewmember.leg.list.label.status = Status

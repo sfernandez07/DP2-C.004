@@ -10,3 +10,5 @@ flightCrewMember.flightAssignment.form.label.duty = Duty:
 flightCrewMember.flightAssignment.form.label.lastUpdate = Last Update:
 flightCrewMember.flightAssignment.form.label.status = Status:
 flightCrewMember.flightAssignment.form.label.remarks = Remarks: (Optional)
+
+flightCrewMember.flightAssignment.form.button.flightLeg = FlightLeg

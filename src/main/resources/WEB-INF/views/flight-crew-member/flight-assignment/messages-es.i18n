@@ -11,3 +11,5 @@ flightCrewMember.flightAssignment.form.label.duty = Rol:
 flightCrewMember.flightAssignment.form.label.lastUpdate = Última actualización:
 flightCrewMember.flightAssignment.form.label.status = Status:
 flightCrewMember.flightAssignment.form.label.remarks = Comentarios: (Opcional)
+
+flightCrewMember.flightAssignment.form.button.flightLeg = TramoVuelo

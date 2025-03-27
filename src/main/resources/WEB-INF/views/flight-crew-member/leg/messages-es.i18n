@@ -1,0 +1,6 @@
+flightCrewMember.leg.list.title = Tramo de vuelo asociado a la asignación de vuelo
+
+flightCrewMember.leg.list.label.flightNumber = Numero de vuelo
+flightCrewmember.leg.list.label.scheduledDeparture = Hora de salida
+flightCrewmember.leg.list.label.scheduledArrival = Hora de llegada
+flightCrewmember.leg.list.label.status = Estado del tramo
