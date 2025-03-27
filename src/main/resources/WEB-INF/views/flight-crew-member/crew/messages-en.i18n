@@ -1,0 +1,6 @@
+flightCrewMember.crew.list.title = Flight crew member asociated to flight assignment
+
+flightCrewMember.crew.list.label.employeeCode = Employee Code
+flightCrewmember.crew.list.label.phoneNumber = Phone Number
+flightCrewmember.crew.list.label.languageSkills = Language skills
+flightCrewmember.crew.list.label.yearsOfExperience = Years of Experience

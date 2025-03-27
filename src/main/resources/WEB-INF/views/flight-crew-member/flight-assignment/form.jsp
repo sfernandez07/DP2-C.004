@@ -10,7 +10,8 @@
 	<acme:input-textbox code="flightCrewMember.flightAssignment.form.label.remarks" path="remarks"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
-			<acme:button code="flightCrewMember.flightAssignment.form.button.flightLeg" action="/flight-crew-member/leg/list?id=${id}"/>			
+			<acme:button code="flightCrewMember.flightAssignment.form.button.flightLeg" action="/flight-crew-member/leg/list?id=${id}"/>
+			<acme:button code="flightCrewMember.flightAssignment.form.button.crew" action="/flight-crew-member/crew/list?id=${id}"/>			
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

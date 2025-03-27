@@ -13,3 +13,4 @@ flightCrewMember.flightAssignment.form.label.status = Status:
 flightCrewMember.flightAssignment.form.label.remarks = Comentarios: (Opcional)
 
 flightCrewMember.flightAssignment.form.button.flightLeg = TramoVuelo
+flightCrewMember.flightAssignment.form.button.crew = Miembro Tripulación

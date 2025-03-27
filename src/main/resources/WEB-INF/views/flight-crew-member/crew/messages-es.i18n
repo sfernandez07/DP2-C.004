@@ -1,0 +1,6 @@
+flightCrewMember.crew.list.title = Miembro de tripulación asociado a la asignación de vuelo
+
+flightCrewMember.crew.list.label.employeeCode = Código de empleado
+flightCrewmember.crew.list.label.phoneNumber = Número de telefono
+flightCrewmember.crew.list.label.languageSkills = Idiomas hablados
+flightCrewmember.crew.list.label.yearsOfExperience = Años de experiencia
