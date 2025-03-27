@@ -12,3 +12,5 @@ customer.booking.form.label.purchaseMoment = Purchase Moment:
 customer.booking.form.label.travelClass = Travel Class:
 customer.booking.form.label.price = Price:
 customer.booking.form.label.lastCreditNibble = Last Credit Nibble: (Optional)
+
+customer.booking.form.button.passengers = Passengers
