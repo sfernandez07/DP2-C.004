@@ -1,0 +1,6 @@
+flightCrewMember.activityLog.list.title = Registro de Incidencia asociado a la asignación de vuelo
+
+flightCrewMember.activityLog.list.label.registrationMoment = Momento de Registro
+flightCrewMember.activityLog.list.label.typeOfIncident = Tipo de Incidente
+flightCrewMember.activityLog.list.label.description = Descripción
+flightCrewMember.activityLog.list.label.severityLevel = Nivel de Severidad

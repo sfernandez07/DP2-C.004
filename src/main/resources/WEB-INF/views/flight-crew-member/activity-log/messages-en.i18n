@@ -1,0 +1,6 @@
+flightCrewMember.activityLog.list.title = Activity Log asociated to flight assignment
+
+flightCrewMember.activityLog.list.label.registrationMoment = Registration Moment
+flightCrewMember.activityLog.list.label.typeOfIncident = Type Of Incident
+flightCrewMember.activityLog.list.label.description = Description
+flightCrewMember.activityLog.list.label.severityLevel = Severity Level

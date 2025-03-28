@@ -13,3 +13,4 @@ flightCrewMember.flightAssignment.form.label.remarks = Remarks: (Optional)
 
 flightCrewMember.flightAssignment.form.button.flightLeg = FlightLeg
 flightCrewMember.flightAssignment.form.button.crew = CrewMember
+flightCrewMember.flightAssignment.form.button.activityLog = ActivityLog
