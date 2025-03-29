@@ -14,13 +14,17 @@ import acme.realms.FlightCrewMember;
 public class FlightCrewMemberActivityLogController extends AbstractGuiController<FlightCrewMember, ActivityLog> {
 
 	@Autowired
-	private FlightCrewMemberActivityLogListService listService;
+	private FlightCrewMemberActivityLogListService	listService;
+
+	@Autowired
+	private FlightCrewMemberActivityLogShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

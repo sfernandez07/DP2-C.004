@@ -1,6 +1,13 @@
 flightCrewMember.activityLog.list.title = Activity Log asociated to flight assignment
+flightCrewMember.activityLog.form.title = ActivityLog form
+
 
 flightCrewMember.activityLog.list.label.registrationMoment = Registration Moment
 flightCrewMember.activityLog.list.label.typeOfIncident = Type Of Incident
 flightCrewMember.activityLog.list.label.description = Description
 flightCrewMember.activityLog.list.label.severityLevel = Severity Level
+
+flightCrewMember.activityLog.form.label.registrationMoment = Registration Moment
+flightCrewMember.activityLog.form.label.typeOfIncident = Type Of Incident
+flightCrewMember.activityLog.form.label.description = Description
+flightCrewMember.activityLog.form.label.severityLevel = Severity Level
