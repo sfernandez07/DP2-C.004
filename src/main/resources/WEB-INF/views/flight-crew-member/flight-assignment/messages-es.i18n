@@ -1,16 +1,16 @@
-flightCrewMember.flightAssignment.list.title = Listado de asignaciones de vuelo
-flightCrewMember.flightAssignment.form.title = Detalles de asignaciones de vuelo
+flight-crew-member.flight-assignment.list.title = Listado de asignaciones de vuelo
+flight-crew-member.flight-assignment.form.title = Detalles de asignaciones de vuelo
 
 
-flightCrewMember.flightAssignment.list.label.duty = Rol
-flightCrewMember.flightAssignment.list.label.lastUpdate = Última actualización
-flightCrewMember.flightAssignment.list.label.status = Status
-flightCrewMember.flightAssignment.list.label.remarks = Comentarios
+flight-crew-member.flight-assignment.list.label.duty = Rol
+flight-crew-member.flight-assignment.list.label.lastUpdate = Última actualización
+flight-crew-member.flight-assignment.list.label.status = Status
+flight-crew-member.flight-assignment.list.label.remarks = Comentarios
 
-flightCrewMember.flightAssignment.form.label.duty = Rol:
-flightCrewMember.flightAssignment.form.label.lastUpdate = Última actualización:
-flightCrewMember.flightAssignment.form.label.status = Status:
-flightCrewMember.flightAssignment.form.label.remarks = Comentarios: (Opcional)
+flight-crew-member.flight-assignment.form.label.duty = Rol:
+flight-crew-member.flight-assignment.form.label.lastUpdate = Última actualización:
+flight-crew-member.flight-assignment.form.label.status = Status:
+flight-crew-member.flight-assignment.form.label.remarks = Comentarios: (Opcional)
 
 flightCrewMember.flightAssignment.form.button.flightLeg = TramoVuelo
 flightCrewMember.flightAssignment.form.button.flightCrewMember = Miembro Tripulación

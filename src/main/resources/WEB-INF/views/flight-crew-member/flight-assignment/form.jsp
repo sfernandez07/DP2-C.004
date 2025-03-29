@@ -2,10 +2,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="flightCrewMember.flightAssignment.form.duty" path="duty"/>
-	<acme:input-textbox code="flightCrewMember.flightAssignment.form.label.lastUpdate" path="lastUpdate"/>
-	<acme:input-textbox code="flightCrewMember.flightAssignment.label.status" path="status"/>
-	<acme:input-textbox code="flightCrewMember.flightAssignment.form.label.remarks" path="remarks"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.duty" path="duty"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.lastUpdate" path="lastUpdate"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.status" path="status"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.remarks" path="remarks"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="flightCrewMember.flightAssignment.form.button.flightLeg" action="/flight-crew-member/flight-leg/list?id=${id}"/>

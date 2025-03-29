@@ -1,15 +1,15 @@
-flightCrewMember.flightAssignment.list.title = Listing of flight assignments
-flightCrewMember.flightAssignment.form.title = FlightAssignment form
+flight-crew-member.flight-assignment.list.title = Listing of flight assignments
+flight-crew-member.flight-assignment.form.title = FlightAssignment form
 
-flightCrewMember.flightAssignment.list.label.duty = Duty
-flightCrewMember.flightAssignment.list.label.lastUpdate = Last Update
-flightCrewMember.flightAssignment.list.label.status = Status
-flightCrewMember.flightAssignment.list.label.remarks = Remarks
+flight-crew-member.flight-assignment.list.label.duty = Duty
+flight-crew-member.flight-assignment.list.label.lastUpdate = Last Update
+flight-crew-member.flight-assignment.list.label.status = Status
+flight-crew-member.flight-assignment.list.label.remarks = Remarks
 
-flightCrewMember.flightAssignment.form.label.duty = Duty:
-flightCrewMember.flightAssignment.form.label.lastUpdate = Last Update:
-flightCrewMember.flightAssignment.form.label.status = Status:
-flightCrewMember.flightAssignment.form.label.remarks = Remarks: (Optional)
+flight-crew-member.flight-assignment.form.label.duty = Duty:
+flight-crew-member.flight-assignment.form.label.lastUpdate = Last Update:
+flight-crew-member.flight-assignment.form.label.status = Status:
+flight-crew-member.flight-assignment.form.label.remarks = Remarks: (Optional)
 
 flightCrewMember.flightAssignment.form.button.flightLeg = FlightLeg
 flightCrewMember.flightAssignment.form.button.flightCrewMember = CrewMember

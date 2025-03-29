@@ -4,10 +4,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="flightCrewMember.activityLog.form.label.registrationMoment" path="registrationMoment"/>
-	<acme:input-textbox code="flightCrewMember.activityLog.form.label.typeOfIncident" path="typeOfIncident"/>
-	<acme:input-textbox code="flightCrewMember.activitylog.form.label.description" path="description"/>
-	<acme:input-textbox code="flightCrewMember.activityLog.form.label.severityLevel" path="severityLevel"/>
+	<acme:input-textbox code="flight-crew-member.activity-log.form.label.registrationMoment" path="registrationMoment"/>
+	<acme:input-textbox code="flight-crew-member.activity-log.form.label.typeOfIncident" path="typeOfIncident"/>
+	<acme:input-textbox code="flight-crew-member.activity-log.form.label.description" path="description"/>
+	<acme:input-textbox code="flight-crew-member.activity-log.form.label.severityLevel" path="severityLevel"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">		
 		</jstl:when>
