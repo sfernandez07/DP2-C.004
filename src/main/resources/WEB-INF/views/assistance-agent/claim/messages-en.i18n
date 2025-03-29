@@ -1,0 +1,8 @@
+assistance-agent.claim.list.title = My Claims
+
+assistance-agent.claim.list.label.registrationMoment = Registration Moment
+assistance-agent.claim.list.label.passengerEmail = Passenger Email
+assistance-agent.claim.list.label.description = Description
+assistance-agent.claim.list.label.type = Type
+assistance-agent.claim.list.label.status = Status
+

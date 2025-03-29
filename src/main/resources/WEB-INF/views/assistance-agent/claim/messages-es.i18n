@@ -1,0 +1,7 @@
+assistance-agent.claim.list.title = Mis Reclamaciones
+
+assistance-agent.claim.list.label.registrationMoment = Fecha de Registro
+assistance-agent.claim.list.label.passengerEmail = Email del Pasagero
+assistance-agent.claim.list.label.description = Descripción
+assistance-agent.claim.list.label.type = Tipo
+assistance-agent.claim.list.label.status = Estado
