@@ -4,3 +4,5 @@ flight-crew-member.flight-leg.list.label.flightNumber = Numero de vuelo
 flight-crew-member.flight-leg.list.label.scheduledDeparture = Hora de salida
 flight-crew-member.flight-leg.list.label.scheduledArrival = Hora de llegada
 flight-crew-member.flight-leg.list.label.status = Estado del tramo
+flight-crew-member.flight-leg.list.label.departureAirport = Aeropuerto Salida
+flight-crew-member.flight-leg.list.label.arrivalAirport = Aeropuerto Llegada

@@ -34,7 +34,7 @@ public class CrewListService extends AbstractGuiService<FlightCrewMember, Flight
 	public void unbind(final FlightCrewMember crew) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(crew, "employeeCode", "phoneNumber", "languageSkills", "yearsOfExperience");
+		dataset = super.unbindObject(crew, "employeeCode", "phoneNumber", "languageSkills", "availabilityStatus", "salary", "yearsOfExperience");
 
 		super.getResponse().addData(dataset);
 

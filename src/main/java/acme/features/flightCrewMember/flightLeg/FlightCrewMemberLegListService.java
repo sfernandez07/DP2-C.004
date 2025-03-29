@@ -35,7 +35,7 @@ public class FlightCrewMemberLegListService extends AbstractGuiService<FlightCre
 	public void unbind(final FlightLeg leg) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "departureAirport", "arrivalAirport");
 
 		super.getResponse().addData(dataset);
 

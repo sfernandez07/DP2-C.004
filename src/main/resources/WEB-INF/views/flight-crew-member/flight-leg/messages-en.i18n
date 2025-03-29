@@ -4,3 +4,5 @@ flight-crew-member.flight-leg.list.label.flightNumber = Flight Number
 flight-crew-member.flight-leg.list.label.scheduledDeparture = Scheduled Departure
 flight-crew-member.flight-leg.list.label.scheduledArrival = Scheduled Arrival
 flight-crew-member.flight-leg.list.label.status = Status
+flight-crew-member.flight-leg.list.label.departureAirport = Departure Airport
+flight-crew-member.flight-leg.list.label.arrivalAirport = Arrival Airport
