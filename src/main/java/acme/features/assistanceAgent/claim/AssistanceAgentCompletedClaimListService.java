@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.assistanceAgent.claim;
+package acme.features.assistanceAgent.claim;
 
 import java.util.Collection;
 
@@ -41,7 +41,7 @@ public class AssistanceAgentCompletedClaimListService extends AbstractGuiService
 	public void unbind(final Claim claim) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "type", "status");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "type", "status", "flightLeg.flightNumber");
 		super.addPayload(dataset, claim, "description");
 		super.getResponse().addData(dataset);
 	}

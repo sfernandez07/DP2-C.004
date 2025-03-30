@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.assistanceAgent.claim;
+package acme.features.assistanceAgent.claim;
 
 import javax.annotation.PostConstruct;
 
@@ -20,13 +20,20 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 	@Autowired
 	private AssistanceAgentPendingClaimListService		listPendingService;
 
+	@Autowired
+	private AssistanceAgentClaimShowService				showService;
+
+	@Autowired
+	private AssistanceAgentClaimCreateService			createService;
+
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		//super.addBasicCommand("list", this.listCompletedService);
 		super.addCustomCommand("completed-list", "list", this.listCompletedService);
 		super.addCustomCommand("pending-list", "list", this.listPendingService);
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 	}
 }
