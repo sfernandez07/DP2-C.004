@@ -10,3 +10,6 @@
 	<acme:list-column code="flight-crew-member.flight-assignment.list.label.remarks" path="remarks" width="20%"/>
 </acme:list>
 
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="flight-crew-member.flight-assignment.list.button.create" action="/flight-crew-member/flight-assignment/create"/>
+</jstl:if>		

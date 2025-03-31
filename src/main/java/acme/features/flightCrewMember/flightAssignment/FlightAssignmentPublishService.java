@@ -55,7 +55,7 @@ public class FlightAssignmentPublishService extends AbstractGuiService<FlightCre
 
 	@Override
 	public void perform(final FlightAssignment assignment) {
-		assignment.setStatus(AssignmentStatus.CONFIRMED);
+		assignment.setDraftMode(true);
 		this.repository.save(assignment);
 	}
 

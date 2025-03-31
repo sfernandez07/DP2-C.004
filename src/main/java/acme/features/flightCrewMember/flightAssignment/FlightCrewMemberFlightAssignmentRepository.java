@@ -10,6 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.flightAssignments.Duty;
 import acme.entities.flightAssignments.FlightAssignment;
 import acme.entities.flights.FlightLeg;
+import acme.realms.FlightCrewMember;
 
 @Repository
 public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepository {
@@ -28,5 +29,14 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 
 	@Query("select c from FlightLeg c where c.id = :flightLegId")
 	FlightLeg findFlightLegById(int flightLegId);
+
+	@Query("select l from FlightLeg l where l.status IN(acme.entities.flights.LegStatus.LANDED)")
+	Collection<FlightLeg> findLegsThatOccurred();
+
+	@Query("select f from FlightCrewMember f where f.airline.id = :airlineId")
+	Collection<FlightCrewMember> findCrewMembersBySameAirline(int airlineId);
+
+	@Query("select fl from FlightLeg fl where fl.flight.airline.id = :airlineId")
+	Collection<FlightLeg> findFlightLegsByCrewMemberAirline(int airlineId);
 
 }

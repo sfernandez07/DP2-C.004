@@ -17,7 +17,10 @@ public class FlightCrewMemberFlightAssignmentController extends AbstractGuiContr
 	private FlightCrewMemberFlightAssignmentListService	listService;
 
 	@Autowired
-	private FlightAssignmentShowService	showService;
+	private FlightAssignmentShowService					showService;
+
+	@Autowired
+	private FlightAssignmentCreateService				createService;
 
 
 	@PostConstruct
@@ -25,6 +28,7 @@ public class FlightCrewMemberFlightAssignmentController extends AbstractGuiContr
 		System.out.println("Inicializando FlightAssignmentController");
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 
 	}
 }
