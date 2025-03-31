@@ -2,11 +2,13 @@
 package acme.features.flightCrewMember.flightAssignment;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.flightAssignments.ActivityLog;
 import acme.entities.flightAssignments.Duty;
 import acme.entities.flightAssignments.FlightAssignment;
 import acme.entities.flights.FlightLeg;
@@ -39,4 +41,6 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select fl from FlightLeg fl where fl.flight.airline.id = :airlineId")
 	Collection<FlightLeg> findFlightLegsByCrewMemberAirline(int airlineId);
 
+	@Query("SELECT a FROM ActivityLog a WHERE a.flightAssignment.id = :flightAssignmentId")
+	List<ActivityLog> findAllActivityLogs(int flightAssignmentId);
 }

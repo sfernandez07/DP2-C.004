@@ -15,7 +15,7 @@
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="flightCrewMember.flightAssignment.form.button.flightLeg" action="/flight-crew-member/flight-leg/list?id=${id}"/>
 			<acme:button code="flightCrewMember.flightAssignment.form.button.flightCrewMember" action="/flight-crew-member/flight-crew-member/list?id=${id}"/>
-			<acme:button code="flightCrewMember.flightAssignment.form.button.activityLog" action="/flight-crew-member/activity-log/list?id=${id}"/>			
+			<acme:button code="flightCrewMember.flightAssignment.form.button.activityLog" action="/flight-crew-member/activity-log/list?assignmentId=${id}"/>			
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create'}">

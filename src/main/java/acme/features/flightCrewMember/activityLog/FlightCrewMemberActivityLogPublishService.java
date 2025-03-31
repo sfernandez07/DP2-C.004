@@ -10,7 +10,7 @@ import acme.entities.flightAssignments.ActivityLog;
 import acme.realms.FlightCrewMember;
 
 @GuiService
-public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
+public class FlightCrewMemberActivityLogPublishService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
 	@Autowired
 	private FlightCrewMemberActivityLogRepository repository;
@@ -40,7 +40,8 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 
 	@Override
 	public void perform(final ActivityLog log) {
-		this.repository.delete(log);
+		log.setDraftMode(true);
+		this.repository.save(log);
 	}
 
 	@Override
@@ -51,4 +52,5 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 		super.getResponse().addData(dataset);
 
 	}
+
 }

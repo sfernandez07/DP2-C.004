@@ -13,7 +13,7 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="flight-crew-member.activity-log.form.button.create" action="/flight-crew-member/activity-log/create?masterId=${masterId}"/>
+			<acme:submit code="flight-crew-member.activity-log.form.button.create" action="/flight-crew-member/activity-log/create?assignmentId=${assignmentId}"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

@@ -10,6 +10,6 @@
 	<acme:list-column code="flight-crew-member.activity-log.list.label.severityLevel" path="severityLevel" width="20%"/>
 </acme:list>
 
-<jstl:if test="${showCreate}">
-	<acme:button code="flight-crew-member.activity-log.list.button.create" action="/flight-crew-member/activity-log/create?masterId=${masterId}"/>
-</jstl:if>
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="flight-crew-member.activity-log.list.button.create" action="/flight-crew-member/activity-log/create?assignmentId=${assignmentId}"/>
+</jstl:if>	
