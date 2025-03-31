@@ -5,13 +5,16 @@
 
 <acme:form>
 	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
-	<acme:input-textbox code="customer.booking.form.label.purchaseMoment" path="purchaseMoment"/>
-	<acme:input-textbox code="customer.booking.label.travelClass" path="travelClass"/>
-	<acme:input-textbox code="customer.booking.form.label.price" path="price"/>
+	<acme:input-moment code="customer.booking.form.label.purchaseMoment" path="purchaseMoment"/>
+	<acme:input-select path="travelClass" code="customer.booking.form.label.travelClass" choices="${travelClassChoices}"/>
+	<acme:input-money code="customer.booking.form.label.price" path="price"/>
 	<acme:input-textbox code="customer.booking.form.label.lastCreditNibble" path="lastCreditNibble"/>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?id=${id}"/>			
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>			
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

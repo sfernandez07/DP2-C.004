@@ -6,7 +6,7 @@ customer.booking.list.label.purchaseMoment = Purchase Moment
 customer.booking.list.label.travelClass = Travel Class
 customer.booking.list.label.price = Price
 customer.booking.list.label.lastCreditNibble = Last Credit Nibble
-custormer.booking.list.button.create = Create
+customer.booking.list.button.create = Create
 
 customer.booking.form.label.locatorCode = Locator Code:
 customer.booking.form.label.purchaseMoment = Purchase Moment:
@@ -15,3 +15,4 @@ customer.booking.form.label.price = Price:
 customer.booking.form.label.lastCreditNibble = Last Credit Nibble: (Optional)
 
 customer.booking.form.button.passengers = Passengers
+customer.booking.form.button.create = Create

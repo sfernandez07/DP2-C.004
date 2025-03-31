@@ -11,4 +11,4 @@
 	<acme:list-column code="customer.booking.list.label.lastCreditNibble" path="lastCreditNibble" width="20%"/>
 </acme:list>
 
-<acme:button code="custormer.booking.list.button.create" action="/customer/booking/create"/>
+<acme:button code="customer.booking.list.button.create" action="/customer/booking/create"/>
