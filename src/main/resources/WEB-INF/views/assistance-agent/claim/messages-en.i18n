@@ -16,4 +16,8 @@ assistance-agent.claim.form.label.status = Status
 assistance-agent.claim.form.label.flight-leg = Flight Leg
 
 assistance-agent.claim.form.button.create = Create
+assistance-agent.claim.form.button.update = Update
+assistance-agent.claim.form.button.delete = Delete
+assistance-agent.claim.form.button.publish = Publish
+
 assistance-agent.claim.list.button.create = Create

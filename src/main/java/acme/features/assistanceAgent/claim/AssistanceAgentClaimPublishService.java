@@ -10,13 +10,11 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
-import acme.entities.claims.ClaimStatus;
-import acme.entities.claims.ClaimType;
 import acme.entities.flights.FlightLeg;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimCreateService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimPublishService extends AbstractGuiService<AssistanceAgent, Claim> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -27,19 +25,26 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Claim claim;
+		AssistanceAgent assistanceAgent;
+
+		masterId = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(masterId);
+		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
+		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Claim claim;
-		AssistanceAgent assistanceAgent;
+		int id;
 
-		assistanceAgent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
-
-		claim = new Claim();
-		claim.setDraftMode(true);
-		claim.setAssistanceAgent(assistanceAgent);
+		id = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(id);
 
 		super.getBuffer().addData(claim);
 	}
@@ -47,13 +52,13 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 	@Override
 	public void bind(final Claim claim) {
 		int legId;
-		FlightLeg leg;
+		FlightLeg flightLeg;
 
 		legId = super.getRequest().getData("flightLeg", int.class);
-		leg = this.repository.findLegById(legId);
+		flightLeg = this.repository.findLegById(legId);
 
 		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
-		claim.setFlightLeg(leg);
+		claim.setFlightLeg(flightLeg);
 	}
 
 	@Override
@@ -63,6 +68,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void perform(final Claim claim) {
+		claim.setDraftMode(false);
 		this.repository.save(claim);
 	}
 
@@ -70,22 +76,15 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 	public void unbind(final Claim claim) {
 		Collection<FlightLeg> flightLegs;
 		SelectChoices choices;
-		SelectChoices choicesStatus;
-		SelectChoices choiceType;
 		Dataset dataset;
 
 		flightLegs = this.repository.findLegsThatOccurred();
 		choices = SelectChoices.from(flightLegs, "flightNumber", claim.getFlightLeg());
-		choicesStatus = SelectChoices.from(ClaimStatus.class, claim.getStatus());
-		choiceType = SelectChoices.from(ClaimType.class, claim.getType());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status", "draftMode");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
 		dataset.put("flightLeg", choices.getSelected().getKey());
 		dataset.put("flightLegs", choices);
-		dataset.put("statuses", choicesStatus);
-		dataset.put("types", choiceType);
 
 		super.getResponse().addData(dataset);
 	}
-
 }

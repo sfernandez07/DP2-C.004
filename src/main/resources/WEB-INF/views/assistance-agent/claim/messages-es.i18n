@@ -16,4 +16,8 @@ assistance-agent.claim.form.label.status = Estado
 assistance-agent.claim.form.label.flight-leg = Tramo de Vuelo
 
 assistance-agent.claim.form.button.create = Crear
+assistance-agent.claim.form.button.update = Modificar
+assistance-agent.claim.form.button.delete = Borrar
+assistance-agent.claim.form.button.publish = Publicar
+
 assistance-agent.claim.list.button.create = Crear

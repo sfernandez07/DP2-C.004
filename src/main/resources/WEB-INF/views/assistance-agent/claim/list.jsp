@@ -8,7 +8,9 @@
 	<acme:list-column code="assistance-agent.claim.list.label.passengerEmail" path="passengerEmail" width="30%"/>
 	<acme:list-column code="assistance-agent.claim.list.label.type" path="type" width="20%"/>
 	<acme:list-column code="assistance-agent.claim.list.label.status" path="status" width="20%"/>
-	<acme:list-column code="assistance-agent.claim.list.label.flightLeg" path="flightLeg.flightNumber" width="10%"/>
+	<jstl:if test="${_command == 'pending-list'}">
+		<acme:list-column code="assistance-agent.claim.list.label.flightLeg" path="flightLeg.flightNumber" width="10%"/>
+	</jstl:if>
 	<acme:list-payload path="payload"/>
 </acme:list>
 
