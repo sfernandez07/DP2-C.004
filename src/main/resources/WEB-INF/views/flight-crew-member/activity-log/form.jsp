@@ -11,6 +11,10 @@
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show'}">		
 		</jstl:when>
+		
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="flight-crew-member.activity-log.form.button.create" action="/flight-crew-member/activity-log/create?masterId=${masterId}"/>
+		</jstl:when>
 	</jstl:choose>
 </acme:form>
 
