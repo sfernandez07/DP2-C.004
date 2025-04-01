@@ -31,7 +31,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void unbind(final Booking booking) {
-		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble");
+		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble", "flight");
 		super.getResponse().addData(dataset);
 	}
 }
