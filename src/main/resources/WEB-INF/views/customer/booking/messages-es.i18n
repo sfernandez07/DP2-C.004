@@ -14,5 +14,4 @@ customer.booking.form.label.travelClass = Clase de Viaje:
 customer.booking.form.label.price = Precio:
 customer.booking.form.label.lastCreditNibble = Últimos dígitos de la tarjeta: (Optional)
 
-customer.booking.form.button.passengers = Pasajeros
 customer.booking.form.button.create = Crear
