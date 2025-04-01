@@ -1,6 +1,8 @@
 
 package acme.features.assistanceAgent.claim;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -10,6 +12,7 @@ import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.ClaimType;
+import acme.entities.flights.FlightLeg;
 import acme.realms.AssistanceAgent;
 
 @GuiService
@@ -50,17 +53,23 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 
 	@Override
 	public void unbind(final Claim claim) {
+		Collection<FlightLeg> flightLegs;
+		SelectChoices choices;
 		Dataset dataset;
 		SelectChoices choicesStatus;
 		SelectChoices choiceType;
 
+		flightLegs = this.repository.findAllFlightLegs();
+		choices = SelectChoices.from(flightLegs, "flightNumber", claim.getFlightLeg());
 		choicesStatus = SelectChoices.from(ClaimStatus.class, claim.getStatus());
 		choiceType = SelectChoices.from(ClaimType.class, claim.getType());
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", //
-			"status", "flightLeg.flightNumber", "draftMode");
+			"status", "draftMode");
 		dataset.put("statuses", choicesStatus);
 		dataset.put("types", choiceType);
+		dataset.put("flightLeg", choices.getSelected().getKey());
+		dataset.put("flightLegs", choices);
 
 		super.getResponse().addData(dataset);
 	}

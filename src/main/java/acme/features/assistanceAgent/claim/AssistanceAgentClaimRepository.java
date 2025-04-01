@@ -29,6 +29,9 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 	@Query("select l from FlightLeg l where l.id = :legId")
 	FlightLeg findLegById(int legId);
 
+	@Query("select l from FlightLeg l")
+	Collection<FlightLeg> findAllFlightLegs();
+
 	@Query("select l from FlightLeg l where l.status IN(acme.entities.flights.LegStatus.LANDED)")
 	Collection<FlightLeg> findLegsThatOccurred();
 }
