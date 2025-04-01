@@ -10,6 +10,8 @@ flight-crew-member.flight-assignment.form.label.duty = Duty:
 flight-crew-member.flight-assignment.form.label.lastUpdate = Last Update:
 flight-crew-member.flight-assignment.form.label.status = Status:
 flight-crew-member.flight-assignment.form.label.remarks = Remarks: (Optional)
+flight-crew-member.flight-assignment.form.label.crew = Miembro Tripulación
+flight-crew-member.flight-assignment.form.label.flightLeg = Tramo Vuelo
 
 flightCrewMember.flightAssignment.form.button.flightLeg = FlightLeg
 flightCrewMember.flightAssignment.form.button.flightCrewMember = CrewMember
@@ -17,3 +19,7 @@ flightCrewMember.flightAssignment.form.button.activityLog = ActivityLog
 
 flight-crew-member.flight-assignment.list.button.create = Create
 flight-crew-member.flight-assignment.form.button.create = Create
+flight-crew-member.flight-assignment.form.button.update = Update
+flight-crew-member.flight-assignment.form.button.delete = Delete
+flight-crew-member.flight-assignment.form.button.activity-log = Activity Logs
+flight-crew-member.flight-assignment.form.button.publish = Publish
