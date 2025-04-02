@@ -51,7 +51,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 
 	@Override
 	public void unbind(final ActivityLog log) {
-		Dataset dataset = super.unbindObject(log, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		Dataset dataset = super.unbindObject(log, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 		dataset.put("assignmentId", super.getRequest().getData("assignmentId", int.class));
 
 		super.getResponse().addData(dataset);
