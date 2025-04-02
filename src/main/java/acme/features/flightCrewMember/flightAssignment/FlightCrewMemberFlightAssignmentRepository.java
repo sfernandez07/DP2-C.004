@@ -2,6 +2,7 @@
 package acme.features.flightCrewMember.flightAssignment;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +20,12 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 
 	@Query("select b from FlightAssignment b where b.flightCrewMember.id = :id")
 	Collection<FlightAssignment> findFlightAssignmentsByCrewId(int id);
+
+	@Query("select fa from FlightAssignment fa where fa.flightCrewMember.id = :id and fa.flightLeg.scheduledArrival > :currentMoment")
+	Collection<FlightAssignment> findPlannedAssignmentsByCrewId(int id, Date currentMoment);
+
+	@Query("select fa from FlightAssignment fa where fa.flightCrewMember.id = :id and fa.flightLeg.scheduledArrival <= :currentMoment")
+	Collection<FlightAssignment> findCompletedAssignmentsByCrewId(int id, Date currentMoment);
 
 	@Query("select fa from FlightAssignment fa where fa.id = :id")
 	FlightAssignment findOneById(int id);
