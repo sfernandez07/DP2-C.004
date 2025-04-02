@@ -8,6 +8,7 @@
 	<acme:list-column code="flight-crew-member.flight-assignment.list.label.lastUpdate" path="lastUpdate" width="20%"/>
 	<acme:list-column code="flight-crew-member.flight-assignment.list.label.status" path="status" width="20%"/>
 	<acme:list-column code="flight-crew-member.flight-assignment.list.label.remarks" path="remarks" width="20%"/>
+	
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">

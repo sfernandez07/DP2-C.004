@@ -72,7 +72,7 @@ public class FlightAssignmentCreateService extends AbstractGuiService<FlightCrew
 	@Override
 	public void unbind(final FlightAssignment assignment) {
 		FlightCrewMember crewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-		Dataset dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks");
+		Dataset dataset = super.unbindObject(assignment, "duty", "lastUpdate", "status", "remarks", "draftMode");
 		//status choices
 		SelectChoices statusChoices = SelectChoices.from(AssignmentStatus.class, assignment.getStatus());
 		dataset.put("statusChoices", statusChoices);
