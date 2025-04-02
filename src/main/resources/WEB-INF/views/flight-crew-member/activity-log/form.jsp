@@ -18,7 +18,7 @@
             <acme:submit code="flight-crew-member.activity-log.form.button.delete" action="/flight-crew-member/activity-log/delete"/>
         </jstl:when>
     </jstl:choose>
-        <jstl:if test="${acme:anyOf(_command, 'show|update') && draftMode == false}">
+        <jstl:if test="${acme:anyOf(_command, 'show|update') && draftMode == false && draftModeFlightAssignment == true}">
             <acme:submit code="flight-crew-member.activity-log.form.button.publish" action="/flight-crew-member/activity-log/publish"/>
         </jstl:if>
 </acme:form>
