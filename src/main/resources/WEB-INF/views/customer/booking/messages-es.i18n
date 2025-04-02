@@ -13,6 +13,7 @@ customer.booking.form.label.purchaseMoment = Momento de Compra:
 customer.booking.form.label.travelClass = Clase de Viaje:
 customer.booking.form.label.price = Precio:
 customer.booking.form.label.lastCreditNibble = Últimos dígitos de la tarjeta: (Optional)
+customer.booking.form.label.flight = Flight
 
 customer.booking.form.button.create = Crear
 customer.booking.form.button.passengers = Pasajeros de la reserva
