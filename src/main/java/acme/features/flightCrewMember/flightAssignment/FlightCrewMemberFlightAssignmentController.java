@@ -14,28 +14,35 @@ import acme.realms.FlightCrewMember;
 public class FlightCrewMemberFlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightCrewMemberFlightAssignmentListService	listService;
+	private FlightCrewMemberFlightAssignmentListService			listService;
 
 	@Autowired
-	private FlightAssignmentShowService					showService;
+	private FlightAssignmentCompletedLegsAssignmentListService	listCompletedService;
 
 	@Autowired
-	private FlightAssignmentCreateService				createService;
+	private FlightAssignmentPlannedLegsAssignmentListService	listPlannedService;
 
 	@Autowired
-	private FlightAssignmentDeleteService				deteteService;
+	private FlightAssignmentShowService							showService;
 
 	@Autowired
-	private FlightAssignmentUpdateService				updateService;
+	private FlightAssignmentCreateService						createService;
 
 	@Autowired
-	private FlightAssignmentPublishService				publishService;
+	private FlightAssignmentDeleteService						deteteService;
+
+	@Autowired
+	private FlightAssignmentUpdateService						updateService;
+
+	@Autowired
+	private FlightAssignmentPublishService						publishService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		System.out.println("Inicializando FlightAssignmentController");
-		super.addBasicCommand("list", this.listService);
+		super.addCustomCommand("completed-list", "list", this.listCompletedService);
+		super.addCustomCommand("planned-list", "list", this.listPlannedService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deteteService);

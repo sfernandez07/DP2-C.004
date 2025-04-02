@@ -24,3 +24,4 @@ flight-assignment-16,member3,flight-leg-08,CABIN_ATTENDANT,2024/06/15 16:00,PEND
 flight-assignment-17,member4,flight-leg-08,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,<marquee>Hacked</marquee>,TRUE
 flight-assignment-18,member3,flight-leg-04,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,<script>alert(‘Hacked!’);</script>,TRUE
 flight-assignment-19,member3,flight-leg-05,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,' or 'A' = 'A,TRUE
+flight-assignment-20,member1,flight-leg-13,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE

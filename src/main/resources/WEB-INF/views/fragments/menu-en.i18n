@@ -39,6 +39,8 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.flightCrewMember = Flight Crew Member
 master.menu.flightCrewMember.list-my-flightAssignments = My flight Assignments
+master.menu.flightCrewMember.list-completed-assignments = Completed Assignments
+master.menu.assistance-agent.list-planned-assignments = Planned Assignments
 
 # master.menu.customer ##########################################################
 
