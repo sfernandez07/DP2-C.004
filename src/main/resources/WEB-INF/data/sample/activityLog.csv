@@ -1,12 +1,12 @@
 key,key:flight-assignment,registrationMoment,typeOfIncident,description,severityLevel,draftMode
 # base entity,"","","","",""
-activity-log-00,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,TRUE
+activity-log-00,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,FALSE
 # registration-moment - standard variations,"","","","",""
-activity-log-01,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,TRUE
-activity-log-02,flight-assignment-00,2024/06/15 19:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,TRUE
-activity-log-03,flight-assignment-00,2024/06/15 22:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,TRUE
+activity-log-01,flight-assignment-00,2024/06/15 18:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,FALSE
+activity-log-02,flight-assignment-00,2024/06/15 19:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,FALSE
+activity-log-03,flight-assignment-00,2024/06/15 22:00,Turbulencias,Se ma movido mucho el avion por el mal tiempo,6,FALSE
 # type-of-incident - standard variations,"","","","",""
-activity-log-04,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit ames,Se ma movido mucho el avion por el mal tiempo,6,TRUE
+activity-log-04,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit ames,Se ma movido mucho el avion por el mal tiempo,6,FALSE
 activity-log-05,flight-assignment-00,2024/06/15 18:00,L,Se ma movido mucho el avion por el mal tiempo,6,TRUE
 activity-log-06,flight-assignment-00,2024/06/15 18:00,Lo,Se ma movido mucho el avion por el mal tiempo,6,TRUE
 activity-log-07,flight-assignment-00,2024/06/15 18:00,Lorem ipsum dolor sit amet, consectetur adipiscinrSe ma movido mucho el avion por el mal tiempo,6,TRUE

@@ -19,6 +19,7 @@ public class CrewController extends AbstractGuiController<FlightCrewMember, Flig
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+
 	}
 
 }
