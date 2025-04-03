@@ -1,0 +1,3 @@
+acme.validation.tracking-log.resolutionPercentage.message = El porcentaje de resolución debe crecer monotónicamente.
+acme.validation.tracking-log.resolutionPercentage.status.message = Si el procentaje de resolucion es 100, el estado del registro de seguimiento debe aceptar o rechazar la Claim.
+acme.validation.tracking-log.resolutionPercentage.resolution.message = Si la reclamación ha sido rechazada o completada, debe haber una resolución.
