@@ -1,5 +1,5 @@
 
-package acme.features.technicians;
+package acme.features.technicians.maintenanceRecord;
 
 import java.util.Collection;
 
@@ -32,7 +32,8 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 
 	@Override
 	public void unbind(final MaintenanceRecord record) {
-		Dataset dataset = super.unbindObject(record, "maintenanceMoment", "status", "nextInspectionDueDate", "estimatedCost");
+		Dataset dataset = super.unbindObject(record, "maintenanceMoment", "status", "nextInspectionDueDate", "estimatedCost", "aircraft.registrationNumber");
+		super.addPayload(dataset, record, "notes");
 		super.getResponse().addData(dataset);
 	}
 }
