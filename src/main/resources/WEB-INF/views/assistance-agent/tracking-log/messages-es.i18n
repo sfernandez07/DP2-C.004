@@ -1,0 +1,21 @@
+assistance-agent.tracking-log.list.title = Registro de Seguimiento
+assistance-agent.tracking-log.form.title = Datos de Registro de Seguimiento
+
+assistance-agent.tracking-log.list.label.updateMoment = Fecha de Actualización
+assistance-agent.tracking-log.list.label.step = Paso
+assistance-agent.tracking-log.list.label.resolutionPercentage = Porcentaje de Resolución
+assistance-agent.tracking-log.list.label.status = Estado
+assistance-agent.tracking-log.list.label.resolution = Resolución
+
+assistance-agent.tracking-log.form.label.updateMoment = Fecha de Actualización
+assistance-agent.tracking-log.form.label.step = Paso
+assistance-agent.tracking-log.form.label.resolutionPercentage = Porcentaje de Resolución
+assistance-agent.tracking-log.form.label.status = Estado
+assistance-agent.tracking-log.form.label.resolution = Resolución
+
+assistance-agent.tracking-log.form.button.create = Crear
+assistance-agent.tracking-log.form.button.update = Modificar
+assistance-agent.tracking-log.form.button.delete = Borrar
+assistance-agent.tracking-log.form.button.publish = Publicar
+
+assistance-agent.tracking-log.list.button.create = Crear

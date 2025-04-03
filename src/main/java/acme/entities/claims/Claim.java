@@ -62,16 +62,22 @@ public class Claim extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
+
+	public void setStatus(final ClaimStatus status) {
+		this.status = status;
+	}
+
 	// Relationships ----------------------------------------------------------
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private AssistanceAgent		assistanceAgent;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private FlightLeg			flightLeg;
+	private AssistanceAgent	assistanceAgent;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private FlightLeg		flightLeg;
 
 }

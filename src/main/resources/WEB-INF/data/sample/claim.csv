@@ -29,10 +29,10 @@ claim-21,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, cons
 claim-22,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",SECURITY_INCIDENT,PENDING,TRUE,agent-01,flight-leg-01
 claim-23,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",OTHER_ISSUES,PENDING,TRUE,agent-01,flight-leg-01
 # status - standard variations,"","","","","",""
-claim-24,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,ACCEPTED,TRUE,agent-01,flight-leg-01
-claim-25,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,REJECTED,TRUE,agent-01,flight-leg-01
+claim-24,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,ACCEPTED,FALSE,agent-01,flight-leg-01
+claim-25,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,REJECTED,FALSE,agent-01,flight-leg-01
 # draft-mode - standard variations,"","","","","","","",""
-claim-26,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,PENDING,FALSE,agent-01,flight-leg-01
+claim-26,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,ACCEPTED,FALSE,agent-01,flight-leg-01
 # assistance-agent - standard variations,"","","","","",""
 claim-27,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FLIGHT_ISSUES,PENDING,TRUE,agent-02,flight-leg-01
 # flight-leg- standard variations,"","","","","","",""

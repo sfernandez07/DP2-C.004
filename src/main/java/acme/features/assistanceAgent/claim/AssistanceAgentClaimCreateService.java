@@ -40,6 +40,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		claim = new Claim();
 		claim.setDraftMode(true);
 		claim.setAssistanceAgent(assistanceAgent);
+		claim.setStatus(ClaimStatus.PENDING);
 
 		super.getBuffer().addData(claim);
 	}
@@ -54,6 +55,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
 		claim.setFlightLeg(leg);
+		claim.setStatus(ClaimStatus.PENDING);
 	}
 
 	@Override

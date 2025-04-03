@@ -10,6 +10,8 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimStatus;
+import acme.entities.claims.ClaimType;
 import acme.entities.flights.FlightLeg;
 import acme.realms.AssistanceAgent;
 
@@ -33,7 +35,9 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		masterId = super.getRequest().getData("id", int.class);
 		claim = this.repository.findClaimById(masterId);
 		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
-		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+		status = claim != null && claim.isDraftMode() && //
+			(claim.getStatus() == ClaimStatus.ACCEPTED || claim.getStatus() == ClaimStatus.REJECTED)//
+			&& super.getRequest().getPrincipal().hasRealm(assistanceAgent);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -77,11 +81,18 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		Collection<FlightLeg> flightLegs;
 		SelectChoices choices;
 		Dataset dataset;
+		SelectChoices choicesStatus;
+		SelectChoices choiceType;
 
-		flightLegs = this.repository.findLegsThatOccurred();
+		flightLegs = this.repository.findAllFlightLegs();
 		choices = SelectChoices.from(flightLegs, "flightNumber", claim.getFlightLeg());
+		choicesStatus = SelectChoices.from(ClaimStatus.class, claim.getStatus());
+		choiceType = SelectChoices.from(ClaimType.class, claim.getType());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", //
+			"status", "draftMode");
+		dataset.put("statuses", choicesStatus);
+		dataset.put("types", choiceType);
 		dataset.put("flightLeg", choices.getSelected().getKey());
 		dataset.put("flightLegs", choices);
 
