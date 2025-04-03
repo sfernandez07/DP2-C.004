@@ -47,6 +47,17 @@
  			<acme:menu-suboption code="master.menu.assistance-agent.list-completed-claims" action="/assistance-agent/claim/completed-list"/>
  			 <acme:menu-suboption code="master.menu.assistance-agent.list-pending-claims" action="/assistance-agent/claim/pending-list"/>
  		</acme:menu-option>
+  
+		<acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMember')">
+			<acme:menu-suboption code="master.menu.flightCrewMember.list-completed-assignments" action="/flight-crew-member/flight-assignment/completed-list"/>
+ 			<acme:menu-suboption code="master.menu.assistance-agent.list-planned-assignments" action="/flight-crew-member/flight-assignment/planned-list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
+			<acme:menu-suboption code="master.menu.customer.list-my-bookings" action="/customer/booking/list"/>
+			<acme:menu-suboption code="master.menu.customer.list-passengers" action="/customer/passenger/list"/>
+		</acme:menu-option>
+
 	</acme:menu-left>
 
 	<acme:menu-right>		
