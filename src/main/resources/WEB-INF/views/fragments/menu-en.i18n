@@ -46,6 +46,7 @@ master.menu.assistance-agent.list-planned-assignments = Planned Assignments
 
 master.menu.customer = Customer
 master.menu.customer.list-my-bookings = My bookings
+master.menu.customer.list-passengers = Passengers
 
 # master.menu.user-account ####################################################
 

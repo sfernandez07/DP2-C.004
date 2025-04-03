@@ -44,6 +44,7 @@ master.menu.flightCrewMember.list-my-flightAssignments = Mis asignaciones de vue
 
 master.menu.customer = Cliente
 master.menu.customer.list-my-bookings = Mis reservas
+master.menu.customer.list-passengers = Pasajeros
 
 # master.menu.user-account ####################################################
 
