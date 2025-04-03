@@ -58,9 +58,11 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Collection<Flight> flights = this.repository.findAllFlights();
 		SelectChoices choices2;
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble", "flight");
 		choices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
-		choices2 = SelectChoices.from(flights, "tag", booking.getFlight());
+		choices2 = SelectChoices.from(flights, "description", booking.getFlight());
+
+		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble");
+		dataset.put("flight", choices2.getSelected().getKey());
 		dataset.put("travelClassChoices", choices);
 		dataset.put("flightChoices", choices2);
 
