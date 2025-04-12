@@ -52,7 +52,11 @@ public class FlightLeg extends AbstractEntity {
 	@Automapped
 	@Valid
 	@Mandatory
-	private LegStatus			status;
+	private LegStatus			legStatus;
+
+	@Mandatory
+	@Automapped
+	private Status				status;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -83,8 +87,8 @@ public class FlightLeg extends AbstractEntity {
 	@Mandatory
 	private Aircraft	aircraft;
 
-	@ManyToOne(optional = false)
 	@Valid
 	@Mandatory
+	@ManyToOne(optional = false)
 	private Flight		flight;
 }

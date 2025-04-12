@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.TrackingLog;
 import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
@@ -37,42 +36,35 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			super.state(context, false, "*", "");
 		else {
 			{
-				boolean correctStatus;
+				boolean correctStatus = true;
 
-				if (trackingLog.getResolutionPercentage() < 100)
-					correctStatus = trackingLog.getStatus() == TrackingLogStatus.PENDING;
-				else
+				if (trackingLog.getResolutionPercentage() == 100)
 					correctStatus = trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED;
 
-				super.state(context, correctStatus, "*", "Si el procentaje de resolucion es 100, el TrackingLog debe aceptar o rechazar la Claim");
+				super.state(context, correctStatus, "status", "acme.validation.tracking-log.resolutionPercentage.status.message");
 			}
 			{
 				boolean correctResolution;
 
 				correctResolution = trackingLog.getStatus() == TrackingLogStatus.PENDING || trackingLog.getResolution() != null && !trackingLog.getResolution().isBlank();
 
-				super.state(context, correctResolution, "*", "Si el estado del TrackingLog no es PENDING, debe tener una resolucion");
-			}
-			{
-				boolean sameClaimStatus;
-
-				if (trackingLog.getStatus() == TrackingLogStatus.PENDING)
-					sameClaimStatus = true;
-				else if (trackingLog.getStatus() == TrackingLogStatus.ACCEPTED)
-					sameClaimStatus = trackingLog.getClaim().getStatus() == ClaimStatus.ACCEPTED;
-				else
-					sameClaimStatus = trackingLog.getClaim().getStatus() == ClaimStatus.REJECTED;
-
-				super.state(context, sameClaimStatus, "*", "Si el estado del TrackingLog no es PENDING, la claim debe estar rechazada o aceptada al igual que el TrackingLog asociado");
+				super.state(context, correctResolution, "resolution", "acme.validation.tracking-log.resolutionPercentage.resolution.message");
 			}
 			{
 				boolean correctResolutionPercentaje;
 				List<TrackingLog> pastTrackingLogs = this.respository.findPreviousTrackingLogs(trackingLog.getClaim().getId(), trackingLog.getUpdateMoment());
+				List<TrackingLog> nextTrackingLogs = this.respository.findNextTrackingLogs(trackingLog.getClaim().getId(), trackingLog.getUpdateMoment());
 				if (pastTrackingLogs.isEmpty())
 					correctResolutionPercentaje = true;
 				else
 					correctResolutionPercentaje = pastTrackingLogs.get(0).getResolutionPercentage() <= trackingLog.getResolutionPercentage();
-				super.state(context, correctResolutionPercentaje, "*", "El porcentaje de resolucion debe crecer monotonicamente");
+				if (correctResolutionPercentaje)
+					if (nextTrackingLogs.isEmpty())
+						correctResolutionPercentaje = true;
+					else
+						correctResolutionPercentaje = nextTrackingLogs.get(0).getResolutionPercentage() >= trackingLog.getResolutionPercentage();
+
+				super.state(context, correctResolutionPercentaje, "resolutionPercentage", "acme.validation.tracking-log.resolutionPercentage.message");
 			}
 		}
 

@@ -3,28 +3,62 @@ package acme.constraints;
 
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.client.components.principals.DefaultUserIdentity;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.features.airlineManager.AirlineManagerRepository;
 import acme.realms.AirlineManager;
 
 @Validator
 public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManager, AirlineManager> {
+
+	@Autowired
+	private AirlineManagerRepository repository;
+
+
+	@Override
+	protected void initialise(final ValidAirlineManager annotation) {
+		assert annotation != null;
+	}
 
 	@Override
 	public boolean isValid(final AirlineManager airlineManager, final ConstraintValidatorContext context) {
 		assert context != null;
 
 		boolean result;
+
 		if (airlineManager == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean correctIdentifierNumber;
+			DefaultUserIdentity identity = airlineManager.getIdentity();
 
-			correctIdentifierNumber = airlineManager.getIdentifierNumber().startsWith("" + airlineManager.getIdentity().getName().charAt(0) + airlineManager.getIdentity().getSurname().charAt(0));
-			super.state(context, correctIdentifierNumber, "managerCode", "Manager code's first two letters correspond to his initials");
+			if (identity != null && identity.getName() != null && identity.getSurname() != null) {
+				String name = identity.getName().trim();
+				String surname = identity.getSurname().trim();
+
+				char nameInitial = name.charAt(0);
+				char surnameInitial = surname.split(" ")[0].charAt(0);
+
+				String expectedPrefix = "" + nameInitial + surnameInitial;
+				String identifier = airlineManager.getIdentifierNumber();
+
+				boolean matchesPattern = identifier != null && identifier.matches("^[A-Z]{2,3}\\d{6}$");
+				boolean startsWithPrefix = identifier != null && identifier.startsWith(expectedPrefix);
+
+				boolean alreadyExists = this.repository.existsByIdentifierNumber(identifier);
+				AirlineManager existing = this.repository.findByIdentifierNumber(identifier);
+
+				boolean isUnique = !alreadyExists || existing != null && existing.getId() == airlineManager.getId();
+
+				boolean isValidIdentifier = matchesPattern && startsWithPrefix && isUnique;
+
+				super.state(context, isValidIdentifier, "identifierNumber", "acme.validation.airline-manager.flight.identifier-number.invalid.message");
+			}
 		}
-		result = !super.hasErrors(context);
 
+		result = !super.hasErrors(context);
 		return result;
 	}
 

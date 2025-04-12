@@ -35,6 +35,35 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.technician #######################################################
+
+master.menu.technician = Technician
+master.menu.technician.list-maintenance-record = Maintenance Records
+master.menu.technician.list-task = Tasks
+
+# master.menu.assistance-agent ##########################################################
+
+master.menu.assistance-agent = Assistance Agent
+master.menu.assistance-agent.list-pending-claims = Pending Claims
+master.menu.assistance-agent.list-completed-claims = Completed Claims
+
+# master.menu.flightCrewMember ##########################################################
+
+master.menu.flightCrewMember = Flight Crew Member
+master.menu.flightCrewMember.list-my-flightAssignments = My flight Assignments
+master.menu.flightCrewMember.list-completed-assignments = Completed Assignments
+master.menu.assistance-agent.list-planned-assignments = Planned Assignments
+
+# master.menu.customer ##########################################################
+
+master.menu.customer = Customer
+master.menu.customer.list-my-bookings = My bookings
+master.menu.customer.list-passengers = Passengers
+
+# master.menu.airlinemanager ##########################################################
+
+master.menu.airline-manager = Manage flights
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
