@@ -11,3 +11,4 @@ customer.passenger.label.passportNumber = Pasaporte:
 customer.passenger.form.label.dateOfBirth = Fecha de Nacimiento:
 customer.passenger.form.label.specialNeeds = Necesidades especiales:
 customer.passenger.form.button.create = Crear
+customer.passenger.form.button.publish = Publicar

@@ -1,26 +1,26 @@
-key,locatorCode,purchaseMoment,travelClass,price,lastCreditNibble,key:customer,key:flight
+key,locatorCode,purchaseMoment,travelClass,price,lastCreditNibble,key:customer,key:flight,draftMode
 # base entity,"","","","","","",""
-booking-01,123456,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
+booking-01,123456,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
 # locatorCode - standard variations,"","","","","","",""
-booking-02,A1B2C3,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-03,X7Y8Z9,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-04,D4E5F6,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-05,QW12ER34,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
+booking-02,A1B2C3,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-03,X7Y8Z9,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-04,D4E5F6,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-05,QW12ER34,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
 # purchaseMoment - standard variations,"","","","","","",""
-booking-06,ZX78Y9,2000/01/01 00:00,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-07,J4K5L6M7,2000/01/01 00:01,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-08,LM90NO12,2024/12/31 23:59,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-09,H7G8F9D2,2025/01/01 00:00,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
+booking-06,ZX78Y9,2000/01/01 00:00,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-07,J4K5L6M7,2000/01/01 00:01,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-08,LM90NO12,2024/12/31 23:59,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-09,H7G8F9D2,2025/01/01 00:00,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
 # travelClass - standard variations,"","","","","","",""
-booking-10,W1X2Y3Z4,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01
-booking-11,P4Q5R6S7,2021/11/25 12:36,ECONOMY,EUR 2000.00,1234,customer1,flight-01
+booking-10,W1X2Y3Z4,2021/11/25 12:36,BUSSINESS,EUR 2000.00,1234,customer1,flight-01,TRUE
+booking-11,P4Q5R6S7,2021/11/25 12:36,ECONOMY,EUR 2000.00,1234,customer1,flight-01,TRUE
 # price - standard variations,"","","","","","",""
-booking-12,ABCDEFG,2021/11/25 12:36,BUSSINESS,EUR 0.00,1234,customer1,flight-01
-booking-13,HIJKLMN,2021/11/25 12:36,BUSSINESS,EUR 0.01,1234,customer1,flight-01
-booking-14,XYZABCD,2021/11/25 12:36,BUSSINESS,EUR 999999.99,1234,customer1,flight-01
-booking-15,PQRSTUV,2021/11/25 12:36,BUSSINESS,EUR 1000000.00,1234,customer1,flight-01
+booking-12,ABCDEFG,2021/11/25 12:36,BUSSINESS,EUR 0.00,1234,customer1,flight-01,TRUE
+booking-13,HIJKLMN,2021/11/25 12:36,BUSSINESS,EUR 0.01,1234,customer1,flight-01,TRUE
+booking-14,XYZABCD,2021/11/25 12:36,BUSSINESS,EUR 999999.99,1234,customer1,flight-01,TRUE
+booking-15,PQRSTUV,2021/11/25 12:36,BUSSINESS,EUR 1000000.00,1234,customer1,flight-01,TRUE
 # lastCreditNibble - standard variations,"","","","","","",""
-booking-16,LMNOPQRS,2021/11/25 12:36,BUSSINESS,EUR 2000.00,0000,customer1,flight-01
-booking-17,QRSTUVWX,2021/11/25 12:36,BUSSINESS,EUR 2000.00,0001,customer1,flight-01
-booking-18,BCDEFGHI,2021/11/25 12:36,BUSSINESS,EUR 2000.00,9998,customer1,flight-01
-booking-19,GHIJKLMN,2021/11/25 12:36,BUSSINESS,EUR 2000.00,9999,customer1,flight-01
+booking-16,LMNOPQRS,2021/11/25 12:36,BUSSINESS,EUR 2000.00,0000,customer1,flight-01,TRUE
+booking-17,QRSTUVWX,2021/11/25 12:36,BUSSINESS,EUR 2000.00,0001,customer1,flight-01,TRUE
+booking-18,BCDEFGHI,2021/11/25 12:36,BUSSINESS,EUR 2000.00,9998,customer1,flight-01,TRUE
+booking-19,GHIJKLMN,2021/11/25 12:36,BUSSINESS,EUR 2000.00,9999,customer1,flight-01,TRUE

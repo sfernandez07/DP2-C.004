@@ -29,6 +29,8 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	@Override
 	public void load() {
 		Booking booking = new Booking();
+		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
+		booking.setCustomer(customer);
 		super.getBuffer().addData(booking);
 	}
 
