@@ -15,7 +15,7 @@ import acme.entities.flights.Flight;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingCreateService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingDeleteService extends AbstractGuiService<Customer, Booking> {
 
 	@Autowired
 	private CustomerBookingRepository repository;
@@ -23,25 +23,27 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int bookingId = super.getRequest().getData("id", int.class);
+		Booking booking = this.repository.findBookingById(bookingId);
+		status = booking != null && booking.getDraftMode();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Booking booking = new Booking();
-		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
-		booking.setCustomer(customer);
-		booking.setDraftMode(true);
-		super.getBuffer().addData(booking);
+		Booking b;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		b = this.repository.findBookingById(id);
+
+		super.getBuffer().addData(b);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		Integer flightId;
-		flightId = super.getRequest().getData("flight", int.class);
-		Flight flight = this.repository.findFlightById(flightId);
 		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble");
-		booking.setFlight(flight);
 	}
 
 	@Override
@@ -51,7 +53,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void perform(final Booking booking) {
-		this.repository.save(booking);
+		this.repository.delete(booking);
 	}
 
 	@Override

@@ -17,3 +17,5 @@ customer.booking.form.label.flight = Flight
 
 customer.booking.form.button.create = Crear
 customer.booking.form.button.passengers = Pasajeros de la reserva
+customer.booking.form.button.update = Actualizar
+customer.booking.form.button.delete = Borrar
