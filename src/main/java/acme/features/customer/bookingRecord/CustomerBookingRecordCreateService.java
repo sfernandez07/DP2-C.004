@@ -41,7 +41,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		passengerId = super.getRequest().getData("passenger", int.class);
 		passenger = this.repository.findPassengerById(passengerId);
-		bookingId = super.getRequest().getData("passenger", int.class);
+		bookingId = super.getRequest().getData("booking", int.class);
 		booking = this.repository.findBookingById(bookingId);
 
 		super.bindObject(br);
@@ -72,10 +72,8 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		choicesBookings = SelectChoices.from(bookings, "locatorCode", br.getBooking());
 
 		dataset = super.unbindObject(br);
-		dataset.put("passenger", choicesPassengers.getSelected().getKey());
-		dataset.put("passengers", choicesPassengers);
-		dataset.put("booking", choicesBookings.getSelected().getKey());
-		dataset.put("bookings", choicesBookings);
+		dataset.put("passengerChoices", choicesPassengers);
+		dataset.put("bookingChoices", choicesBookings);
 
 		super.getResponse().addData(dataset);
 	}
