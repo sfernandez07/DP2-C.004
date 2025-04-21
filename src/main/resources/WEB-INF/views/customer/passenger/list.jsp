@@ -6,5 +6,11 @@
 <acme:list>
 	<acme:list-column code="customer.passenger.list.label.passportNumber" path="passportNumber" width="40%"/>
 </acme:list>
-
-<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+<jstl:choose>
+	<jstl:when test="${_command == 'list'}">
+		<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+	</jstl:when>
+	<jstl:when test="${_command == 'list-booked'}">
+		<acme:button code="customer.passenger.list.button.add" action="/customer/bookingRecord/create"/>
+	</jstl:when>
+</jstl:choose>
