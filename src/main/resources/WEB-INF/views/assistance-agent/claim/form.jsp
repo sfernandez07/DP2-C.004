@@ -21,7 +21,8 @@
 			<acme:submit code="assistance-agent.claim.form.button.publish" action="/assistance-agent/claim/publish"/>
 		</jstl:when>	
 	</jstl:choose>
-	
-	<acme:button code="assistance-agent.claim.form.button.tracking-logs" action="/assistance-agent/tracking-log/list?masterId=${id}"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:button code="assistance-agent.claim.form.button.tracking-logs" action="/assistance-agent/tracking-log/list?masterId=${id}"/>
+	</jstl:if>
 </acme:form>
 
