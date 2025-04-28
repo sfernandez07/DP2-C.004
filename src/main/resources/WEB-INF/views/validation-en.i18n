@@ -1,4 +1,6 @@
 acme.validation.tracking-log.resolutionPercentage.message = The resolution percentage must grow monotonically.
 acme.validation.tracking-log.resolutionPercentage.status.message = If the resolution percentage is 100, the Tracking Log should accept or reject the Claim.
 acme.validation.tracking-log.resolutionPercentage.resolution.message = If the claim is rejected or accepted, must have a resolution.
+acme.validation.tracking-log.publish.message = To publish the tracking record, the associated claim must have been rejected or completed.
 
+acme.validation.claim.status.message = Para publicar la reclamación, esta debe haber sido rechazada o completada.

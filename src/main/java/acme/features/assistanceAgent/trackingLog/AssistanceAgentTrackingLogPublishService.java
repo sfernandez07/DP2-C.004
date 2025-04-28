@@ -25,6 +25,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status;
+		boolean canPublish;
 		int trackingLogId;
 		TrackingLog trackingLog;
 		Claim claim;
@@ -32,8 +33,10 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		trackingLogId = super.getRequest().getData("id", int.class);
 		trackingLog = this.repository.findTrackingLogById(trackingLogId);
 		claim = trackingLog == null ? null : trackingLog.getClaim();
-		status = claim != null && !claim.isDraftMode() && trackingLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		status = claim != null && trackingLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		canPublish = !claim.isDraftMode();
 
+		super.state(canPublish, "", "acme.validation.tracking-log.publish.message");
 		super.getResponse().setAuthorised(status);
 	}
 

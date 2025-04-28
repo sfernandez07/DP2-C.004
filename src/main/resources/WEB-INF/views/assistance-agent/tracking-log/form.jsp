@@ -7,7 +7,7 @@
 	<acme:input-moment code="assistance-agent.tracking-log.form.label.updateMoment" path="updateMoment"/>
 	<acme:input-textbox code="assistance-agent.tracking-log.list.label.step" path="step" />
 	<acme:input-double code="assistance-agent.tracking-log.list.label.resolutionPercentage" path="resolutionPercentage"/>
-	<acme:input-select code="assistance-agent.tracking-log.list.label.status" path="status" choices="${statuses}" readonly="${_command != 'create'}"/>
+	<acme:input-select code="assistance-agent.tracking-log.list.label.status" path="status" choices="${statuses}"/>
 	<acme:input-textarea code="assistance-agent.tracking-log.list.label.resolution" path="resolution"/>
 
 	<jstl:choose>	 

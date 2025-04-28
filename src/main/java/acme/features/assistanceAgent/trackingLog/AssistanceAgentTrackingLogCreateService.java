@@ -9,7 +9,6 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
-import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.TrackingLog;
 import acme.entities.claims.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
@@ -51,6 +50,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		trackingLog.setStep("");
 		trackingLog.setResolutionPercentage(0.0);
 		trackingLog.setStatus(TrackingLogStatus.PENDING);
+		trackingLog.setDraftMode(true);
 		trackingLog.setResolution("");
 		trackingLog.setClaim(claim);
 
@@ -69,17 +69,20 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
-		int masterId;
-		Claim claim;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		claim = this.repository.findClaimById(masterId);
-		if (trackingLog.getStatus() == TrackingLogStatus.ACCEPTED)
-			claim.setStatus(ClaimStatus.ACCEPTED);
-		else if (trackingLog.getStatus() == TrackingLogStatus.REJECTED)
-			claim.setStatus(ClaimStatus.REJECTED);
-
-		this.repository.save(claim);
+		/*
+		 * int masterId;
+		 * Claim claim;
+		 * 
+		 * masterId = super.getRequest().getData("masterId", int.class);
+		 * claim = this.repository.findClaimById(masterId);
+		 * if(trackingLog.getResolutionPercentage()==100)
+		 * if (trackingLog.getStatus() == TrackingLogStatus.ACCEPTED)
+		 * claim.setStatus(ClaimStatus.ACCEPTED);
+		 * else if (trackingLog.getStatus() == TrackingLogStatus.REJECTED)
+		 * claim.setStatus(ClaimStatus.REJECTED);
+		 * 
+		 * this.repository.save(claim);
+		 */
 		this.repository.save(trackingLog);
 	}
 

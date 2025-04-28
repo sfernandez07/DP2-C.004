@@ -20,11 +20,8 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 	@Query("select t from TrackingLog t where t.claim.id = :claimId")
 	Collection<TrackingLog> findTrackingLogsByClaimId(int claimId);
 
-	@Query("select c from Claim c where c.assistanceAgent.id = :assistanceAgentId and c.status IN (acme.entities.claims.ClaimStatus.ACCEPTED, acme.entities.claims.ClaimStatus.REJECTED)")
-	Collection<Claim> findCompletedClaimsByAssistanceAgentId(int assistanceAgentId);
-
-	@Query("select c from Claim c where c.assistanceAgent.id = :assistanceAgentId and c.status IN (acme.entities.claims.ClaimStatus.PENDING)")
-	Collection<Claim> findPendingClaimsByAssistanceAgentId(int assistanceAgentId);
+	@Query("SELECT c FROM Claim c WHERE c.assistanceAgent.id = :assistanceAgentId")
+	Collection<Claim> findAllClaimsByAssistanceAgentId(int assistanceAgentId);
 
 	@Query("select l from FlightLeg l where l.id = :legId")
 	FlightLeg findLegById(int legId);
@@ -32,6 +29,6 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 	@Query("select l from FlightLeg l")
 	Collection<FlightLeg> findAllFlightLegs();
 
-	@Query("select l from FlightLeg l where l.status IN(acme.entities.flights.LegStatus.LANDED)")
+	@Query("select l from FlightLeg l where l.legStatus IN(acme.entities.flights.LegStatus.LANDED)")
 	Collection<FlightLeg> findLegsThatOccurred();
 }

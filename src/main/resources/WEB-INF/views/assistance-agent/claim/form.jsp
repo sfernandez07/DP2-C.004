@@ -8,7 +8,7 @@
 	<acme:input-textbox code="assistance-agent.claim.form.label.passengerEmail" path="passengerEmail"/>	
 	<acme:input-select code="assistance-agent.claim.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textarea code="assistance-agent.claim.form.label.description" path="description"/>
-	<acme:input-select code="assistance-agent.claim.form.label.status" path="status" choices="${statuses}" readonly="${true}"/>
+	<acme:input-textbox code="assistance-agent.claim.form.label.status" path="status" readonly="${true}"/>
 	<acme:input-select code="assistance-agent.claim.form.label.flight-leg" path="flightLeg"  choices="${flightLegs}"/>
 
 	<jstl:choose>	 
