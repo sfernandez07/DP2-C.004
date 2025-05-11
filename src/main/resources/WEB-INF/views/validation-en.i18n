@@ -3,4 +3,6 @@ acme.validation.tracking-log.resolutionPercentage.status.message = If the resolu
 acme.validation.tracking-log.resolutionPercentage.resolution.message = If the claim is rejected or accepted, must have a resolution.
 acme.validation.tracking-log.publish.message = To publish the tracking record, the associated claim must have been rejected or completed.
 
-acme.validation.claim.status.message = Para publicar la reclamación, esta debe haber sido rechazada o completada.
+acme.validation.tracking-log.updateMoment.message = The update moment must occur after the registration date of the associated claim. 
+
+acme.validation.claim.status.message = To publish the claim, it must have been rejected or completed. 

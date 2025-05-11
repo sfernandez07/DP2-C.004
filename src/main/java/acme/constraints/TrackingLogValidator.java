@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.entities.claims.Claim;
 import acme.entities.claims.TrackingLog;
 import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
@@ -27,19 +28,20 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 	@Override
 	public boolean isValid(final TrackingLog trackingLog, final ConstraintValidatorContext context) {
-		// HINT: job can be null
+
 		assert context != null;
 
 		boolean result;
 
-		if (trackingLog == null)
+		if (trackingLog == null) {
+			result = true;
 			super.state(context, false, "*", "");
-		else {
+		} else {
 			{
 				boolean correctStatus = true;
-
-				if (trackingLog.getResolutionPercentage() == 100)
-					correctStatus = trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED;
+				if (trackingLog.getResolutionPercentage() != null)
+					if (trackingLog.getResolutionPercentage() == 100)
+						correctStatus = trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED;
 
 				super.state(context, correctStatus, "status", "acme.validation.tracking-log.resolutionPercentage.status.message");
 			}
@@ -66,9 +68,17 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 				super.state(context, correctResolutionPercentaje, "resolutionPercentage", "acme.validation.tracking-log.resolutionPercentage.message");
 			}
-		}
+			{
+				boolean correctDate = true;
+				Claim claim = trackingLog.getClaim();
+				if (trackingLog.getUpdateMoment() != null && claim != null)
+					if (trackingLog.getUpdateMoment().before(claim.getRegistrationMoment()))
+						correctDate = false;
 
-		result = !super.hasErrors(context);
+				super.state(context, correctDate, "updateMoment", "acme.validation.tracking-log.updateMoment.message");
+			}
+			result = !super.hasErrors(context);
+		}
 
 		return result;
 	}

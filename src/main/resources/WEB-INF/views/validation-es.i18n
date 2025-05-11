@@ -3,4 +3,6 @@ acme.validation.tracking-log.resolutionPercentage.status.message = Si el procent
 acme.validation.tracking-log.resolutionPercentage.resolution.message = Si la reclamación ha sido rechazada o completada, debe haber una resolución.
 acme.validation.tracking-log.publish.message = Para publicar el registro de seguimiento, la reclamación asociada debe haber sido rechazada o completada. 
 
-acme.validation.claim.status.message= To publish the claim, it must have been rejected or completed.
+acme.validation.tracking-log.updateMoment.message = La fecha de actualización debe ser posterior a la fecha de registro de la reclamación asociada.
+
+acme.validation.claim.status.message = Para publicar la reclamación, esta debe haber sido rechazada o completada.
