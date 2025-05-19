@@ -53,7 +53,7 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
-		showCreate = claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		showCreate = (claim.isDraftMode() || !claim.isExceptionalTrackingLog()) && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);

@@ -31,7 +31,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
-		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		status = claim != null && (claim.isDraftMode() || !claim.isExceptionalTrackingLog()) && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,20 +69,13 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
-		/*
-		 * int masterId;
-		 * Claim claim;
-		 * 
-		 * masterId = super.getRequest().getData("masterId", int.class);
-		 * claim = this.repository.findClaimById(masterId);
-		 * if(trackingLog.getResolutionPercentage()==100)
-		 * if (trackingLog.getStatus() == TrackingLogStatus.ACCEPTED)
-		 * claim.setStatus(ClaimStatus.ACCEPTED);
-		 * else if (trackingLog.getStatus() == TrackingLogStatus.REJECTED)
-		 * claim.setStatus(ClaimStatus.REJECTED);
-		 * 
-		 * this.repository.save(claim);
-		 */
+		int masterId;
+		Claim claim;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		claim = this.repository.findClaimById(masterId);
+		if (!claim.isDraftMode())
+			claim.setExceptionalTrackingLog(true);
 		this.repository.save(trackingLog);
 	}
 
