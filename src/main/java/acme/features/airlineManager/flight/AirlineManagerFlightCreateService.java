@@ -9,7 +9,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
 import acme.entities.flights.SelfTransfer;
-import acme.entities.flights.Status;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -37,7 +36,7 @@ public class AirlineManagerFlightCreateService extends AbstractGuiService<Airlin
 
 		manager = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 		flight = new Flight();
-		flight.setStatus(Status.NOT_READY);
+		flight.setDraftMode(true);
 		flight.setManager(manager);
 		flight.setSelfTransfer(SelfTransfer.SELF_TRANSFER);
 
@@ -66,7 +65,7 @@ public class AirlineManagerFlightCreateService extends AbstractGuiService<Airlin
 		SelectChoices choices;
 		choices = SelectChoices.from(SelfTransfer.class, flight.getSelfTransfer());
 
-		st = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "status");
+		st = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "draftMode");
 		st.put("selfTransfer", choices.getSelected().getKey());
 		st.put("selfTransfers", choices);
 

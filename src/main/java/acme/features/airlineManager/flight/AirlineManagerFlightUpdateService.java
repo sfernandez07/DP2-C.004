@@ -9,7 +9,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
 import acme.entities.flights.SelfTransfer;
-import acme.entities.flights.Status;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -28,7 +27,7 @@ public class AirlineManagerFlightUpdateService extends AbstractGuiService<Airlin
 		Flight flightDetails = this.flightRepo.findFlightById(flightIdentifier);
 
 		AirlineManager loggedInManager = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
-		boolean isAuthorized = flightDetails != null && flightDetails.getManager().equals(loggedInManager) && flightDetails.getStatus() == Status.NOT_READY;
+		boolean isAuthorized = flightDetails != null && flightDetails.getManager().equals(loggedInManager) && flightDetails.isDraftMode();
 
 		super.getResponse().setAuthorised(isAuthorized);
 	}
@@ -67,7 +66,7 @@ public class AirlineManagerFlightUpdateService extends AbstractGuiService<Airlin
 
 		transChoices = SelectChoices.from(SelfTransfer.class, flightDetails.getSelfTransfer());
 
-		st = super.unbindObject(flightDetails, "tag", "selfTransfer", "cost", "description", "status");
+		st = super.unbindObject(flightDetails, "tag", "selfTransfer", "cost", "description", "draftMode");
 		st.put("selfTransfer", transChoices.getSelected().getKey());
 		st.put("selfTransfers", transChoices);
 

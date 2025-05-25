@@ -1,10 +1,11 @@
-key,tag,selfTransfer,cost,description,status,key:manager
-flight-01,The fastest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 1,READY,Manager-01
-flight-02,Eco-friendly,NOT_SELF_TRANSFER,EUR 3000.00,Vuelo de prueba 2,READY,Manager-02
-flight-03,The Most Comfortable,NOT_SELF_TRANSFER,EUR 1000.00,Vuelo de prueba 3,READY,Manager-02
-flight-05,The cheapest,NOT_SELF_TRANSFER,EUR 1300.00,Vuelo de prueba 5,NOT_READY,Manager-01
-flight-07,The cheapest,NOT_SELF_TRANSFER,EUR 1900.00,Vuelo de prueba 7,NOT_READY,Manager-02
-flight-08,Eco-friendly,SELF_TRANSFER,EUR 1500.00,Vuelo de prueba 8,NOT_READY,Manager-02
-flight-09,The Most Comfortable,NOT_SELF_TRANSFER,EUR 3100.00,Vuelo de prueba 9,NOT_READY,Manager-01
-flight-11,The Most Comfortable,NOT_SELF_TRANSFER,EUR 1100.00,Vuelo de prueba 11,READY,Manager-01
-flight-12,The Most Comfortable,SELF_TRANSFER,EUR 1600.00,Vuelo de prueba 12,READY,Manager-01
+key,tag,selfTransfer,cost,description,draftMode,key:manager
+flight-01,The fastest,SELF_TRANSFER,EUR 2000.00,Vuelo de prueba 1,false,Manager-01
+flight-02,Eco-friendly,NOT_SELF_TRANSFER,EUR 3000.00,Vuelo de prueba 2,false,Manager-02
+flight-03,The Most Comfortable,NOT_SELF_TRANSFER,EUR 1000.00,Vuelo de prueba 3,false,Manager-02
+flight-05,The cheapest,NOT_SELF_TRANSFER,EUR 1300.00,Vuelo de prueba 5,true,Manager-01
+flight-07,The cheapest,NOT_SELF_TRANSFER,EUR 1900.00,Vuelo de prueba 7,true,Manager-02
+flight-08,Eco-friendly,SELF_TRANSFER,EUR 1500.00,Vuelo de prueba 8,true,Manager-02
+flight-09,The Most Comfortable,NOT_SELF_TRANSFER,EUR 3100.00,Vuelo de prueba 9,true,Manager-01
+flight-11,The Most Comfortable,NOT_SELF_TRANSFER,EUR 1100.00,Vuelo de prueba 11,false,Manager-01
+flight-12,The Most Comfortable,SELF_TRANSFER,EUR 1600.00,Vuelo de prueba 12,false,Manager-01
+flight-13,The Premium Experience,SELF_TRANSFER,EUR 2500.00,Vuelo premium con servicios exclusivos,false,Manager-01

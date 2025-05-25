@@ -16,8 +16,6 @@ import acme.entities.flights.Flight;
 import acme.entities.flights.FlightLeg;
 import acme.entities.flights.LegStatus;
 import acme.entities.flights.SelfTransfer;
-import acme.entities.flights.Status;
-import acme.features.airlineManager.flight.AirlineManagerFlightRepository;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -26,10 +24,7 @@ public class AirlineManagerFlightLegCreateService extends AbstractGuiService<Air
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AirlineManagerFlightLegRepository	repository;
-
-	@Autowired
-	private AirlineManagerFlightRepository		flightRepository;
+	private AirlineManagerFlightLegRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -37,21 +32,21 @@ public class AirlineManagerFlightLegCreateService extends AbstractGuiService<Air
 	@Override
 	public void authorise() {
 		int master = super.getRequest().getData("masterId", int.class);
-		Flight flight = this.flightRepository.findFlightById(master);
+		Flight flight = this.repository.findFlightById(master);
 		AirlineManager current = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
-		boolean status = flight != null && flight.getManager().equals(current) && flight.getStatus() == Status.NOT_READY;
+		boolean status = flight != null && flight.getManager().equals(current) && flight.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		int master = super.getRequest().getData("masterId", int.class);
-		Flight flight = this.flightRepository.findFlightById(master);
+		Flight flight = this.repository.findFlightById(master);
 
 		FlightLeg fleg = new FlightLeg();
 		fleg.setFlight(flight);
-		fleg.setLegStatus(LegStatus.ON_TIME);
-		fleg.setStatus(Status.NOT_READY);
+		fleg.setStatus(LegStatus.ON_TIME);
+		fleg.setDraftMode(true);
 		super.getBuffer().addData(fleg);
 		super.getResponse().addGlobal("allowCreate", true);
 	}
@@ -122,7 +117,7 @@ public class AirlineManagerFlightLegCreateService extends AbstractGuiService<Air
 
 		st = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival");
 
-		statuses = SelectChoices.from(LegStatus.class, leg.getLegStatus());
+		statuses = SelectChoices.from(LegStatus.class, leg.getStatus());
 		st.put("status", statuses.getSelected().getKey());
 		st.put("statuses", statuses);
 
@@ -146,7 +141,7 @@ public class AirlineManagerFlightLegCreateService extends AbstractGuiService<Air
 		st.put("arrivalAirportChoices", aAChoices);
 		st.put("aircraftChoices", aChoices);
 		st.put("masterId", leg.getFlight().getId());
-		st.put("isNotReady", leg.getFlight().getStatus() == Status.NOT_READY);
+		st.put("draftMode", leg.getFlight().isDraftMode());
 
 		super.getResponse().addData(st);
 	}

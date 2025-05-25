@@ -46,7 +46,7 @@ public class AirlineManagerFlightShowService extends AbstractGuiService<AirlineM
 
 		SelectChoices transOptions = SelectChoices.from(SelfTransfer.class, currentFlight.getSelfTransfer());
 
-		st = super.unbindObject(currentFlight, "tag", "selfTransfer", "cost", "description", "status");
+		st = super.unbindObject(currentFlight, "tag", "selfTransfer", "cost", "description", "draftMode");
 		st.put("selfTransfer", transOptions.getSelected().getKey());
 		st.put("selfTransfers", transOptions);
 		st.put("scheduledDeparture", currentFlight.getScheduledDeparture());

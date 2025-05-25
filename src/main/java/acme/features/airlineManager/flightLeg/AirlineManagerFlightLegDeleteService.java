@@ -13,7 +13,6 @@ import acme.entities.aircrafts.Aircraft;
 import acme.entities.airports.Airport;
 import acme.entities.flights.FlightLeg;
 import acme.entities.flights.LegStatus;
-import acme.entities.flights.Status;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -32,7 +31,7 @@ public class AirlineManagerFlightLegDeleteService extends AbstractGuiService<Air
 		FlightLeg flightLeg = this.flightLegRepo.findFlightLegById(flightLegId);
 		AirlineManager activeManager = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 
-		boolean isAuthorized = flightLeg != null && flightLeg.getFlight().getManager().equals(activeManager) && flightLeg.getStatus() == Status.NOT_READY;
+		boolean isAuthorized = flightLeg != null && flightLeg.getFlight().getManager().equals(activeManager) && flightLeg.isDraftMode();
 
 		super.getResponse().setAuthorised(isAuthorized);
 	}
@@ -50,7 +49,7 @@ public class AirlineManagerFlightLegDeleteService extends AbstractGuiService<Air
 		int departureAirportId = super.getRequest().getData("departureAirport", int.class);
 		int arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
 		int aircraftId = super.getRequest().getData("aircraft", int.class);
-		String statusString = super.getRequest().getData("legStatus", String.class);
+		String statusString = super.getRequest().getData("status", String.class);
 
 		Airport departureAirport = this.flightLegRepo.findAirportById(departureAirportId);
 		Airport arrivalAirport = this.flightLegRepo.findAirportById(arrivalAirportId);
@@ -60,12 +59,12 @@ public class AirlineManagerFlightLegDeleteService extends AbstractGuiService<Air
 		flightLeg.setDepartureAirport(departureAirport);
 		flightLeg.setArrivalAirport(arrivalAirport);
 		flightLeg.setAircraft(aircraft);
-		flightLeg.setLegStatus(LegStatus.valueOf(statusString));
+		flightLeg.setStatus(LegStatus.valueOf(statusString));
 	}
 
 	@Override
 	public void validate(final FlightLeg flightLeg) {
-		// Add validation logic if needed
+
 	}
 
 	@Override
@@ -83,7 +82,7 @@ public class AirlineManagerFlightLegDeleteService extends AbstractGuiService<Air
 
 		st = super.unbindObject(flightLeg, "flightNumber", "scheduledDeparture", "scheduledArrival");
 
-		statuses = SelectChoices.from(LegStatus.class, flightLeg.getLegStatus());
+		statuses = SelectChoices.from(LegStatus.class, flightLeg.getStatus());
 		st.put("status", statuses.getSelected().getKey());
 		st.put("statuses", statuses);
 
@@ -107,7 +106,7 @@ public class AirlineManagerFlightLegDeleteService extends AbstractGuiService<Air
 		st.put("arrivalAirportChoices", aAChoices);
 		st.put("aircraftChoices", aChoices);
 		st.put("masterId", flightLeg.getFlight().getId());
-		st.put("isNotReady", flightLeg.getFlight().getStatus() == Status.NOT_READY);
+		st.put("draftMode", flightLeg.isDraftMode());
 
 		super.getResponse().addData(st);
 	}
