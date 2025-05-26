@@ -28,7 +28,6 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status;
-		boolean canPublish;
 		int trackingLogId;
 		TrackingLog trackingLog;
 		Claim claim;
@@ -40,8 +39,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		trackingLogId = super.getRequest().getData("id", int.class);
 		trackingLog = this.repository.findTrackingLogById(trackingLogId);
 		claim = trackingLog == null ? null : trackingLog.getClaim();
-		status = claim != null && trackingLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
-		canPublish = !claim.isDraftMode();
+		status = claim != null && trackingLog.isDraftMode() && !claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		if (status)
 			if (method.equals("GET"))
@@ -52,7 +50,6 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 				status = claimStatus.equals("0") || Arrays.stream(TrackingLogStatus.values()).map(t -> t.name()).anyMatch(t -> t.equals(claimStatus));
 			}
 
-		super.state(canPublish, "", "acme.validation.tracking-log.publish.message");
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -69,7 +66,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "status", "resolution");
 	}
 
 	@Override

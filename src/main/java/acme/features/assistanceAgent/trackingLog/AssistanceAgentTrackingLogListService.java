@@ -25,7 +25,15 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Claim claim;
+		int claimId;
+
+		claimId = super.getRequest().getData("masterId", int.class);
+		claim = this.repository.findClaimById(claimId);
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

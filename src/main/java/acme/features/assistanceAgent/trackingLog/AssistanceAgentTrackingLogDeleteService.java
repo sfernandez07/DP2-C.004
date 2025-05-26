@@ -51,7 +51,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "status", "resolution");
 	}
 
 	@Override
@@ -61,6 +61,8 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
+		if (trackingLog.getClaim().isExceptionalTrackingLog())
+			trackingLog.getClaim().setExceptionalTrackingLog(false);
 		this.repository.delete(trackingLog);
 	}
 

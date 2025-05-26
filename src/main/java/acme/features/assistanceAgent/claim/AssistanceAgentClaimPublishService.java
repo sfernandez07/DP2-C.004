@@ -48,7 +48,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		method = super.getRequest().getMethod();
 
 		authorize = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
-		canPublish = claim.getStatus() == TrackingLogStatus.ACCEPTED || claim.getStatus() == TrackingLogStatus.REJECTED;
+		canPublish = claim != null && (claim.getStatus() == TrackingLogStatus.ACCEPTED || claim.getStatus() == TrackingLogStatus.REJECTED);
 
 		if (authorize)
 			if (method.equals("GET"))
@@ -83,7 +83,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		legId = super.getRequest().getData("flightLeg", int.class);
 		flightLeg = this.repository.findLegById(legId);
 
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
+		super.bindObject(claim, "passengerEmail", "description", "type");
 		claim.setFlightLeg(flightLeg);
 	}
 
@@ -119,7 +119,8 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		choiceType = SelectChoices.from(ClaimType.class, claim.getType());
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", //
-			"status", "draftMode");
+			"draftMode");
+		dataset.put("status", claim.getStatus());
 		dataset.put("types", choiceType);
 		dataset.put("flightLeg", choices.getSelected().getKey());
 		dataset.put("flightLegs", choices);
