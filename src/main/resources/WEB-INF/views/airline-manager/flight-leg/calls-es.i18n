@@ -1,0 +1,35 @@
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes. The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# Títulos
+airline-manager.flight-leg.form.title = Datos del Tramo
+airline-manager.flight-leg.list.title = Lista de Tramos
+
+# Etiquetas del formulario
+airline-manager.flight-leg.form.label.flightNumber = Número de Vuelo:
+airline-manager.flight-leg.form.label.scheduledDeparture = Salida Programada:
+airline-manager.flight-leg.form.label.scheduledArrival = Llegada Programada:
+airline-manager.flight-leg.form.label.status = Estado:
+airline-manager.flight-leg.form.label.departureAirport = Aeropuerto de Salida:
+airline-manager.flight-leg.form.label.arrivalAirport = Aeropuerto de Llegada:
+airline-manager.flight-leg.form.label.aircraft = Aeronave:
+airline-manager.flight-leg.form.label.durationHours = Duración (horas):
+
+# Etiquetas de la lista
+airline-manager.flight-leg.list.label.flightNumber = Nº de Vuelo
+airline-manager.flight-leg.list.label.scheduledDeparture=Salida
+airline-manager.flight-leg.list.label.scheduledArrival=Llegada
+airline-manager.flight-leg.list.label.status = Estado
+
+# Botones
+airline-manager.flight-leg.list.button.create = Crear
+airline-manager.flight-leg.form.button.create = Crear
+airline-manager.flight-leg.form.button.update = Actualizar
+airline-manager.flight-leg.form.button.delete = Eliminar
+airline-manager.flight-leg.form.button.publish = Publicar

@@ -10,8 +10,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
 import acme.entities.flights.FlightLeg;
-import acme.entities.flights.Status;
-import acme.features.airlineManager.flight.AirlineManagerFlightRepository;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -19,10 +17,7 @@ public class AirlineManagerFlightLegListService extends AbstractGuiService<Airli
 
 	// Internal state ---------------------------------------------------------
 	@Autowired
-	private AirlineManagerFlightLegRepository	repository;
-
-	@Autowired
-	private AirlineManagerFlightRepository		flightRepository;
+	private AirlineManagerFlightLegRepository repository;
 
 	// AbstractGuiService methods -------------------------------------------
 
@@ -34,7 +29,7 @@ public class AirlineManagerFlightLegListService extends AbstractGuiService<Airli
 		Flight flight;
 
 		flightId = super.getRequest().getData("masterId", int.class);
-		flight = this.flightRepository.findFlightById(flightId);
+		flight = this.repository.findFlightById(flightId);
 
 		isAuthorized = flight != null && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
@@ -68,8 +63,8 @@ public class AirlineManagerFlightLegListService extends AbstractGuiService<Airli
 		final boolean shouldShowCreate;
 
 		flightId = super.getRequest().getData("masterId", int.class);
-		flight = this.flightRepository.findFlightById(flightId);
-		shouldShowCreate = flight.getStatus() == Status.NOT_READY && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+		flight = this.repository.findFlightById(flightId);
+		shouldShowCreate = flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
 		super.getResponse().addGlobal("masterId", flightId);
 		super.getResponse().addGlobal("showCreate", shouldShowCreate);

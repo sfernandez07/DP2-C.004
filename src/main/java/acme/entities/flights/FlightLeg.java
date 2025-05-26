@@ -15,7 +15,8 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidString;
+import acme.constraints.ValidFlightLeg;
+import acme.constraints.ValidFlightNumber;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.airports.Airport;
 import lombok.Getter;
@@ -24,6 +25,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidFlightLeg
+@ValidFlightNumber
 public class FlightLeg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -34,17 +37,15 @@ public class FlightLeg extends AbstractEntity {
 
 	@Column(unique = true)
 	@Mandatory
-	@ValidString(max = 50)
+	@Valid
 	private String				flightNumber;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Automapped
 	@ValidMoment
 	@Mandatory
 	private Date				scheduledDeparture;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Automapped
 	@ValidMoment
 	@Mandatory
 	private Date				scheduledArrival;
@@ -52,11 +53,11 @@ public class FlightLeg extends AbstractEntity {
 	@Automapped
 	@Valid
 	@Mandatory
-	private LegStatus			legStatus;
+	private LegStatus			status;
 
 	@Mandatory
 	@Automapped
-	private Status				status;
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

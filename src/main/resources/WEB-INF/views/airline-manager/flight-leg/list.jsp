@@ -16,13 +16,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-    <acme:list-column code="airline-manager.FlightLeg.list.label.flightNumber" path="flightNumber" />
-    <acme:list-column code="airline-manager.FlightLeg.list.label.scheduledDeparture" path="scheduledDeparture" />
-    <acme:list-column code="airline-manager.FlightLeg.list.label.scheduledArrival" path="scheduledArrival" />
-    <acme:list-column code="airline-manager.FlightLeg.list.label.status" path="status" />
+    <acme:list-column code="airline-manager.flight-leg.list.label.flightNumber" path="flightNumber" />
+    <acme:list-column code="airline-manager.flight-leg.list.label.scheduledDeparture" path="scheduledDeparture" />
+    <acme:list-column code="airline-manager.flight-leg.list.label.scheduledArrival" path="scheduledArrival" />
+    <acme:list-column code="airline-manager.flight-leg.list.label.status" path="status" />
 </acme:list>
 
 <jstl:if test="${_command == 'list' && showCreate}">
-   <acme:button code="airline-manager.FlightLeg.list.button.create" action="/airline-manager/FlightLeg/create?masterId=${masterId}" />
+   <acme:button code="airline-manager.flight-leg.list.button.create" action="/airline-manager/flight-leg/create?masterId=${masterId}" />
 
 </jstl:if>

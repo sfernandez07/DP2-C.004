@@ -12,7 +12,6 @@ import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
 import acme.entities.flights.FlightLeg;
 import acme.entities.flights.SelfTransfer;
-import acme.entities.flights.Status;
 import acme.features.airlineManager.flightLeg.AirlineManagerFlightLegRepository;
 import acme.realms.AirlineManager;
 
@@ -35,7 +34,7 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 		Flight flight = this.repository.findFlightById(flightId);
 		AirlineManager currentUser = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
 
-		boolean isAuthorized = flight != null && flight.getManager().equals(currentUser) && flight.getStatus() == Status.NOT_READY;
+		boolean isAuthorized = flight != null && flight.getManager().equals(currentUser) && flight.isDraftMode();
 
 		super.getResponse().setAuthorised(isAuthorized);
 	}
@@ -60,7 +59,7 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 		Collection<FlightLeg> flightLegs = this.legRepository.findFlightLegsByFlightId(flightId);
 		super.state(!flightLegs.isEmpty(), "*", "acme.validation.airline-manager.flight.no-legs");
 
-		boolean allLegsPublished = flightLegs.stream().allMatch(leg -> leg.getStatus() == Status.READY);
+		boolean allLegsPublished = flightLegs.stream().allMatch(leg -> !leg.isDraftMode());
 		super.state(allLegsPublished, "*", "acme.validation.airline-manager.flight.legs-not-published");
 
 		if (!super.getBuffer().getErrors().hasErrors("selfTransfer")) {
@@ -72,7 +71,7 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 
 	@Override
 	public void perform(final Flight flight) {
-		flight.setStatus(Status.READY);
+		flight.setDraftMode(false);
 		this.repository.save(flight);
 	}
 
@@ -82,7 +81,7 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 
 		SelectChoices transChoices = SelectChoices.from(SelfTransfer.class, flight.getSelfTransfer());
 
-		st = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "status");
+		st = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "draftMode");
 		st.put("selfTransfer", transChoices.getSelected().getKey());
 		st.put("selfTransfers", transChoices);
 

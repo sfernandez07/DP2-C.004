@@ -34,6 +34,7 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+
 	<linkedResources>
 		<link>
 			<name>acme-framework-25.5.0</name>
@@ -41,4 +42,5 @@
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.5.0/target/classes</locationURI>
 		</link>
 	</linkedResources>
+
 </projectDescription>
