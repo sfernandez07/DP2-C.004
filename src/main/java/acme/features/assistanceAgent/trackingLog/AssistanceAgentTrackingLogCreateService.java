@@ -1,6 +1,7 @@
 
 package acme.features.assistanceAgent.trackingLog;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,23 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		boolean status;
 		int masterId;
 		Claim claim;
+		String claimStatus;
+		String method;
+
+		method = super.getRequest().getMethod();
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
 		status = claim != null && (claim.isDraftMode() || !claim.isExceptionalTrackingLog()) && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+
+		if (status)
+			if (method.equals("GET"))
+				status = true;
+			else {
+				claimStatus = super.getRequest().getData("status", String.class);
+
+				status = claimStatus.equals("0") || Arrays.stream(TrackingLogStatus.values()).map(t -> t.name()).anyMatch(t -> t.equals(claimStatus));
+			}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -87,7 +101,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
-		if (!claim.isDraftMode())
+		if (!claim.isDraftMode() && !claim.isExceptionalTrackingLog())
 			claim.setExceptionalTrackingLog(true);
 		this.repository.save(trackingLog);
 	}

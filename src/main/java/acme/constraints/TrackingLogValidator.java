@@ -53,33 +53,46 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 				super.state(context, correctResolution, "resolution", "acme.validation.tracking-log.resolutionPercentage.resolution.message");
 			}
 			{
-				boolean correctResolutionPercentaje = false;
-				if (trackingLog.getResolutionPercentage() != null) {
+				boolean correctResolutionPercentaje = !trackingLog.getClaim().isDraftMode();
+				if (trackingLog.getResolutionPercentage() != null && !correctResolutionPercentaje) {
 					List<TrackingLog> pastTrackingLogs = this.respository.findPreviousTrackingLogs(trackingLog.getClaim().getId(), trackingLog.getCreationOrder());
 					List<TrackingLog> nextTrackingLogs = this.respository.findNextTrackingLogs(trackingLog.getClaim().getId(), trackingLog.getCreationOrder());
 					if (pastTrackingLogs.isEmpty())
 						correctResolutionPercentaje = true;
 					else
-						correctResolutionPercentaje = pastTrackingLogs.get(0).getResolutionPercentage() <= trackingLog.getResolutionPercentage();
+						correctResolutionPercentaje = pastTrackingLogs.get(0).getResolutionPercentage() < trackingLog.getResolutionPercentage();
 					if (correctResolutionPercentaje)
 						if (nextTrackingLogs.isEmpty())
 							correctResolutionPercentaje = true;
 						else
-							correctResolutionPercentaje = nextTrackingLogs.get(0).getResolutionPercentage() >= trackingLog.getResolutionPercentage();
+							correctResolutionPercentaje = nextTrackingLogs.get(0).getResolutionPercentage() > trackingLog.getResolutionPercentage();
 
-				}
+				} else if (trackingLog.getResolutionPercentage() != null && trackingLog.getClaim().isExceptionalTrackingLog())
+					correctResolutionPercentaje = trackingLog.getResolutionPercentage() == 100;
 
 				super.state(context, correctResolutionPercentaje, "resolutionPercentage", "acme.validation.tracking-log.resolutionPercentage.message");
 			}
+			{
+				boolean correctExceptionalTrackingLogStatus = false;
+				if (!trackingLog.getClaim().isDraftMode()) {
+					TrackingLog lastTrackingLog = this.respository.findTrackingLogOrderedByPercentageByClaimId(trackingLog.getClaim().getId())//
+						.stream().filter(t -> !t.isDraftMode()).toList().get(0);
+					correctExceptionalTrackingLogStatus = lastTrackingLog.getStatus().equals(trackingLog.getStatus());
+				} else
+					correctExceptionalTrackingLogStatus = true;
+				super.state(context, correctExceptionalTrackingLogStatus, "status", "acme.validation.tracking-log.exceptional.status.message");
+			}
+
 			/*
 			 * {
-			 * boolean correctDate = true;
-			 * Claim claim = trackingLog.getClaim();
-			 * if (trackingLog.getUpdateMoment() != null && claim != null)
-			 * if (trackingLog.getUpdateMoment().before(claim.getRegistrationMoment()))
-			 * correctDate = false;
-			 * 
-			 * super.state(context, correctDate, "updateMoment", "acme.validation.tracking-log.updateMoment.message");
+			 * boolean correctExceptionalTrackingLogResolutionPercentage = false;
+			 * if (!trackingLog.getClaim().isDraftMode() && !trackingLog.getClaim().isExceptionalTrackingLog()) {
+			 * TrackingLog lastTrackingLog = this.respository.findTrackingLogOrderedByPercentageByClaimId(trackingLog.getClaim().getId())//
+			 * .stream().filter(t -> !t.isDraftMode()).toList().get(0);
+			 * correctExceptionalTrackingLogResolutionPercentage = lastTrackingLog.getStatus().equals(trackingLog.getStatus());
+			 * } else
+			 * correctExceptionalTrackingLogResolutionPercentage = true;
+			 * super.state(context, correctExceptionalTrackingLogResolutionPercentage, "resolutionPercentage", "acme.validation.tracking-log.exceptional.resolutionPercentage.message");
 			 * }
 			 */
 			result = !super.hasErrors(context);

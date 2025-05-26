@@ -6,3 +6,7 @@ acme.validation.tracking-log.publish.message = Para publicar el registro de segu
 acme.validation.tracking-log.updateMoment.message = La fecha de actualización debe ser posterior a la fecha de registro de la reclamación asociada
 
 acme.validation.claim.status.message = Para publicar la reclamación, esta debe haber sido rechazada o completada
+
+acme.validation.tracking-log.exceptional.status.message = El estado debe ser igual al del último registro
+
+acme.validation.tracking-log.exceptional.resolutionPercentage.message = El porcentaje de resolucion del registro excepcional debe ser igual a 100
