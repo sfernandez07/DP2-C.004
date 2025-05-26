@@ -58,7 +58,7 @@ public class AssistanceAgentClaimUpdateService extends AbstractGuiService<Assist
 		legId = super.getRequest().getData("flightLeg", int.class);
 		flightLeg = this.repository.findLegById(legId);
 
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
+		super.bindObject(claim, "passengerEmail", "description", "type");
 		claim.setFlightLeg(flightLeg);
 	}
 

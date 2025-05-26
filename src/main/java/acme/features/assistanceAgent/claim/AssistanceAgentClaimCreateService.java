@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -38,6 +39,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 		claim = new Claim();
 		claim.setDraftMode(true);
+		claim.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		claim.setAssistanceAgent(assistanceAgent);
 
 		super.getBuffer().addData(claim);
@@ -51,7 +53,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		legId = super.getRequest().getData("flightLeg", int.class);
 		leg = this.repository.findLegById(legId);
 
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status");
+		super.bindObject(claim, "passengerEmail", "description", "type");
 		claim.setFlightLeg(leg);
 	}
 
