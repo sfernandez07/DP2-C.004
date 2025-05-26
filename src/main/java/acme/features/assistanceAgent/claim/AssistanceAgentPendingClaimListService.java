@@ -3,6 +3,7 @@ package acme.features.assistanceAgent.claim;
 
 import java.util.Collection;
 
+import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -30,11 +31,15 @@ public class AssistanceAgentPendingClaimListService extends AbstractGuiService<A
 	public void load() {
 		Collection<Claim> claims;
 		int assistanceAgentId;
+		Collection<Claim> filteredClaims = ArgumentMatchers.anyCollection();
 
 		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		claims = this.repository.findPendingClaimsByAssistanceAgentId(assistanceAgentId);
+		claims = this.repository.findAllClaimsByAssistanceAgentId(assistanceAgentId);
+		for (Claim c : claims)
+			if (!c.isCompleted())
+				filteredClaims.add(c);
 
-		super.getBuffer().addData(claims);
+		super.getBuffer().addData(filteredClaims);
 	}
 
 	@Override

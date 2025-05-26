@@ -1,6 +1,8 @@
 
 package acme.features.assistanceAgent.trackingLog;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -9,6 +11,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.TrackingLog;
+import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
@@ -17,7 +20,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentTrackingLogRepository repository;
+	private TrackingLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -28,11 +31,24 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		int trackingLogId;
 		TrackingLog trackingLog;
 		Claim claim;
+		String claimStatus;
+		String method;
+
+		method = super.getRequest().getMethod();
 
 		trackingLogId = super.getRequest().getData("id", int.class);
 		trackingLog = this.repository.findTrackingLogById(trackingLogId);
 		claim = trackingLog == null ? null : trackingLog.getClaim();
-		status = claim != null && !claim.isDraftMode() && trackingLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		status = claim != null && trackingLog.isDraftMode() && !claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+
+		if (status)
+			if (method.equals("GET"))
+				status = true;
+			else {
+				claimStatus = super.getRequest().getData("status", String.class);
+
+				status = claimStatus.equals("0") || Arrays.stream(TrackingLogStatus.values()).map(t -> t.name()).anyMatch(t -> t.equals(claimStatus));
+			}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,7 +66,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "status", "resolution");
 	}
 
 	@Override
@@ -70,7 +86,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		SelectChoices choicesStatus;
 
 		choicesStatus = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
-		dataset = super.unbindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("masterId", trackingLog.getClaim().getId());
 		dataset.put("claimDraftMode", trackingLog.getClaim().isDraftMode());
 		dataset.put("statuses", choicesStatus);

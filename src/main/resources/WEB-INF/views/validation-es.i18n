@@ -1,3 +1,12 @@
-acme.validation.tracking-log.resolutionPercentage.message = El porcentaje de resolución debe crecer monotónicamente.
-acme.validation.tracking-log.resolutionPercentage.status.message = Si el procentaje de resolucion es 100, el estado del registro de seguimiento debe aceptar o rechazar la Claim.
-acme.validation.tracking-log.resolutionPercentage.resolution.message = Si la reclamación ha sido rechazada o completada, debe haber una resolución.
+acme.validation.tracking-log.resolutionPercentage.message = El porcentaje de resolución debe crecer monotónicamente
+acme.validation.tracking-log.resolutionPercentage.status.message = Si el procentaje de resolucion es 100, el estado del registro de seguimiento debe aceptar o rechazar la Claim, o pending en otro caso
+acme.validation.tracking-log.resolutionPercentage.resolution.message = Si la reclamación ha sido rechazada o completada, debe haber una resolución
+acme.validation.tracking-log.publish.message = Para publicar el registro de seguimiento, la reclamación asociada debe haber sido rechazada o completada
+
+acme.validation.tracking-log.updateMoment.message = La fecha de actualización debe ser posterior a la fecha de registro de la reclamación asociada
+
+acme.validation.claim.status.message = Para publicar la reclamación, esta debe haber sido rechazada o completada
+
+acme.validation.tracking-log.exceptional.status.message = El estado debe ser igual al del último registro
+
+acme.validation.tracking-log.exceptional.resolutionPercentage.message = El porcentaje de resolucion del registro excepcional debe ser igual a 100

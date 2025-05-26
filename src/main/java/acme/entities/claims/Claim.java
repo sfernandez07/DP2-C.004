@@ -1,6 +1,7 @@
 
 package acme.entities.claims;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
 import acme.entities.flights.FlightLeg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
@@ -52,19 +54,39 @@ public class Claim extends AbstractEntity {
 	private ClaimType			type;
 
 	@Mandatory
-	@Valid
 	@Automapped
-	private ClaimStatus			status;
+	private boolean				draftMode;
 
 	@Mandatory
 	@Automapped
-	private boolean				draftMode;
+	private boolean				exceptionalTrackingLog;
 
 	// Derived attributes -----------------------------------------------------
 
 
-	public void setStatus(final ClaimStatus status) {
-		this.status = status;
+	public TrackingLogStatus getStatus() {
+		TrackingLogStatus result;
+		TrackingLogRepository repository;
+		Collection<TrackingLog> trackingLogs;
+
+		repository = SpringHelper.getBean(TrackingLogRepository.class);
+		trackingLogs = repository.findTrackingLogOrderedByPercentageByClaimId(this.getId());
+		if (trackingLogs.isEmpty())
+			result = TrackingLogStatus.PENDING;
+		else {
+			TrackingLog lastTrackingLog = trackingLogs.stream().findFirst().orElse(null);
+			if (lastTrackingLog != null && lastTrackingLog.getResolutionPercentage() == 100)
+				result = lastTrackingLog.getStatus();
+			else
+				result = TrackingLogStatus.PENDING;
+
+		}
+
+		return result;
+	}
+
+	public boolean isCompleted() {
+		return this.getStatus() != TrackingLogStatus.PENDING;
 	}
 
 	// Relationships ----------------------------------------------------------

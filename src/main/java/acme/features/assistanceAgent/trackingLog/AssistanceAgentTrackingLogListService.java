@@ -10,6 +10,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.TrackingLog;
+import acme.entities.claims.TrackingLogRepository;
 import acme.realms.AssistanceAgent;
 
 @GuiService
@@ -17,14 +18,22 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentTrackingLogRepository repository;
+	private TrackingLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Claim claim;
+		int claimId;
+
+		claimId = super.getRequest().getData("masterId", int.class);
+		claim = this.repository.findClaimById(claimId);
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -32,7 +41,7 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 		Collection<TrackingLog> trackingLogs;
 		int claimId;
 		claimId = super.getRequest().getData("masterId", int.class);
-		trackingLogs = this.repository.findTrackingLogByClaimId(claimId);
+		trackingLogs = this.repository.findTrackingLogOrderedByPercentageByClaimId(claimId);
 
 		super.getBuffer().addData(trackingLogs);
 	}
@@ -40,7 +49,7 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 	@Override
 	public void unbind(final TrackingLog trackingLog) {
 		Dataset dataset;
-		dataset = super.unbindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution");
+		dataset = super.unbindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution");
 
 		super.getResponse().addData(dataset);
 	}
@@ -53,7 +62,7 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
-		showCreate = claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		showCreate = (claim.isDraftMode() || !claim.isExceptionalTrackingLog()) && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);
