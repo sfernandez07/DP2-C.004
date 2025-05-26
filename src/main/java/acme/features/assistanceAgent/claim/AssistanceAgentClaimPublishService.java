@@ -1,6 +1,7 @@
 
 package acme.features.assistanceAgent.claim;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,31 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		int masterId;
 		Claim claim;
 		AssistanceAgent assistanceAgent;
+		Collection<FlightLeg> flightLegs;
+		int flightLegId;
+		String claimType;
+		String method;
 
 		masterId = super.getRequest().getData("id", int.class);
 		claim = this.repository.findClaimById(masterId);
 		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
 
+		flightLegs = this.repository.findLegsThatOccurred();
+
+		method = super.getRequest().getMethod();
+
 		authorize = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
 		canPublish = claim.getStatus() == TrackingLogStatus.ACCEPTED || claim.getStatus() == TrackingLogStatus.REJECTED;
+
+		if (authorize)
+			if (method.equals("GET"))
+				authorize = true;
+			else {
+				claimType = super.getRequest().getData("type", String.class);
+				flightLegId = super.getRequest().getData("flightLeg", int.class);
+				authorize = (flightLegId == 0 || flightLegs.stream().map(f -> f.getId()).anyMatch(f -> f == flightLegId)) &&//
+					(claimType.equals("0") || Arrays.stream(ClaimType.values()).map(t -> t.name()).anyMatch(t -> t.equals(claimType)));
+			}
 
 		super.state(canPublish, "status", "acme.validation.claim.status.message");
 		super.getResponse().setAuthorised(authorize);
