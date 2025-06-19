@@ -4,11 +4,11 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-moment code="assistance-agent.claim.form.label.registrationMoment" path="registrationMoment"/>
+	<acme:input-moment code="assistance-agent.claim.form.label.registrationMoment" path="registrationMoment" readonly="${true}"/>
 	<acme:input-textbox code="assistance-agent.claim.form.label.passengerEmail" path="passengerEmail"/>	
 	<acme:input-select code="assistance-agent.claim.form.label.type" path="type" choices="${types}"/>
 	<acme:input-textarea code="assistance-agent.claim.form.label.description" path="description"/>
-	<acme:input-select code="assistance-agent.claim.form.label.status" path="status" choices="${statuses}" readonly="${true}"/>
+	<acme:input-textbox code="assistance-agent.claim.form.label.status" path="status" readonly="${true}"/>
 	<acme:input-select code="assistance-agent.claim.form.label.flight-leg" path="flightLeg"  choices="${flightLegs}"/>
 
 	<jstl:choose>	 
@@ -21,7 +21,8 @@
 			<acme:submit code="assistance-agent.claim.form.button.publish" action="/assistance-agent/claim/publish"/>
 		</jstl:when>	
 	</jstl:choose>
-	
-	<acme:button code="assistance-agent.claim.form.button.tracking-logs" action="/assistance-agent/tracking-log/list?masterId=${id}"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:button code="assistance-agent.claim.form.button.tracking-logs" action="/assistance-agent/tracking-log/list?masterId=${id}"/>
+	</jstl:if>
 </acme:form>
 

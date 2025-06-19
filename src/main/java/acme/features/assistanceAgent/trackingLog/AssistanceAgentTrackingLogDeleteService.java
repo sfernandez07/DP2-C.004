@@ -9,6 +9,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.TrackingLog;
+import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
@@ -17,7 +18,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentTrackingLogRepository repository;
+	private TrackingLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -50,7 +51,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "resolutionPercentage", "status", "resolution");
 	}
 
 	@Override
@@ -60,6 +61,8 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
+		if (trackingLog.getClaim().isExceptionalTrackingLog())
+			trackingLog.getClaim().setExceptionalTrackingLog(false);
 		this.repository.delete(trackingLog);
 	}
 
@@ -69,7 +72,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 		SelectChoices choicesStatus;
 
 		choicesStatus = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
-		dataset = super.unbindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("masterId", trackingLog.getClaim().getId());
 		dataset.put("claimDraftMode", trackingLog.getClaim().isDraftMode());
 		dataset.put("statuses", choicesStatus);

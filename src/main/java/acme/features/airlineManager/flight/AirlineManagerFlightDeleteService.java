@@ -12,7 +12,6 @@ import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
 import acme.entities.flights.FlightLeg;
 import acme.entities.flights.SelfTransfer;
-import acme.entities.flights.Status;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -31,7 +30,7 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 		Flight flightDetails = this.flightRepo.findFlightById(flightId);
 
 		AirlineManager activeManager = (AirlineManager) super.getRequest().getPrincipal().getActiveRealm();
-		boolean isAuthorized = flightDetails != null && flightDetails.getManager().equals(activeManager) && flightDetails.getStatus() == Status.NOT_READY;
+		boolean isAuthorized = flightDetails != null && flightDetails.getManager().equals(activeManager) && flightDetails.isDraftMode();
 
 		super.getResponse().setAuthorised(isAuthorized);
 	}
@@ -73,7 +72,7 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 
 		transferChoices = SelectChoices.from(SelfTransfer.class, flight.getSelfTransfer());
 
-		flightData = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "status");
+		flightData = super.unbindObject(flight, "tag", "selfTransfer", "cost", "description", "draftMode");
 		flightData.put("selfTransfer", transferChoices.getSelected().getKey());
 		flightData.put("selfTransfers", transferChoices);
 

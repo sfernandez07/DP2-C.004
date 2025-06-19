@@ -28,14 +28,14 @@
         <acme:input-textbox code="airline-manager.flight.form.label.layovers" path="layovers" readonly="true"/>
     </jstl:if>
     <jstl:choose>	 
-    <jstl:when test="${_command == 'show' && status == 'READY'}">
+    <jstl:when test="${_command == 'show' && draftMode == false}">
         <acme:button code="airline-manager.flight.form.button.flightLegs" 
-            action="/airline-manager/FlightLeg/list?masterId=${id}"/>			
+            action="/airline-manager/flight-leg/list?masterId=${id}"/>			
     </jstl:when>
 
-    <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && status == 'NOT_READY'}">
+    <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
         <acme:button code="airline-manager.flight.form.button.flightLegs" 
-            action="/airline-manager/FlightLeg/list?masterId=${id}"/>
+            action="/airline-manager/flight-leg/list?masterId=${id}"/>
         <acme:submit code="airline-manager.flight.form.button.update" 
             action="/airline-manager/flight/update"/>
         <acme:submit code="airline-manager.flight.form.button.delete" 

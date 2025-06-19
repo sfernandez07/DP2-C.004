@@ -13,7 +13,6 @@ import acme.entities.aircrafts.Aircraft;
 import acme.entities.airports.Airport;
 import acme.entities.flights.FlightLeg;
 import acme.entities.flights.LegStatus;
-import acme.entities.flights.Status;
 import acme.realms.AirlineManager;
 
 @GuiService
@@ -51,7 +50,7 @@ public class AirlineManagerFlightLegShowService extends AbstractGuiService<Airli
 
 		st = super.unbindObject(flightLeg, "flightNumber", "scheduledDeparture", "scheduledArrival");
 
-		SelectChoices flegStatuses = SelectChoices.from(LegStatus.class, flightLeg.getLegStatus());
+		SelectChoices flegStatuses = SelectChoices.from(LegStatus.class, flightLeg.getStatus());
 		st.put("status", flegStatuses.getSelected().getKey());
 		st.put("statuses", flegStatuses);
 
@@ -71,7 +70,7 @@ public class AirlineManagerFlightLegShowService extends AbstractGuiService<Airli
 		st.put("aircraftChoices", aOptions);
 		st.put("durationHours", flightLeg.getDurationHours());
 		st.put("masterId", flightLeg.getFlight().getId());
-		st.put("isNotReady", flightLeg.getFlight().getStatus() == Status.NOT_READY);
+		st.put("draftMode", flightLeg.isDraftMode());
 
 		super.getResponse().addData(st);
 	}

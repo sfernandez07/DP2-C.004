@@ -4,6 +4,7 @@ package acme.features.airlineManager.flightLeg;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
@@ -11,6 +12,7 @@ import acme.entities.flights.FlightLeg;
 import acme.realms.AirlineManager;
 
 @GuiController
+@RequestMapping("/airline-manager/FlightLeg")
 public class AirlineManagerFlightLegController extends AbstractGuiController<AirlineManager, FlightLeg> {
 
 	// Internal state ---------------------------------------------------------
