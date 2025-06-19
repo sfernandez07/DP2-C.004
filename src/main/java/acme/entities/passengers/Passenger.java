@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -48,8 +49,14 @@ public class Passenger extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirth;
 
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean				draftMode;
+
 	@Optional
 	@ValidString(max = 50)
 	@Automapped
 	private String				specialNeeds;
+
 }

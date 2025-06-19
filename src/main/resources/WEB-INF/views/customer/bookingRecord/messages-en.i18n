@@ -1,0 +1,5 @@
+customer.booking-record.form.title = Add passenger
+
+customer.bookingRecord.form.label.bookings = Booking
+customer.bookingRecord.form.label.passengers = Passenger
+customer.bookingRecord.form.button.create = Add

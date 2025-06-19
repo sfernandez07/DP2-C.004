@@ -4,8 +4,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="customer.passenger.list.label.email" path="email" width="40%"/>
 	<acme:list-column code="customer.passenger.list.label.passportNumber" path="passportNumber" width="40%"/>
 </acme:list>
-
-<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+<jstl:choose>
+	<jstl:when test="${_command == 'list'}">
+		<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+	</jstl:when>
+	<jstl:when test="${_command == 'list-booked'  && bookingDraftMode == true}">
+		<acme:button code="customer.passenger.list.button.add" action="/customer/booking-record/create"/>
+	</jstl:when>
+</jstl:choose>

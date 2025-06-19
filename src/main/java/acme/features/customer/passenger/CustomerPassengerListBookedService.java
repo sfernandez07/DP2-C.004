@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.bookings.Booking;
 import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 
@@ -33,8 +34,12 @@ public class CustomerPassengerListBookedService extends AbstractGuiService<Custo
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
+		Integer id = super.getRequest().getData("id", int.class);
+		Booking b = this.repository.findBookingById(id);
+		Boolean bookingDraftMode = b.getDraftMode();
 
 		dataset = super.unbindObject(passenger, "email", "passportNumber");
+		dataset.put("bookingDraftMode", bookingDraftMode);
 
 		super.getResponse().addData(dataset);
 
