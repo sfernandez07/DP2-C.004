@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 
 public @interface ValidLocatorCode {
 
-	String message() default "El localizador debe seguir el patrón";
+	String message() default "{acme.validation.booking.locatorCode.message}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

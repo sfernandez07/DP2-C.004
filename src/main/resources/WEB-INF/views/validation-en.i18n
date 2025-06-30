@@ -10,3 +10,6 @@ acme.validation.claim.status.message = To publish the claim, it must have been r
 acme.validation.tracking-log.exceptional.status.message = Status must be equal to last tracking log status
 
 acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resolution percentage must be equal to 100
+
+acme.validation.booking.locatorCode.message = The locator code must follow the specified pattern.
+acme.validation.booking.creditNibble.message = The number must be 4 digits long.
