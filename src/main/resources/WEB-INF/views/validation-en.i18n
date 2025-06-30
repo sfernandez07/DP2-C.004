@@ -13,3 +13,6 @@ acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resoluti
 
 acme.validation.booking.locatorCode.message = The locator code must follow the specified pattern.
 acme.validation.booking.creditNibble.message = The number must be 4 digits long.
+acme.validation.booking.phoneNumber.message = The number must be a valid phone number.
+acme.validation.customer.startIdentifier.message = The customer's initials must match with the identifier's starting letters.
+acme.validation.identifier.invalidIdentifier.message = The identifier is not valid.

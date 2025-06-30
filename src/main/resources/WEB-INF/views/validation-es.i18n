@@ -13,3 +13,6 @@ acme.validation.tracking-log.exceptional.resolutionPercentage.message = El porce
 
 acme.validation.booking.locatorCode.message = El localizador debe seguir el patrón especificado.
 acme.validation.booking.creditNibble.message = El número debe ser de 4 dígitos.
+acme.validation.booking.phoneNumber.message = El número debe ser un número de teléfono válido.
+acme.validation.customer.startIdentifier.message = Las iniciales del usuario deben coincidir con el inicio del identificador.
+acme.validation.identifier.invalidIdentifier.message = El identificador no es válido.
