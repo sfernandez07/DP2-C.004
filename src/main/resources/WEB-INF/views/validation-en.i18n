@@ -16,3 +16,4 @@ acme.validation.booking.creditNibble.message = The number must be 4 digits long.
 acme.validation.booking.phoneNumber.message = The number must be a valid phone number.
 acme.validation.customer.startIdentifier.message = The customer's initials must match with the identifier's starting letters.
 acme.validation.identifier.invalidIdentifier.message = The identifier is not valid.
+acme.validation.passenger.passport.message = The passport given is not valid.

@@ -57,6 +57,10 @@ public class Booking extends AbstractEntity {
 	private String				lastCreditNibble;
 
 	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
+	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
 	private Customer			customer;
