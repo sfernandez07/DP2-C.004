@@ -15,7 +15,7 @@ import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingRecordCreateService extends AbstractGuiService<Customer, BookingRecord> {
+public class CustomerBookingRecordDeleteService extends AbstractGuiService<Customer, BookingRecord> {
 
 	@Autowired
 	private CustomerBookingRecordRepository repository;
@@ -23,6 +23,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void authorise() {
+
 		Boolean status;
 		try {
 			status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
@@ -40,12 +41,13 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 				status = status && (passenger != null && customerId == passenger.getCustomer().getId() || passengerId == 0);
 
 				Collection<Passenger> alreadyAddedPassengers = this.repository.findAllPassengersByBookingId(bookingId);
-				status = status && alreadyAddedPassengers.stream().noneMatch(p -> p.getId() == passengerId);
+				status = status && (alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId) || passengerId == 0);
 			}
 
 		} catch (Throwable t) {
 			status = false;
 		}
+
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -62,22 +64,21 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 	@Override
 	public void bind(final BookingRecord bookingRecord) {
 		super.bindObject(bookingRecord, "passenger");
+
 	}
 
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
-		if (bookingRecord.getPassenger() != null) {
-			int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			Collection<Passenger> includedPassengers = this.repository.findAllPassengersByBookingId(bookingRecord.getBooking().getId());
-			boolean status = bookingRecord.getPassenger().getCustomer().getId() == customerId && !includedPassengers.contains(bookingRecord.getPassenger());
-			super.state(status, "passenger", "customer.bookingrecord.form.error.invalidPassenger");
-		}
-
+		boolean status = bookingRecord.getPassenger() != null;
+		super.state(status, "passenger", "customer.bookingrecord.form.error.invalidPassenger");
+		;
 	}
 
 	@Override
 	public void perform(final BookingRecord bookingRecord) {
-		this.repository.save(bookingRecord);
+		BookingRecord realBookingRecord = this.repository.findBookingRecordByBothIds(bookingRecord.getBooking().getId(), bookingRecord.getPassenger().getId());
+
+		this.repository.delete(realBookingRecord);
 	}
 
 	@Override
@@ -85,14 +86,11 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		Dataset dataset;
 
 		dataset = super.unbindObject(bookingRecord, "passenger", "booking", "id");
-		int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		int bookingId = super.getRequest().getData("bookingId", int.class);
 		Collection<Passenger> addedPassengers = this.repository.findAllPassengersByBookingId(bookingId);
-
-		Collection<Passenger> passengers = this.repository.findAllPassengersByCustomerId(customerId).stream().filter(p -> !addedPassengers.contains(p)).toList();
 		SelectChoices passengerChoices;
-		passengerChoices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
+		passengerChoices = SelectChoices.from(addedPassengers, "fullName", bookingRecord.getPassenger());
 
 		dataset.put("passengers", passengerChoices);
 		dataset.put("locatorCode", bookingRecord.getBooking().getLocatorCode());

@@ -1,16 +1,19 @@
 
 package acme.features.customer.passenger;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.bookings.BookingRecord;
 import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerPassengerCreateService extends AbstractGuiService<Customer, Passenger> {
+public class CustomerPassengerDeleteService extends AbstractGuiService<Customer, Passenger> {
 
 	@Autowired
 	private CustomerPassengerRepository repository;
@@ -23,6 +26,16 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 			super.getResponse().setAuthorised(status);
 
+			if (!super.getRequest().getMethod().equals("POST"))
+				super.getResponse().setAuthorised(false);
+			else {
+				int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				int passengerId = super.getRequest().getData("id", int.class);
+				Passenger passenger = this.repository.findPassengerById(passengerId);
+
+				super.getResponse().setAuthorised(customerId == passenger.getCustomer().getId() && passenger.isDraftMode());
+			}
+
 		} catch (Throwable t) {
 			super.getResponse().setAuthorised(false);
 		}
@@ -31,13 +44,8 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void load() {
-		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
-		Passenger passenger;
-
-		passenger = new Passenger();
-		passenger.setDraftMode(true);
-		passenger.setCustomer(customer);
-
+		int passengerId = super.getRequest().getData("id", int.class);
+		Passenger passenger = this.repository.findPassengerById(passengerId);
 		super.getBuffer().addData(passenger);
 	}
 
@@ -48,20 +56,23 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void validate(final Passenger passenger) {
-
+		Collection<BookingRecord> bookingRecords = this.repository.findAllBookingRecordsByPassengerId(passenger.getId());
+		super.state(bookingRecords.isEmpty(), "*", "customer.passenger.form.error.associatedBookings");
 	}
 
 	@Override
 	public void perform(final Passenger passenger) {
-		passenger.setDraftMode(true);
-		this.repository.save(passenger);
+
+		Passenger deletedPassenger = this.repository.findPassengerById(passenger.getId());
+		this.repository.delete(deletedPassenger);
 	}
 
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
 		dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirth", "specialNeeds", "draftMode");
-		super.getResponse().addData(dataset);
 
+		super.getResponse().addData(dataset);
 	}
+
 }
