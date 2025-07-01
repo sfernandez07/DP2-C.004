@@ -36,7 +36,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("select f from Flight f where f.id =:id")
 	Flight getFlightById(int id);
 
-	@Query("SELECT l.arrivalAirport FROM Leg l WHERE l.flight.id = :flightId ORDER BY l.scheduledDeparture ASC")
+	@Query("SELECT fl.arrivalAirport FROM FlightLeg fl WHERE fl.flight.id = :flightId ORDER BY fl.scheduledDeparture ASC")
 	Airport findDestinationAirportByFlightId(Integer flightId);
 
 }

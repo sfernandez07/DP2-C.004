@@ -9,8 +9,6 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -21,8 +19,6 @@ import javax.validation.constraints.Pattern;
 
 @NotBlank
 @Pattern(regexp = "^\\d{4}$")
-@Min(1)
-@Max(4)
 
 public @interface ValidCreditNibble {
 
