@@ -4,7 +4,7 @@
 <acme:form readonly="${!draftMode}">
     <acme:input-select code="customer.booking.list.label.flight" path="flight" choices="${flights}"/>
     <acme:input-textbox code="customer.booking.list.label.locatorCode" path="locatorCode"/>
-    <acme:input-textbox code="customer.booking.list.label.lastNibble" path="lastNibble"/>
+    <acme:input-textbox code="customer.booking.list.label.lastCreditNibble" path="lastCreditNibble"/>
     <acme:input-select code="customer.booking.list.label.travelClass" path="travelClass" choices="${travelClasses}"/>
    	<jstl:if test="${_command != 'create'}">
    		<acme:input-double code="customer.booking.list.label.price" path="price" readonly="true"/>

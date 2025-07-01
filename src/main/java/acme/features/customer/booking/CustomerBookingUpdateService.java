@@ -63,7 +63,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastCreditNibble");
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		Collection<Flight> flights = this.repository.findAllPublishedFlights();
 
-		dataset = super.unbindObject(booking, "flight", "locatorCode", "travelClass", "price", "lastNibble", "draftMode", "id");
+		dataset = super.unbindObject(booking, "flight", "locatorCode", "travelClass", "price", "lastCreditNibble", "draftMode", "id");
 		dataset.put("travelClasses", travelClasses);
 		SelectChoices flightChoices;
 		flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());

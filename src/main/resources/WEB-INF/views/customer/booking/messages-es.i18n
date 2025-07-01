@@ -17,7 +17,7 @@ customer.booking.list.label.price=Precio
 customer.booking.list.label.draftmode=Modo borrador
 
 customer.booking.list.label.locatorCode= Localizador de vuelo
-customer.booking.list.label.lastNibble= Últimos 4 dígitos de la tarjeta
+customer.booking.list.label.lastCreditNibble= Últimos 4 dígitos de la tarjeta
 customer.booking.list.label.travelClass= Clase de viaje
 
 customer.booking.form.error.lastNibbleNeeded= Debe completar los dígitos de su tarjeta para confirmar

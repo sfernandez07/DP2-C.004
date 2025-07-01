@@ -65,7 +65,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastCreditNibble");
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		super.state(valid, "flight", "customer.booking.form.error.invalidFlight");
 
 		valid = booking.getLastCreditNibble() != null && !booking.getLastCreditNibble().isBlank();
-		super.state(valid, "lastNibble", "customer.booking.form.error.lastNibbleNeeded");
+		super.state(valid, "lastCreditNibble", "customer.booking.form.error.lastNibbleNeeded");
 	}
 
 	@Override
@@ -104,11 +104,11 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		Collection<Flight> flights = this.repository.findAllPublishedFlights();
 
-		dataset = super.unbindObject(booking, "flight", "locatorCode", "travelClass", "price", "lastNibble", "draftMode", "id");
+		dataset = super.unbindObject(booking, "flight", "locatorCode", "travelClass", "price", "lastCreditNibble", "draftMode", "id");
 		dataset.put("travelClasses", travelClasses);
 		SelectChoices flightChoices;
 
-		flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+		flightChoices = SelectChoices.from(flights, "flightDescription", booking.getFlight());
 
 		dataset.put("flights", flightChoices);
 		super.getResponse().addData(dataset);
