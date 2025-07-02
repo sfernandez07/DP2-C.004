@@ -7,6 +7,7 @@ assistance-agent.tracking-log.list.label.step = step
 assistance-agent.tracking-log.list.label.resolutionPercentage = Resolution Percentage
 assistance-agent.tracking-log.list.label.status = Status
 assistance-agent.tracking-log.list.label.resolution = Resolution
+assistance-agent.tracking-log.list.label.draftMode = Draft Mode
 
 assistance-agent.tracking-log.form.label.updateMoment = Update Moment
 assistance-agent.tracking-log.form.label.creationOrder = Creation Order
