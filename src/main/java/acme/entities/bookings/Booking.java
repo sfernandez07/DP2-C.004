@@ -19,8 +19,8 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
-import acme.constraints.ValidCreditNibble;
 import acme.constraints.ValidLocatorCode;
 import acme.entities.flights.Flight;
 import acme.features.authenticated.booking.BookingRepository;
@@ -57,7 +57,7 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Optional
-	@ValidCreditNibble
+	@ValidString(min = 4, max = 4, pattern = "[0-9]{4}", message = "{acme.validation.booking.creditNibble.message}")
 	@Automapped
 	private String				lastCreditNibble;
 
