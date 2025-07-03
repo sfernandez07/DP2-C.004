@@ -21,12 +21,12 @@ public interface TrackingLogRepository extends AbstractRepository {
 	@Query("select t from TrackingLog t where t.claim.id = :claimId")
 	Collection<TrackingLog> findTrackingLogByClaimId(int claimId);
 
-	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId AND t.creationOrder < :creationOrder " + "ORDER BY t.creationOrder DESC")
-	List<TrackingLog> findPreviousTrackingLogs(int claimId, Integer creationOrder);
+	@Query("SELECT MAX(t.resolutionPercentage) FROM TrackingLog t WHERE t.claim.id = :claimId AND t.draftMode = false")
+	Double findLastResolutionPercentagePublished(int claimId);
 
-	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId AND t.creationOrder > :creationOrder " + "ORDER BY t.creationOrder DESC")
-	List<TrackingLog> findNextTrackingLogs(int claimId, Integer creationOrder);
+	@Query("SELECT COUNT(t) FROM TrackingLog t WHERE t.claim.id = :claimId AND t.resolutionPercentage = 100.00 AND t.draftMode = false")
+	Long countFinalTrackingLogs(int claimId);
 
-	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId ORDER BY t.resolutionPercentage DESC, t.creationOrder DESC")
-	List<TrackingLog> findTrackingLogOrderedByPercentageByClaimId(int claimId);
+	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId AND t.draftMode = false ORDER BY t.resolutionPercentage DESC")
+	List<TrackingLog> findPublishedTrackingLogOrderedByPercentage(int claimId);
 }
