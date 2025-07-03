@@ -14,11 +14,12 @@ fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced</help_text>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Booking
 --
-+ locatorCode: String {Mandatory, ValidString(pattern = "^[A-Z0-9]{6,8}$"), Column(unique = true)}
++ locatorCode: String {Mandatory, ValidLocatorCode, Column(unique = true)}
 + purchaseMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TIMESTAMP)}
 + travelClass: TravelClass {Mandatory, Valid, Automapped}
-+ price: Double {Mandatory, ValidNumber(min = 0), Automapped}
-+ lastCreditNibble: {Optional, ValidString(pattern = "^[0-9]{4}$"), Automapped}</panel_attributes>
++ lastCreditNibble: {Optional, ValidString, Automapped}
++ draftMode: {Mandatory, Automapped}
+- getPrice: {Transient}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -32,11 +33,12 @@ Booking
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Passenger
 --
-+ fullName: String {Mandatory, ValidString(max = 256), Automapped}
-+ email: String {Mandatory, ValidString, Automapped}
-+ passportNumber: String {Mandatory, ValidString(pattern = "^[A-Z0-9]{6,9}$"), Automapped}
++ fullName: String {Mandatory, ValidString(min = 1, max = 255), Automapped}
++ email: String {Mandatory, ValidEmail, Automapped}
++ passportNumber: String {Mandatory, ValidPassport, Automapped}
 + dateOfBirth: Date {Mandatory, ValidMoment(past = true), Temporal(TIMESTAMP)}
-+ specialNeeds: String {Optional, ValidString(max = 51), Automapped}
++ specialNeeds: String {Optional, ValidString(max = 50), Automapped}
++ draftMode: {Mandatory, Automapped}
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -81,5 +83,37 @@ m1=*
 Se refiere a...
 m2= 1</panel_attributes>
     <additional_attributes>10.0;20.0;320.0;20.0;320.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>414</y>
+      <w>108</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+Pertenece a...
+m2= 1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>549</y>
+      <w>558</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Flight
+--
++ tag: String {Mandatory, ValidString(min = 1, max = 50), Automapped}
++ selfTransfer: SelfTransfer {Mandatory, Valid, Automapped}
++ cost: Money {Mandatory, ValidMoney, Automapped}
++ description: String {Optional, ValidString(max = 255), Automapped}
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

@@ -22,7 +22,7 @@ public @interface ValidPhoneNumber {
 
 	// Standard validation properties -----------------------------------------
 
-	String message() default "Debe introducir un número válido";
+	String message() default "{acme.validation.booking.phoneNumber.message}";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};

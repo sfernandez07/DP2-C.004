@@ -8,21 +8,14 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.ReportAsSingleViolation;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {})
-@ReportAsSingleViolation
+@Constraint(validatedBy = CustomerValidator.class)
+public @interface ValidCustomer {
 
-@NotBlank
-@Pattern(regexp = "^[A-Z0-9]{6,9}$")
-
-public @interface ValidIdentifier {
-
-	String message() default "El identificador debe seguir el patrón";
+	String message() default "{acme.validation.text.message}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
+
 }

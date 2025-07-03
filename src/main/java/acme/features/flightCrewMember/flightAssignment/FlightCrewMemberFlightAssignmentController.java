@@ -14,9 +14,6 @@ import acme.realms.FlightCrewMember;
 public class FlightCrewMemberFlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightCrewMemberFlightAssignmentListService			listService;
-
-	@Autowired
 	private FlightAssignmentCompletedLegsAssignmentListService	listCompletedService;
 
 	@Autowired

@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 
 public @interface ValidPassport {
 
-	String message() default "El pasaporte debe seguir el patrón";
+	String message() default "{acme.validation.passenger.passport.message}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

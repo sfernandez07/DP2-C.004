@@ -18,12 +18,26 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		try {
+			boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+
+			super.getResponse().setAuthorised(status);
+
+		} catch (Throwable t) {
+			super.getResponse().setAuthorised(false);
+		}
+
 	}
 
 	@Override
 	public void load() {
-		Passenger passenger = new Passenger();
+		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
+		Passenger passenger;
+
+		passenger = new Passenger();
+		passenger.setDraftMode(true);
+		passenger.setCustomer(customer);
+
 		super.getBuffer().addData(passenger);
 	}
 
@@ -34,20 +48,20 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void validate(final Passenger passenger) {
-		;
+
 	}
 
 	@Override
 	public void perform(final Passenger passenger) {
+		passenger.setDraftMode(true);
 		this.repository.save(passenger);
 	}
 
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
-
-		dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirth", "specialNeeds");
-
+		dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirth", "specialNeeds", "draftMode");
 		super.getResponse().addData(dataset);
+
 	}
 }

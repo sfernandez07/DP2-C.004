@@ -8,5 +8,16 @@ acme.validation.tracking-log.updateMoment.message = The update moment must occur
 acme.validation.claim.status.message = To publish the claim, it must have been rejected or completed
 
 acme.validation.tracking-log.exceptional.status.message = Status must be equal to last tracking log status
+
+acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resolution percentage must be equal to 100
+
+acme.validation.booking.locatorCode.message = The locator code must follow the specified pattern.
+acme.validation.booking.creditNibble.message = The number must be 4 digits long.
+acme.validation.booking.phoneNumber.message = The number must be a valid phone number.
+acme.validation.customer.startIdentifier.message = The customer's initials must match with the identifier's starting letters.
+acme.validation.identifier.invalidIdentifier.message = The identifier is not valid.
+acme.validation.passenger.passport.message = The passport given is not valid.
+
 acme.validation.tracking-log.exceptional.already-created.message = An exceptional Tracking Log has already been published
 acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resolution percentage must be equal to 100
+
