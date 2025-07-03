@@ -2,7 +2,6 @@
 package acme.features.assistanceAgent.trackingLog;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,7 +38,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
-		status = claim != null && (claim.isDraftMode() || !claim.isExceptionalTrackingLog()) && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		if (status)
 			if (method.equals("GET"))
@@ -56,23 +55,13 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 	@Override
 	public void load() {
 		TrackingLog trackingLog;
-		Collection<TrackingLog> trackingLogs;
 		int masterId;
 		Claim claim;
-		Integer creationOrder = 1;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		claim = this.repository.findClaimById(masterId);
 
-		trackingLogs = this.repository.findTrackingLogOrderedByPercentageByClaimId(claim.getId());
-		if (!trackingLogs.isEmpty()) {
-			TrackingLog lastTrackingLog = trackingLogs.stream().findFirst().orElse(null);
-			if (lastTrackingLog != null)
-				creationOrder = lastTrackingLog.getCreationOrder() + 1;
-		}
-
 		trackingLog = new TrackingLog();
-		trackingLog.setCreationOrder(creationOrder);
 		trackingLog.setUpdateMoment(MomentHelper.getCurrentMoment());
 		trackingLog.setStep("");
 		trackingLog.setResolutionPercentage(0.0);
@@ -96,13 +85,6 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
-		int masterId;
-		Claim claim;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		claim = this.repository.findClaimById(masterId);
-		if (!claim.isDraftMode() && !claim.isExceptionalTrackingLog())
-			claim.setExceptionalTrackingLog(true);
 		this.repository.save(trackingLog);
 	}
 
@@ -112,7 +94,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		SelectChoices choicesStatus;
 
 		choicesStatus = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
-		dataset = super.unbindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("masterId", trackingLog.getClaim().getId());
 		dataset.put("claimDraftMode", false);
 		dataset.put("statuses", choicesStatus);

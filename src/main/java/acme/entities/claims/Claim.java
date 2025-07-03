@@ -57,10 +57,6 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private boolean				draftMode;
 
-	@Mandatory
-	@Automapped
-	private boolean				exceptionalTrackingLog;
-
 	// Derived attributes -----------------------------------------------------
 
 
@@ -70,7 +66,7 @@ public class Claim extends AbstractEntity {
 		Collection<TrackingLog> trackingLogs;
 
 		repository = SpringHelper.getBean(TrackingLogRepository.class);
-		trackingLogs = repository.findTrackingLogOrderedByPercentageByClaimId(this.getId());
+		trackingLogs = repository.findPublishedTrackingLogOrderedByPercentage(this.getId());
 		if (trackingLogs.isEmpty())
 			result = TrackingLogStatus.PENDING;
 		else {

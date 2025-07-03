@@ -2,6 +2,7 @@
 package acme.features.assistanceAgent.trackingLog;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -71,7 +72,42 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		;
+		Claim claim = trackingLog.getClaim();
+		{ // ResolutionPercentage creciente
+			if (!super.getBuffer().getErrors().hasErrors("resolutionPercentage")) {
+				boolean correctResolutionPercentaje = true;
+				Double lastResolutionPercentage = this.repository.findLastResolutionPercentagePublished(claim.getId());
+
+				if (lastResolutionPercentage != null)
+					correctResolutionPercentaje = trackingLog.getResolutionPercentage() >= lastResolutionPercentage;
+
+				super.state(correctResolutionPercentaje, "resolutionPercentage", "acme.validation.tracking-log.resolutionPercentage.message");
+			}
+
+		}
+		{ // Solo 1 tracking log excepcional
+			if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() == 100) {
+				Long numberOfFinalTrackingLog = this.repository.countFinalTrackingLogs(claim.getId());
+				boolean correctFinalTrackingLog = numberOfFinalTrackingLog < 2;
+				super.state(correctFinalTrackingLog, "*", "acme.validation.tracking-log.exceptional.already-created.message");
+			}
+
+		}
+		{ // Mismo status de trackingLog excepcional
+			if (!super.getBuffer().getErrors().hasErrors("status"))
+				if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() == 100 && !trackingLog.getClaim().isDraftMode()) {
+					boolean correctExceptionalTrackingLogStatus = true;
+					List<TrackingLog> trackingLogs = this.repository.findPublishedTrackingLogOrderedByPercentage(claim.getId());
+
+					TrackingLog lastTrackingLog = trackingLogs.isEmpty() ? null : trackingLogs.get(0);
+
+					if (lastTrackingLog.getResolutionPercentage() == 100)
+						correctExceptionalTrackingLogStatus = lastTrackingLog.getStatus().equals(trackingLog.getStatus());
+
+					super.state(correctExceptionalTrackingLogStatus, "status", "acme.validation.tracking-log.exceptional.status.message");
+				}
+
+		}
 	}
 
 	@Override
@@ -86,7 +122,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		SelectChoices choicesStatus;
 
 		choicesStatus = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
-		dataset = super.unbindObject(trackingLog, "creationOrder", "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "updateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("masterId", trackingLog.getClaim().getId());
 		dataset.put("claimDraftMode", trackingLog.getClaim().isDraftMode());
 		dataset.put("statuses", choicesStatus);

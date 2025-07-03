@@ -8,5 +8,5 @@ acme.validation.tracking-log.updateMoment.message = The update moment must occur
 acme.validation.claim.status.message = To publish the claim, it must have been rejected or completed
 
 acme.validation.tracking-log.exceptional.status.message = Status must be equal to last tracking log status
-
+acme.validation.tracking-log.exceptional.already-created.message = An exceptional Tracking Log has already been published
 acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resolution percentage must be equal to 100
