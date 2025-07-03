@@ -12,8 +12,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.ClaimType;
-import acme.entities.claims.TrackingLog;
-import acme.entities.claims.TrackingLogStatus;
 import acme.entities.flights.FlightLeg;
 import acme.realms.AssistanceAgent;
 
@@ -30,7 +28,6 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 	@Override
 	public void authorise() {
 		boolean authorize;
-		boolean canPublish;
 		int masterId;
 		Claim claim;
 		AssistanceAgent assistanceAgent;
@@ -48,7 +45,6 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		method = super.getRequest().getMethod();
 
 		authorize = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
-		canPublish = claim != null && (claim.getStatus() == TrackingLogStatus.ACCEPTED || claim.getStatus() == TrackingLogStatus.REJECTED);
 
 		if (authorize)
 			if (method.equals("GET"))
@@ -60,7 +56,6 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 					(claimType.equals("0") || Arrays.stream(ClaimType.values()).map(t -> t.name()).anyMatch(t -> t.equals(claimType)));
 			}
 
-		super.state(canPublish, "status", "acme.validation.claim.status.message");
 		super.getResponse().setAuthorised(authorize);
 	}
 
@@ -94,15 +89,6 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 
 	@Override
 	public void perform(final Claim claim) {
-		int id;
-		Collection<TrackingLog> trackingLogs;
-
-		id = super.getRequest().getData("id", int.class);
-		trackingLogs = this.repository.findTrackingLogsByClaimId(id);
-		for (TrackingLog t : trackingLogs) {
-			t.setDraftMode(false);
-			this.repository.save(t);
-		}
 		claim.setDraftMode(false);
 		this.repository.save(claim);
 	}
@@ -114,7 +100,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		Dataset dataset;
 		SelectChoices choiceType;
 
-		flightLegs = this.repository.findAllFlightLegs();
+		flightLegs = this.repository.findLegsThatOccurred();
 		choices = SelectChoices.from(flightLegs, "flightNumber", claim.getFlightLeg());
 		choiceType = SelectChoices.from(ClaimType.class, claim.getType());
 

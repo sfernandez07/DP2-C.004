@@ -17,3 +17,7 @@ acme.validation.booking.phoneNumber.message = El número debe ser un número de 
 acme.validation.customer.startIdentifier.message = Las iniciales del usuario deben coincidir con el inicio del identificador.
 acme.validation.identifier.invalidIdentifier.message = El identificador no es válido.
 acme.validation.passenger.passport.message = El pasaporte dado no es válido.
+
+acme.validation.tracking-log.exceptional.already-created.message = El registro excepcional ya ha sido publicado
+acme.validation.tracking-log.exceptional.resolutionPercentage.message = El porcentaje de resolucion del registro excepcional debe ser igual a 100
+

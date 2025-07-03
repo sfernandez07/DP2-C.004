@@ -1,40 +1,40 @@
-key,creation-order,update-moment,step,resolution-percentage,status,resolution,draft-mode,key:claim
-# base entity,"","","","","",""
-tracking-log-00,1,2012/07/02 00:00,Lorem ipsum dolor sit ame,50,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-# update-moment - standard variations,"","","","","",""
-tracking-log-01,2,2000/01/01 00:00,Lorem ipsum dolor sit ame,51,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-02,3,2000/01/01 00:01,Lorem ipsum dolor sit ame,52,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-03,4,2024/12/31 23:59,Lorem ipsum dolor sit ame,53,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-04,5,2025/01/01 00:00,Lorem ipsum dolor sit ame,54,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-# step - standard variations,"","","","","",""
-tracking-log-05,6,2012/07/02 00:00,L,55,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-06,7,2012/07/02 00:00,Lo,56,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-07,8,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscin",57,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-08,9,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing",58,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-09,10,2012/07/02 00:00,โลเร็ม อิปซัม,59,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-10,11,2012/07/02 00:00,لوريم إيبسوم,60,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-11,12,2012/07/02 00:00,洛伦·伊普森,61,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-12,13,2012/07/02 00:00,<marquee>Hacked</marquee>,62,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-13,14,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,63,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-14,15,2012/07/02 00:00,' or 'A' = 'A,64,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-# resolution-percentaje - standard variations,"","","","","",""
-tracking-log-15,1,2012/07/02 00:00,Lorem ipsum dolor sit ame,0,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
-tracking-log-16,2,2012/07/02 00:00,Lorem ipsum dolor sit ame,0.01,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
-tracking-log-17,26,2025/01/01 00:00,Lorem ipsum dolor sit ame,99.99,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
-tracking-log-18,1,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FALSE,claim-24
-# status - standard variations,"","","","","",""
-tracking-log-19,2,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-24
-tracking-log-20,1,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,REJECTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-25
-# resolution - standard variations,"","","","","",""
-tracking-log-21,17,2012/07/02 00:00,Lorem ipsum dolor sit ame,65.5,PENDING,L,TRUE,claim-00
-tracking-log-22,18,2012/07/02 00:00,Lorem ipsum dolor sit ame,66,PENDING,Lo,TRUE,claim-00
-tracking-log-23,19,2012/07/02 00:00,Lorem ipsum dolor sit ame,67,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",TRUE,claim-00
-tracking-log-24,20,2012/07/02 00:00,Lorem ipsum dolor sit ame,68,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",TRUE,claim-00
-tracking-log-25,21,2012/07/02 00:00,Lorem ipsum dolor sit ame,69,PENDING,โลเร็ม อิปซัม,TRUE,claim-00
-tracking-log-26,22,2012/07/02 00:00,Lorem ipsum dolor sit ame,70,PENDING,لوريم إيبسوم,TRUE,claim-00
-tracking-log-27,23,2012/07/02 00:00,Lorem ipsum dolor sit ame,71,PENDING,洛伦·伊普森,TRUE,claim-00
-tracking-log-28,24,2012/07/02 00:00,Lorem ipsum dolor sit ame,72,PENDING,<marquee>Hacked</marquee>,TRUE,claim-00
-tracking-log-29,25,2012/07/02 00:00,Lorem ipsum dolor sit ame,73,PENDING,<script>alert(‘Hacked!’);</script>,TRUE,claim-00
-tracking-log-30,16,2012/07/02 00:00,Lorem ipsum dolor sit ame,65,PENDING,' or 'A' = 'A,TRUE,claim-00
-# claim - standard variations,"","","","","",""
-tracking-log-31,3,2012/07/02 00:00,Lorem ipsum dolor sit ame,50,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
+key,update-moment,step,resolution-percentage,status,resolution,draft-mode,key:claim
+# base entity,"","","","",""
+tracking-log-00,2012/07/02 00:00,Lorem ipsum dolor sit ame,50,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+# update-moment - standard variations,"","","","",""
+tracking-log-01,2000/01/01 00:00,Lorem ipsum dolor sit ame,51,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-02,2000/01/01 00:01,Lorem ipsum dolor sit ame,52,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-03,2024/12/31 23:59,Lorem ipsum dolor sit ame,53,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-04,2025/01/01 00:00,Lorem ipsum dolor sit ame,54,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+# step - standard variations,"","","","",""
+tracking-log-05,2012/07/02 00:00,L,55,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-06,2012/07/02 00:00,Lo,56,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-07,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscin",57,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-08,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing",58,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-09,2012/07/02 00:00,โลเร็ม อิปซัม,59,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-10,2012/07/02 00:00,لوريم إيبسوم,60,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-11,2012/07/02 00:00,洛伦·伊普森,61,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-12,2012/07/02 00:00,<marquee>Hacked</marquee>,62,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,63,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-14,2012/07/02 00:00,' or 'A' = 'A,64,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+# resolution-percentaje - standard variations,"","","","",""
+tracking-log-15,2012/07/02 00:00,Lorem ipsum dolor sit ame,0,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
+tracking-log-16,2012/07/02 00:00,Lorem ipsum dolor sit ame,0.01,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
+tracking-log-17,2025/01/01 00:00,Lorem ipsum dolor sit ame,99.99,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-00
+tracking-log-18,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FALSE,claim-24
+# status - standard variations,"","","","",""
+tracking-log-19,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-24
+tracking-log-20,2012/07/02 00:00,Lorem ipsum dolor sit ame,100,REJECTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-25
+# resolution - standard variations,"","","","",""
+tracking-log-21,2012/07/02 00:00,Lorem ipsum dolor sit ame,65.5,PENDING,L,TRUE,claim-00
+tracking-log-22,2012/07/02 00:00,Lorem ipsum dolor sit ame,66,PENDING,Lo,TRUE,claim-00
+tracking-log-23,2012/07/02 00:00,Lorem ipsum dolor sit ame,67,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",TRUE,claim-00
+tracking-log-24,2012/07/02 00:00,Lorem ipsum dolor sit ame,68,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",TRUE,claim-00
+tracking-log-25,2012/07/02 00:00,Lorem ipsum dolor sit ame,69,PENDING,โลเร็ม อิปซัม,TRUE,claim-00
+tracking-log-26,2012/07/02 00:00,Lorem ipsum dolor sit ame,70,PENDING,لوريم إيبسوم,TRUE,claim-00
+tracking-log-27,2012/07/02 00:00,Lorem ipsum dolor sit ame,71,PENDING,洛伦·伊普森,TRUE,claim-00
+tracking-log-28,2012/07/02 00:00,Lorem ipsum dolor sit ame,72,PENDING,<marquee>Hacked</marquee>,TRUE,claim-00
+tracking-log-29,2012/07/02 00:00,Lorem ipsum dolor sit ame,73,PENDING,<script>alert(‘Hacked!’);</script>,TRUE,claim-00
+tracking-log-30,2012/07/02 00:00,Lorem ipsum dolor sit ame,65,PENDING,' or 'A' = 'A,TRUE,claim-00
+# claim - standard variations,"","","","",""
+tracking-log-31,2012/07/02 00:00,Lorem ipsum dolor sit ame,50,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,claim-01
