@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.bookings.Booking;
@@ -23,49 +24,73 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = true;
+
+		try {
+			if (super.getRequest().hasData("id")) {
+				Integer flightId = super.getRequest().getData("flight", Integer.class);
+				if (flightId == null || flightId != 0) {
+					Flight flight = this.repository.getFlightById(flightId);
+					status = flight != null && !flight.isDraftMode();
+				}
+			}
+		} catch (Throwable E) {
+			status = false;
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Booking booking = new Booking();
+		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
+		Booking booking;
+
+		booking = new Booking();
+		booking.setPurchaseMoment(MomentHelper.getCurrentMoment());
+		booking.setDraftMode(true);
+		booking.setCustomer(customer);
+
 		super.getBuffer().addData(booking);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		Integer flightId;
-		flightId = super.getRequest().getData("flight", int.class);
-		Flight flight = this.repository.findFlightById(flightId);
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble");
-		booking.setFlight(flight);
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastCreditNibble");
 	}
 
 	@Override
 	public void validate(final Booking booking) {
-		;
+		Booking existing = this.repository.findBookingByLocator(booking.getLocatorCode());
+		boolean valid = existing == null || existing.getId() == booking.getId();
+		super.state(valid, "locatorCode", "customer.booking.form.error.duplicateLocatorCode");
+		valid = booking.getFlight() != null;
+		super.state(valid, "flight", "customer.booking.form.error.invalidFlight");
+
 	}
 
 	@Override
 	public void perform(final Booking booking) {
+		booking.setDraftMode(true);
 		this.repository.save(booking);
 	}
 
 	@Override
 	public void unbind(final Booking booking) {
 		Dataset dataset;
-		SelectChoices choices;
-		Collection<Flight> flights = this.repository.findAllFlights();
-		SelectChoices choices2;
+		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 
-		choices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
-		choices2 = SelectChoices.from(flights, "description", booking.getFlight());
+		Collection<Flight> flights = this.repository.findAllPublishedFlights();
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastCreditNibble");
-		dataset.put("flight", choices2.getSelected().getKey());
-		dataset.put("travelClassChoices", choices);
-		dataset.put("flightChoices", choices2);
+		dataset = super.unbindObject(booking, "flight", "locatorCode", "travelClass", "lastCreditNibble", "draftMode", "id");
+		dataset.put("travelClasses", travelClasses);
+		SelectChoices flightChoices;
+
+		flightChoices = SelectChoices.from(flights, "flightDescription", booking.getFlight());
+
+		dataset.put("flights", flightChoices);
 
 		super.getResponse().addData(dataset);
+
 	}
 }

@@ -3,6 +3,8 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -10,7 +12,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidIdentifier;
+import acme.constraints.ValidCustomer;
 import acme.constraints.ValidPhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +20,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidCustomer
+@Table(indexes = {
+	@Index(columnList = "user_account_id"), @Index(columnList = "identifier")
+})
 public class Customer extends AbstractRole {
 
 	/**
@@ -25,8 +31,8 @@ public class Customer extends AbstractRole {
 	 */
 	private static final long	serialVersionUID	= 1L;
 
+	//Validación para identifier dentro de @ValidCustomer
 	@Mandatory
-	@ValidIdentifier
 	@Column(unique = true)
 	private String				identifier;
 

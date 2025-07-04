@@ -12,6 +12,7 @@ import acme.realms.Customer;
 
 @GuiController
 public class CustomerBookingController extends AbstractGuiController<Customer, Booking> {
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private CustomerBookingListService		listService;
@@ -22,12 +23,27 @@ public class CustomerBookingController extends AbstractGuiController<Customer, B
 	@Autowired
 	private CustomerBookingCreateService	createService;
 
+	@Autowired
+	private CustomerBookingUpdateService	updateService;
+
+	@Autowired
+	private CustomerBookingPublishService	publishService;
+
+	@Autowired
+	private CustomerBookingDeleteService	deleteService;
+
+	// Constructors -----------------------------------------------------------
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

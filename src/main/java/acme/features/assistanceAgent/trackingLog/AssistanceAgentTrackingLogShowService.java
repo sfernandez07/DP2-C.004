@@ -9,6 +9,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
 import acme.entities.claims.TrackingLog;
+import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
@@ -17,7 +18,7 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentTrackingLogRepository repository;
+	private TrackingLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -32,7 +33,7 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 		trackingLogId = super.getRequest().getData("id", int.class);
 		trackingLog = this.repository.findTrackingLogById(trackingLogId);
 		claim = trackingLog == null ? null : trackingLog.getClaim();
-		status = claim != null/* && (!claim.isDraftMode() || super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent())) */;
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
 
 		super.getResponse().setAuthorised(status);
 	}
