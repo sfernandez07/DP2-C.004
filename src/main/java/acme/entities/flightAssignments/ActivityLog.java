@@ -29,7 +29,7 @@ public class ActivityLog extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	private FlightAssignment	flightAssignment;
 
 	@Mandatory

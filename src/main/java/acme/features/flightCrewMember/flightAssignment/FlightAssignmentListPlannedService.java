@@ -12,10 +12,12 @@ import acme.entities.flightAssignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
-public class FlightCrewMemberFlightAssignmentListService extends AbstractGuiService<FlightCrewMember, FlightAssignment> {
+public class FlightAssignmentListPlannedService extends AbstractGuiService<FlightCrewMember, FlightAssignment> {
 
 	@Autowired
-	private FlightCrewMemberFlightAssignmentRepository repository;
+	private FlightAssignmentRepository repository;
+
+	//AbstractGuiService interface -------------------------------
 
 
 	@Override
@@ -25,11 +27,15 @@ public class FlightCrewMemberFlightAssignmentListService extends AbstractGuiServ
 
 	@Override
 	public void load() {
-		Integer id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		System.out.println("ID del usuario activo: " + id);
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewId(id);
-		System.out.println("Número de FlightAssignments encontrados: " + flightAssignments.size());
+		Collection<FlightAssignment> flightAssignments;
+		int flightCrewMemberId;
+
+		flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		flightAssignments = this.repository.findPlannedFlightAssignmentsByMemberId(flightCrewMemberId);
+
 		super.getBuffer().addData(flightAssignments);
+
 	}
 
 	@Override
