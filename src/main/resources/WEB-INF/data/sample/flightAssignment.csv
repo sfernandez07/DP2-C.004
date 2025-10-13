@@ -1,27 +1,43 @@
-key,key:flight-crew-member,key:flight-leg,duty,lastUpdate,status,remarks,draftMode
-# base entity,"","","","","",""
-flight-assignment-00,member1,flight-leg-01,PILOT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE
-# duty - standard variations,"","","","","",""
-flight-assignment-01,member2,flight-leg-01,CO_PILOT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE
-flight-assignment-02,member3,flight-leg-01,LEAD_ATTENDANT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE
-flight-assignment-03,member4,flight-leg-01,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE
-# lastUpdate - standard variations,"","","","","",""
-flight-assignment-04,member1,flight-leg-02,PILOT,2024/06/17 16:00,PENDING,Muy importante hacerlo bien,FALSE
-flight-assignment-05,member2,flight-leg-02,CO_PILOT,2024/06/17 16:00,PENDING,Muy importante hacerlo bien,TRUE
-flight-assignment-06,member3,flight-leg-02,CABIN_ATTENDANT,2024/06/17 16:00,PENDING,Muy importante hacerlo bien,TRUE
-# status - standard variations,"","","","","",""
-flight-assignment-07,member1,flight-leg-04,PILOT,2024/06/15 16:00,CONFIRMED,Muy importante hacerlo bien,TRUE
-flight-assignment-08,member2,flight-leg-04,CO_PILOT,2024/06/15 16:00,CANCELLED,Muy importante hacerlo bien,TRUE
-# remarks - standard variations,"","","","","",""
-flight-assignment-09,member1,flight-leg-05,PILOT,2024/06/15 16:00,PENDING,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,TRUE
-flight-assignment-10,member2,flight-leg-05,CO_PILOT,2024/06/15 16:00,PENDING,L,TRUE
-flight-assignment-11,member1,flight-leg-08,PILOT,2024/06/15 16:00,PENDING,Lo,TRUE
-flight-assignment-12,member3,flight-leg-08,CO_PILOT,2024/06/15 16:00,PENDING,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,TRUE
-flight-assignment-13,member1,flight-leg-09,PILOT,2024/06/15 16:00,PENDING,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,TRUE
-flight-assignment-14,member2,flight-leg-09,CO_PILOT,2024/06/15 16:00,PENDING,null,TRUE
-flight-assignment-15,member3,flight-leg-09,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,โลเร็ม อิปซัม,TRUE
-flight-assignment-16,member3,flight-leg-08,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,洛伦·伊普森,TRUE
-flight-assignment-17,member4,flight-leg-08,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,<marquee>Hacked</marquee>,TRUE
-flight-assignment-18,member3,flight-leg-04,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,<script>alert(‘Hacked!’);</script>,TRUE
-flight-assignment-19,member3,flight-leg-05,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,' or 'A' = 'A,TRUE
-flight-assignment-20,member1,flight-leg-13,CABIN_ATTENDANT,2024/06/15 16:00,PENDING,Muy importante hacerlo bien,FALSE
+key,duty,lastUpdateMoment,currentStatus,remarks,publish,key:flightAssignmentCrewMember,key:flightAssignmentLeg
+assignment-01,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-02,CO_PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-01
+assignment-03,LEAD_ATTENDANT,2024/06/15 16:00,PENDING,"",false,member3,flight-leg-01
+assignment-04,CABIN_ATTENDANT,2024/06/15 16:00,CANCELLED,"",false,member4,flight-leg-01
+# base entity
+assignment-05,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+# duty - standard variations
+assignment-06,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-07,CO_PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-08,LEAD_ATTENDANT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-09,CABIN_ATTENDANT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+# lastUpadteMoment - standard variations
+assignment-10,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-11,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member3,flight-leg-01
+assignment-12,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-13,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member3,flight-leg-01
+assignment-14,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-01
+# currentStatus - standard variations
+assignment-15,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-16,PILOT,2024/06/15 16:00,PENDING,"",false,member2,flight-leg-01
+assignment-17,PILOT,2024/06/15 16:00,CANCELLED,"",false,member1,flight-leg-01
+# remarks - standard variations
+assignment-18,PILOT,2024/06/15 16:00,CONFIRMED,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false,member1,flight-leg-01
+assignment-19,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-02
+assignment-20,PILOT,2024/06/15 16:00,CONFIRMED,L,false,member2,flight-leg-04
+assignment-21,PILOT,2024/06/15 16:00,CONFIRMED,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,false,member1,flight-leg-01
+assignment-22,PILOT,2024/06/15 16:00,CONFIRMED,Lorem ipsum dolor sit amet; consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,false,member1,flight-leg-01
+# remarks - no singular values
+assignment-23,PILOT,2024/06/15 16:00,CONFIRMED,โลเร็ม อิปซัม,false,member1,flight-leg-09
+assignment-24,PILOT,2024/06/15 16:00,CONFIRMED,لوريم إيبسوم,false,member1,flight-leg-01
+assignment-25,PILOT,2024/06/15 16:00,CONFIRMED,洛伦·伊普森,false,member1,flight-leg-08
+assignment-26,PILOT,2024/06/15 16:00,CONFIRMED,<marquee>Hacked</marquee>,false,member1,flight-leg-01
+assignment-27,PILOT,2024/06/15 16:00,CONFIRMED,<script>alert(‘Hacked!’);</script>,false,member1,flight-leg-09
+assignment-28,PILOT,2024/06/15 16:00,CONFIRMED,'' or 'A' = 'A,false,member1,flight-leg-01
+# publish - standard variations
+assignment-29,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-04
+assignment-30,PILOT,2024/06/15 16:00,CONFIRMED,"",true,member1,flight-leg-01
+# leg - standard variations (legs 26-27-28 are in the past; leg 22 is in the future)
+assignment-31,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-32,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-05
+assignment-33,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-34,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-04
