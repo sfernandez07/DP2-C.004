@@ -49,9 +49,10 @@ master.menu.assistance-agent.list-completed-claims = Reclamaciones Completadas
 
 # master.menu.flightCrewMember ##########################################################
 
-master.menu.flightCrewMember = Miembro de Tripulación
-master.menu.flightCrewMember.list-my-flightAssignments = Mis asignaciones de vuelo
-
+master.menu.flightcrewmember = Miembro de la tripulación del vuelo
+master.menu.flightcrewmember.flightassignments = Asignaciones del vuelo
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Lista de asignaciones de vuelos completados
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Lista de asignaciones de vuelos planeados
 # master.menu.customer ##########################################################
 
 master.menu.customer = Cliente

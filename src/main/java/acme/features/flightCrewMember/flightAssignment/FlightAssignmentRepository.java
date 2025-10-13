@@ -17,10 +17,10 @@ import acme.realms.FlightCrewMember;
 @Repository
 public interface FlightAssignmentRepository extends AbstractRepository {
 
-	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightAssignmentLeg.arrival < CURRENT_TIMESTAMP")
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightAssignmentLeg.scheduledArrival < CURRENT_TIMESTAMP")
 	Collection<FlightAssignment> findCompletedFlightAssignments();
 
-	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightAssignmentLeg.departure > CURRENT_TIMESTAMP")
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightAssignmentLeg.scheduledDeparture > CURRENT_TIMESTAMP")
 	Collection<FlightAssignment> findPlannedFlightAssignments();
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightAssignmentCrewMember.id = :flightCrewMemberId AND fa.flightAssignmentLeg.scheduledArrival < CURRENT_TIMESTAMP")
