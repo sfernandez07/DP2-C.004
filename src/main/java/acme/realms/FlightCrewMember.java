@@ -15,26 +15,27 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidFlightCrewMember;
+import acme.constraints.ValidIdentifier;
 import acme.constraints.ValidPhoneNumber;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@ValidFlightCrewMember
 @Getter
 @Setter
+@ValidFlightCrewMember
+
 public class FlightCrewMember extends AbstractRole {
+
+	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Airline				airline;
+	// Mandatory Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$", message = "The employee code must follow the correct pattern") //The validation for this is upper in @ValidFlightCrewMember that validates this
+	@ValidIdentifier
 	@Column(unique = true)
 	private String				employeeCode;
 
@@ -54,13 +55,23 @@ public class FlightCrewMember extends AbstractRole {
 	private AvailabilityStatus	availabilityStatus;
 
 	@Mandatory
-	@ValidMoney(min = 0, max = 1000000)
+	@ValidMoney(min = 0.00, max = 1000000.00)
 	@Automapped
 	private Money				salary;
+
+	// Optional Attributes -------------------------------------------------------------
 
 	@Optional
 	@ValidNumber(min = 0, max = 120)
 	@Automapped
-	private Integer				yearsOfExperience;
+	private Integer				experienceYears;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				flightCrewMemberAirline;
 
 }

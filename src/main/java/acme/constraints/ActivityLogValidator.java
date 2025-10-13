@@ -3,32 +3,47 @@ package acme.constraints;
 
 import java.util.Date;
 
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import acme.client.components.validation.AbstractValidator;
+import acme.client.helpers.MomentHelper;
 import acme.entities.flightAssignments.ActivityLog;
-import acme.entities.flightAssignments.FlightAssignment;
 
-public class ActivityLogValidator implements ConstraintValidator<ValidActivityLog, ActivityLog> {
+public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, ActivityLog> {
+
+	// Internal state ---------------------------------------------------------
+
+	// Initialiser ------------------------------------------------------------
 
 	@Override
+	public void initialise(final ValidActivityLog annotation) {
+		assert annotation != null;
+	}
+
+	// AbstractValidator interface --------------------------------------------
+	@Override
 	public boolean isValid(final ActivityLog activityLog, final ConstraintValidatorContext context) {
-		if (activityLog == null || activityLog.getFlightAssignment() == null)
-			return true; // Skip validation if data is missing
 
-		FlightAssignment flightAssignment = activityLog.getFlightAssignment();
+		assert context != null;
 
-		// Assuming FlightLeg is properly mapped within FlightAssignment
-		if (flightAssignment.getFlightLeg() == null || flightAssignment.getFlightLeg().getScheduledArrival() == null)
-			return true; // Skip if there's no scheduled arrival
+		boolean result;
 
-		Date scheduledArrival = flightAssignment.getFlightLeg().getScheduledArrival();
-		Date registrationMoment = activityLog.getRegistrationMoment();
+		if (activityLog == null || activityLog.getActivityLogAssignment() == null || activityLog.getActivityLogAssignment().getFlightAssignmentLeg() == null || activityLog.getActivityLogAssignment().getFlightAssignmentLeg().getScheduledArrival() == null)
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+		else {
+			boolean registrationMomentIsValid = activityLog.getRegistrationMoment() != null;
+			super.state(context, registrationMomentIsValid, "registrationMoment", "acme.validation.activitylog.registrationmoment.required");
 
-		if (registrationMoment == null || scheduledArrival == null)
-			return true; // Skip validation if any field is missing
+			if (registrationMomentIsValid) {
+				boolean registrationMomentIsAfterArrivalLeg;
+				Date minRegistrationMoment = new Date(activityLog.getActivityLogAssignment().getFlightAssignmentLeg().getScheduledArrival().getTime());
+				registrationMomentIsAfterArrivalLeg = MomentHelper.isAfterOrEqual(activityLog.getRegistrationMoment(), minRegistrationMoment);
+				super.state(context, registrationMomentIsAfterArrivalLeg, "registrationMoment", "acme.validation.activitylog.registrationmoment.message");
+			}
+		}
 
-		return registrationMoment.after(scheduledArrival);
+		result = !super.hasErrors(context);
+		return result;
 	}
 
 }
