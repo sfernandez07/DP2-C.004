@@ -9,15 +9,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Constraint(validatedBy = ActivityLogValidator.class)
-@Target({
-	ElementType.TYPE
-})
-
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = ActivityLogValidator.class)
+
 public @interface ValidActivityLog {
 
-	String message() default "An ActivityLog entry must be registered after the FlightLeg has taken place.";
+	// Standard validation properties -----------------------------------------
+
+	String message() default "";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

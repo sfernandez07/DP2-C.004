@@ -4,7 +4,9 @@ package acme.entities.flightAssignments;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -23,19 +25,15 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "duty, publish"), @Index(columnList = "publish")
+})
 public class FlightAssignment extends AbstractEntity {
+	// Serialisation version --------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private FlightCrewMember	flightCrewMember;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private FlightLeg			flightLeg;
+	// Attributes -------------------------------------------------------
 
 	@Mandatory
 	@Valid
@@ -45,21 +43,35 @@ public class FlightAssignment extends AbstractEntity {
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				lastUpdate;
+	private Date				lastUpdateMoment;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private AssignmentStatus	status;
+	private CurrentStatus		currentStatus;
+
+	// Optional Attributes -------------------------------------------------------------
 
 	@Optional
-	@ValidString(max = 255)
+	@ValidString(min = 0, max = 255)
 	@Automapped
 	private String				remarks;
 
 	@Mandatory
-	// HINT: @Valid by default.
+	//@Valid
 	@Automapped
-	private boolean				draftMode;
+	private boolean				publish;
+	//Derived attributes-------------------------------------------------
 
+	// Relationships -----------------------------------------------------
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private FlightCrewMember	flightAssignmentCrewMember;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private FlightLeg			flightAssignmentLeg;
 }

@@ -12,3 +12,5 @@ flight-leg-10,AJ1001,2024/06/22 14:00,2024/06/22 17:00,DELAYED,READY,airport-01,
 flight-leg-11,AK1001,2024/07/10 11:00,2024/07/10 13:00,LANDED,READY,airport-02,airport-01,aircraft-11,flight-03
 flight-leg-12,AL1001,2024/05/25 18:30,2024/05/25 21:00,CANCELLED,NOT_READY,airport-02,airport-01,aircraft-12,flight-01
 flight-leg-13,AM1001,2025/05/25 18:30,2025/05/25 21:00,CANCELLED,READY,airport-02,airport-01,aircraft-12,flight-01
+flight-leg-14,AN1001,2025/09/01 10:00,2025/09/01 10:01,ON_TIME,READY,airport-02,airport-01,aircraft-02,flight-01
+

@@ -1,6 +1,6 @@
 
 package acme.entities.flightAssignments;
 
-public enum AssignmentStatus {
+public enum CurrentStatus {
 	CONFIRMED, PENDING, CANCELLED;
 }

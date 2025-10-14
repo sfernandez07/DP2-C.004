@@ -49,10 +49,10 @@ master.menu.assistance-agent.list-completed-claims = Completed Claims
 
 # master.menu.flightCrewMember ##########################################################
 
-master.menu.flightCrewMember = Flight Crew Member
-master.menu.flightCrewMember.list-my-flightAssignments = My flight Assignments
-master.menu.flightCrewMember.list-completed-assignments = Completed Assignments
-master.menu.assistance-agent.list-planned-assignments = Planned Assignments
+master.menu.flightcrewmember = Flight Crew Member
+master.menu.flightcrewmember.flightassignments = Flight Assignments
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = List completed flight assignments
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = List planned flight assignments
 
 # master.menu.customer ##########################################################
 

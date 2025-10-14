@@ -19,18 +19,17 @@ import acme.constraints.ValidActivityLog;
 import lombok.Getter;
 import lombok.Setter;
 
-@ValidActivityLog // with this validator we validate the part of "after the leg has taken place in attribute registrationmoment"
 @Entity
 @Getter
 @Setter
+@ValidActivityLog
 public class ActivityLog extends AbstractEntity {
+
+	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = true)
-	private FlightAssignment	flightAssignment;
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -40,7 +39,7 @@ public class ActivityLog extends AbstractEntity {
 	@Mandatory
 	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String				typeOfIncident;
+	private String				incidentType;
 
 	@Mandatory
 	@ValidString(min = 1, max = 255)
@@ -53,8 +52,15 @@ public class ActivityLog extends AbstractEntity {
 	private Integer				severityLevel;
 
 	@Mandatory
-	// HINT: @Valid by default.
+	//@Valid
 	@Automapped
-	private boolean				draftMode;
+	private boolean				publish;
 
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private FlightAssignment	activityLogAssignment;
 }
