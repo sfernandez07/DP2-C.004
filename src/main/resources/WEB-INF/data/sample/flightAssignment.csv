@@ -4,7 +4,7 @@ assignment-02,CO_PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-01
 assignment-03,LEAD_ATTENDANT,2024/06/15 16:00,PENDING,"",false,member3,flight-leg-01
 assignment-04,CABIN_ATTENDANT,2024/06/15 16:00,CANCELLED,"",false,member4,flight-leg-01
 # base entity
-assignment-05,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
+assignment-05,PILOT,2024/06/15 16:01,CONFIRMED,"",false,member1,flight-leg-14
 # duty - standard variations
 assignment-06,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
 assignment-07,CO_PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01

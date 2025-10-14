@@ -21,3 +21,16 @@ acme.validation.passenger.passport.message = El pasaporte dado no es válido.
 acme.validation.tracking-log.exceptional.already-created.message = El registro excepcional ya ha sido publicado
 acme.validation.tracking-log.exceptional.resolutionPercentage.message = El porcentaje de resolucion del registro excepcional debe ser igual a 100
 
+
+acme.validation.flightcrewmember.employee.code.message = Código de empleado incorrecto
+acme.validation.flightcrewmember.employee.code.duplicated.message = Código de empleado duplicado
+acme.validation.flightassignment.flightcrewmember.available.message = Solo se pueden asignar miembros disponibles
+acme.validation.flightassignment.leg.completed.message = No puedes asignar la tarea a un tramo que ya ha ocurrido
+acme.validation.flightassignment.leg.overlap.message = Los tramos asignados no se pueden solapar
+acme.validation.flightassignment.duty.pilot.message = Solo puede haber un piloto por tramo
+acme.validation.flightassignment.duty.copilot.message = Solo puede haber un copiloto por tramo
+
+acme.validation.activitylog.message = Registro de actividades inválido
+acme.validation.activitylog.registrationmoment.required = El momento de registro no puede ser nulo
+acme.validation.activitylog.registrationmoment.message = Momento de registro inválido, debe ser una fecha pasada y después del momento de llegada del tramo
+acme.validation.activitylog.flightassignment.publish.message = La asignación del vuelo debe estar publicada

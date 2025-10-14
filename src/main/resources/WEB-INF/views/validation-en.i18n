@@ -21,3 +21,16 @@ acme.validation.passenger.passport.message = The passport given is not valid.
 acme.validation.tracking-log.exceptional.already-created.message = An exceptional Tracking Log has already been published
 acme.validation.tracking-log.exceptional.resolutionPercentage.message = Resolution percentage must be equal to 100
 
+acme.validation.flightcrewmember.employee.code.message = Invalid employee code
+acme.validation.flightcrewmember.employee.code.duplicated.message = Duplicated employee code
+acme.validation.flightassignment.flightcrewmember.available.message = Only available members can be assigned
+acme.validation.flightassignment.leg.completed.message = The assignment cannot be linked to a completed leg
+acme.validation.flightassignment.leg.overlap.message = Legs cannot be overlapped
+acme.validation.flightassignment.duty.pilot.message = Each leg can only have one pilot
+acme.validation.flightassignment.duty.copilot.message = Each leg can only have one co-pilot
+
+
+acme.validation.activitylog.message = Invalid activity log
+acme.validation.activitylog.registrationmoment.required = Registration moment cannot be null
+acme.validation.activitylog.registrationmoment.message = Invalid registration moment, it must be in the past and after the arrival date of the leg
+acme.validation.activitylog.flightassignment.publish.message = The flight assignment must be published
