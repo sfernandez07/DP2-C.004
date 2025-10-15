@@ -21,7 +21,6 @@ import acme.realms.FlightCrewMember;
 @GuiService
 public class FlightAssignmentPublishService extends AbstractGuiService<FlightCrewMember, FlightAssignment> {
 
-	// Internal state ---------------------------------------------------------
 	@Autowired
 	private FlightAssignmentRepository repository;
 

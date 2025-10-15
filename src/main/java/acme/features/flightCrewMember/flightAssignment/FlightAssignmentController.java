@@ -13,8 +13,6 @@ import acme.realms.FlightCrewMember;
 @GuiController
 public class FlightAssignmentController extends AbstractGuiController<FlightCrewMember, FlightAssignment> {
 
-	//Internal state --------------------------------------------------------------
-
 	@Autowired
 	private FlightAssignmentListCompletedService	listCompletedService;
 
