@@ -12,12 +12,8 @@ import acme.realms.FlightCrewMember;
 @GuiService
 public class ActivityLogShowService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
-	//Internal state ---------------------------------------------
-
 	@Autowired
 	private ActivityLogRepository repository;
-
-	//AbstractGuiService interface -------------------------------
 
 
 	@Override

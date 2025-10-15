@@ -41,3 +41,6 @@ assignment-31,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
 assignment-32,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member2,flight-leg-05
 assignment-33,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-01
 assignment-34,PILOT,2024/06/15 16:00,CONFIRMED,"",false,member1,flight-leg-04
+assignment-35,CABIN_ATTENDANT,2024/06/15 16:01,CONFIRMED,"",false,member1,flight-leg-15
+assignment-36,CABIN_ATTENDANT,2024/06/15 16:01,CONFIRMED,"",false,member1,flight-leg-16
+assignment-37,CABIN_ATTENDANT,2024/06/15 16:01,PENDING,"",false,member1,flight-leg-17

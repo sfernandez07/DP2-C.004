@@ -14,12 +14,10 @@ import acme.realms.FlightCrewMember;
 @GuiService
 public class ActivityLogCreateService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
-	// Internal state ---------------------------------------------------------
 	@Autowired
 	private ActivityLogRepository repository;
 
 
-	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
 		FlightAssignment flightAssignment;
